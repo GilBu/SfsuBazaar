@@ -5,13 +5,13 @@
 There are many storefront websites in today’s market ranging from Amazon,
 Ebay, Craigslist, and to our very our SFSU Bookstore. However, what if we can take all
 the benefits of these sites and bring them together into one cohesive website for everyone
-at San Francisco State University? SFSU Bazaar will give users the ability to exchange
+at San Francisco State University? *SFSU Bazaar* will give users the ability to exchange
 items and currency in person like Craigslist, but within the accessibility and security of
 the San Francisco State campus.
 
 With Craigslist’s convenience, Ebay’s selling system, with auctions and buy
 nows, and Amazon’s beautiful design and streamlined method of showing products to
-customers, SFSU Bazaar will be a website that caters to the needs of students of San
+customers, *SFSU Bazaar* will be a website that caters to the needs of students of San
 Francisco State University. It will provide a platform that gives a safe human interaction
 between the seller and buyer. To further the ease of trading and selling we will have the
 customer’s major information and class textbook and supplies listed so, with a simple
@@ -70,9 +70,9 @@ Services:** Any object which is for sale, or for purchase on the site.
 
 ## Team
 
-- Gilbert Bui: Team Leader
-- Guan Lin: Tech Leader
-- Brandon Glajchen: Backend
-- Adison Lee: Backend
-- Karen Hanko: Backend
-- Edward Yao: Front End Developer/ Ux Designer
+- **Gilbert Bui:** Team Leader
+- **Guan Lin:** Tech Leader
+- **Brandon Glajchen:** Backend
+- **Adison Lee:** Backend
+- **Karen Hanko:** Backend
+- **Edward Yao:** Front End Developer/ Ux Designer
