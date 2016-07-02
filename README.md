@@ -88,6 +88,86 @@ responsible for helping users when needed.
 | 3        | The site shall make recommendations to Registered Users on what to buy based on previous purchases and viewed items.and create an account.|
 | 3        | Users shall be able to put items into a shopping list to purchase later.|
 
+## Non-functional specs
+1. Application shall be developed using class provided LAMP stack
+2. Application shall be developed using preapproved
+set of SW development and
+collaborative tools provided in the class. Any other tools or frameworks have to
+be explicitly approved by Marc Sosnick on a case by case basis.
+3. Application shall be hosted and deployed on Amazon Web Services as specified
+in the class
+4. Application shall be optimized for a standard desktop/laptop browsers, and shall
+render correctly on the two latest versions of all major browsers: Mozilla, Safari,
+Chrome and IE. It shall degrade nicely for different sized windows using class
+approved programming technology and frameworks
+5. Data shall be stored in the database on the class server in the team's account
+6. Application shall be served from the team's account
+7. No more than 50 concurrent users shall be accessing the application at any time
+8. Privacy of users shall be protected and all privacy policies will be appropriately
+communicated to the users.
+9. The language used shall be English.
+10. Application shall be very easy to use and intuitive. No prior training shall be
+required to use the website.
+11. Google analytics shall be added for major site functions.
+12. Messaging between users shall be done only by class approved methods to avoid
+issues of security with email
+services.
+13. Pay functionality (how to pay for good): shall be simulated this with proper UI,
+no backed.
+14. Messaging between buyers and sellers: ways to do this to be specified in the class.
+Due to security of servers we cannot use email.
+15. Site security: basic best practices to be applied (as covered in the class)
+16. Modern SE processes and practices must be used as specified in the class,
+including collaborative and continuous SW development, using the tools
+approved by instructors
+17. The website shall prominently display the following text on all pages
+"SFSU/FAU/Fulda Software Engineering Project, Summer 2016. For
+Demonstration Only". (Important so as to not confuse this with a real application).
+
+## Competitive analysis
+
+|                        | SFSU Bazzar |  Ebay  | Amazon | Craigslist | SFSU Bookstore |
+| :--------------        | :---------: | :----: | :----: | :--------: | :------------: |
+| Local                  | +           | --     | --     | +          | +              |
+| Ease of Use            | +           | +      | +      | --         | --             |
+| Dynamic Pricing Option | +           | +      | +      | +          | --             |
+| No-Tax Opportunities   | +           | --     | --     | +          | --             |
+| Shopping Cart          | +           | +      | +      | --         | +              |
+| Easy Scheduling        | +           | --     | --     | --         | --             |
++ feature exists; -- feature does not exist
+
+*SFSU Bazaar* has some distinct advantages over its competitors. Its location on the San
+Francisco State University campus allows students to circumvent the shipping costs of
+other websites. Since students can meet face to face, they also have the option of paying
+in person, which allows them to bypass taxes. *Bazaar’s* Easy Scheduling feature, which
+no competitor included in their products, allows users to easily figure out a time to
+pickup
+items. Along with an intuitive website interface, these features will set *SFSU
+Bazaar* apart from its competitors.
+
+## Highlevel system architecture
+
+**L** - Linux Operating System
+**A** - Apache Web Server
+**M** - MySQL Database
+**P** - PHP programming/scripting language
+
+Deployment: Amazon Cloud
+    * Great reliable service
+Dynamic Interaction: JavaScript/jQuery
+    * Interactive front end
+    * Dynamic coding scripts
+Database: MySQL
+    * Industry standard for database
+    * Used in L.A.M.P software bundle
+UI: Bootstrap
+    * Supports popular browsers like chrome, internet Explorer
+    * Built in scaling
+    * Minium html needed
+    * Contains HTML, CSS< and JavaScript based templates
+MVC Framework: Mini Framework
+    * Industry standard
+
 ## Team
 
 - **Gilbert Bui:** Team Leader
