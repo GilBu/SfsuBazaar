@@ -9,6 +9,7 @@ at San Francisco State University? *SFSU Bazaar* will give users the ability to 
 items and currency in person like Craigslist, but within the accessibility and security of
 the San Francisco State campus.  
 
+
 With Craigslist’s convenience, Ebay’s selling system, with auctions and buy
 nows, and Amazon’s beautiful design and streamlined method of showing products to
 customers, *SFSU Bazaar* will be a website that caters to the needs of students of San
@@ -34,6 +35,7 @@ textbook, and arranges to meet the Junior later that day. The two of them meet o
 campus, and the transaction is made. Unfortunately, Joseph puts his studying off until the
 last minute, and still fails the quiz.  
 
+
 - New edition of textbook that doesn’t have much significant changes but costs
 more so teacher posts previous edition of the textbook on the website for students to
 purchase. Students are failing their classes because they refuse to buy the textbook due to
@@ -41,6 +43,7 @@ the price. Teacher begin to look bad and comes up with the idea of selling old e
 textbook to his students from previous semesters. Teacher makes profit from this and
 students aren’t failing while also happy that they don’t have to sell a kidney or their blood
 for a semester’s worth of textbooks.  
+
 
 - Dilbert is an employee in [COMPANY NAME GOES HERE]’s corporate office,
 and has recently been assigned to the administrative team managing their web service.
@@ -136,6 +139,7 @@ Demonstration Only". (Important so as to not confuse this with a real applicatio
 | Easy Scheduling        | +           | --     | --     | --         | --             |
 + + feature exists; -- feature does not exist  
 
+
 *SFSU Bazaar* has some distinct advantages over its competitors. Its location on the San
 Francisco State University campus allows students to circumvent the shipping costs of
 other websites. Since students can meet face to face, they also have the option of paying
@@ -156,20 +160,24 @@ Bazaar* apart from its competitors.
 **P** - PHP programming/scripting language  
 
 Deployment: Amazon Cloud
-..* Great reliable service
+* Great reliable service
+
 Dynamic Interaction: JavaScript/jQuery
-..* Interactive front end
-..* Dynamic coding scripts
+* Interactive front end
+* Dynamic coding scripts
+
 Database: MySQL
-..* Industry standard for database
-..* Used in L.A.M.P software bundle
+* Industry standard for database
+* Used in L.A.M.P software bundle
+
 UI: Bootstrap
-..* Supports popular browsers like chrome, internet Explorer
-..* Built in scaling
-..* Minium html needed
-..* Contains HTML, CSS< and JavaScript based templates
+* Supports popular browsers like chrome, internet Explorer
+* Built in scaling
+* Minium html needed
+* Contains HTML, CSS< and JavaScript based templates
+
 MVC Framework: Mini Framework
-..* Industry standard
+* Industry standard
 
 ## Team
 
