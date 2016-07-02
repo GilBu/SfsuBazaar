@@ -8,8 +8,7 @@ the benefits of these sites and bring them together into one cohesive website fo
 at San Francisco State University? *SFSU Bazaar* will give users the ability to exchange
 items and currency in person like Craigslist, but within the accessibility and security of
 the San Francisco State campus.  
-
-
+  
 With Craigslist’s convenience, Ebay’s selling system, with auctions and buy
 nows, and Amazon’s beautiful design and streamlined method of showing products to
 customers, *SFSU Bazaar* will be a website that caters to the needs of students of San
@@ -34,8 +33,7 @@ semester, and finds a Junior who’s trying to get rid of his old supplies. Jose
 textbook, and arranges to meet the Junior later that day. The two of them meet on
 campus, and the transaction is made. Unfortunately, Joseph puts his studying off until the
 last minute, and still fails the quiz.  
-
-
+  
 - New edition of textbook that doesn’t have much significant changes but costs
 more so teacher posts previous edition of the textbook on the website for students to
 purchase. Students are failing their classes because they refuse to buy the textbook due to
@@ -43,8 +41,7 @@ the price. Teacher begin to look bad and comes up with the idea of selling old e
 textbook to his students from previous semesters. Teacher makes profit from this and
 students aren’t failing while also happy that they don’t have to sell a kidney or their blood
 for a semester’s worth of textbooks.  
-
-
+  
 - Dilbert is an employee in [COMPANY NAME GOES HERE]’s corporate office,
 and has recently been assigned to the administrative team managing their web service.
 After gaining all of the proper permissions for his account, Dilbert goes about checking
@@ -92,37 +89,36 @@ responsible for helping users when needed.
 | 3        | Users shall be able to put items into a shopping list to purchase later.|
 
 ## Non-functional specs
-1. Application shall be developed using class provided LAMP stack
+1. Application shall be developed using class provided LAMP stack  
 2. Application shall be developed using preapproved
 set of SW development and
 collaborative tools provided in the class. Any other tools or frameworks have to
-be explicitly approved by Marc Sosnick on a case by case basis.
+be explicitly approved by Marc Sosnick on a case by case basis.  
 3. Application shall be hosted and deployed on Amazon Web Services as specified
-in the class
+in the class  
 4. Application shall be optimized for a standard desktop/laptop browsers, and shall
 render correctly on the two latest versions of all major browsers: Mozilla, Safari,
 Chrome and IE. It shall degrade nicely for different sized windows using class
-approved programming technology and frameworks
-5. Data shall be stored in the database on the class server in the team's account
-6. Application shall be served from the team's account
-7. No more than 50 concurrent users shall be accessing the application at any time
+approved programming technology and frameworks  
+5. Data shall be stored in the database on the class server in the team's account  
+6. Application shall be served from the team's account  
+7. No more than 50 concurrent users shall be accessing the application at any time  
 8. Privacy of users shall be protected and all privacy policies will be appropriately
-communicated to the users.
-9. The language used shall be English.
+communicated to the users.  
+9. The language used shall be English.  
 10. Application shall be very easy to use and intuitive. No prior training shall be
-required to use the website.
-11. Google analytics shall be added for major site functions.
+required to use the website.  
+11. Google analytics shall be added for major site functions.  
 12. Messaging between users shall be done only by class approved methods to avoid
-issues of security with email
-services.
+issues of security with email services.  
 13. Pay functionality (how to pay for good): shall be simulated this with proper UI,
-no backed.
+no backed.  
 14. Messaging between buyers and sellers: ways to do this to be specified in the class.
-Due to security of servers we cannot use email.
-15. Site security: basic best practices to be applied (as covered in the class)
+Due to security of servers we cannot use email.  
+15. Site security: basic best practices to be applied (as covered in the class)  
 16. Modern SE processes and practices must be used as specified in the class,
 including collaborative and continuous SW development, using the tools
-approved by instructors
+approved by instructors  
 17. The website shall prominently display the following text on all pages
 "SFSU/FAU/Fulda Software Engineering Project, Summer 2016. For
 Demonstration Only". (Important so as to not confuse this with a real application).
@@ -138,15 +134,13 @@ Demonstration Only". (Important so as to not confuse this with a real applicatio
 | Shopping Cart          | +           | +      | +      | --         | +              |
 | Easy Scheduling        | +           | --     | --     | --         | --             |
 + + feature exists; -- feature does not exist  
-
-
+  
 *SFSU Bazaar* has some distinct advantages over its competitors. Its location on the San
 Francisco State University campus allows students to circumvent the shipping costs of
 other websites. Since students can meet face to face, they also have the option of paying
 in person, which allows them to bypass taxes. *Bazaar’s* Easy Scheduling feature, which
 no competitor included in their products, allows users to easily figure out a time to
-pickup
-items. Along with an intuitive website interface, these features will set *SFSU
+pickup items. Along with an intuitive website interface, these features will set *SFSU
 Bazaar* apart from its competitors.
 
 ## Highlevel system architecture
@@ -158,6 +152,7 @@ Bazaar* apart from its competitors.
 **M** - MySQL Database  
 
 **P** - PHP programming/scripting language  
+  
 
 Deployment: Amazon Cloud
 * Great reliable service
