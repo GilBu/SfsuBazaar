@@ -7,8 +7,7 @@ Ebay, Craigslist, and to our very our SFSU Bookstore. However, what if we can ta
 the benefits of these sites and bring them together into one cohesive website for everyone
 at San Francisco State University? *SFSU Bazaar* will give users the ability to exchange
 items and currency in person like Craigslist, but within the accessibility and security of
-the San Francisco State campus.
-
+the San Francisco State campus.  
 
 With Craigslist’s convenience, Ebay’s selling system, with auctions and buy
 nows, and Amazon’s beautiful design and streamlined method of showing products to
@@ -33,8 +32,7 @@ decides to check to see if anyone on campus has a copy of his textbook from a pa
 semester, and finds a Junior who’s trying to get rid of his old supplies. Joseph buys the
 textbook, and arranges to meet the Junior later that day. The two of them meet on
 campus, and the transaction is made. Unfortunately, Joseph puts his studying off until the
-last minute, and still fails the quiz.
-
+last minute, and still fails the quiz.  
 
 - New edition of textbook that doesn’t have much significant changes but costs
 more so teacher posts previous edition of the textbook on the website for students to
@@ -42,8 +40,7 @@ purchase. Students are failing their classes because they refuse to buy the text
 the price. Teacher begin to look bad and comes up with the idea of selling old edition
 textbook to his students from previous semesters. Teacher makes profit from this and
 students aren’t failing while also happy that they don’t have to sell a kidney or their blood
-for a semester’s worth of textbooks.
-
+for a semester’s worth of textbooks.  
 
 - Dilbert is an employee in [COMPANY NAME GOES HERE]’s corporate office,
 and has recently been assigned to the administrative team managing their web service.
@@ -137,8 +134,7 @@ Demonstration Only". (Important so as to not confuse this with a real applicatio
 | No-Tax Opportunities   | +           | --     | --     | +          | --             |
 | Shopping Cart          | +           | +      | +      | --         | +              |
 | Easy Scheduling        | +           | --     | --     | --         | --             |
-+ + feature exists; -- feature does not exist
-
++ + feature exists; -- feature does not exist  
 
 *SFSU Bazaar* has some distinct advantages over its competitors. Its location on the San
 Francisco State University campus allows students to circumvent the shipping costs of
@@ -151,26 +147,29 @@ Bazaar* apart from its competitors.
 
 ## Highlevel system architecture
 
-### L - Linux Operating System
-### A - Apache Web Server
-### M - MySQL Database
-### P - PHP programming/scripting language
+**L** - Linux Operating System  
 
-Deployment: Amazon Cloud 
-* Great reliable service
-Dynamic Interaction: JavaScript/jQuery 
-* Interactive front end 
-* Dynamic coding scripts
-Database: MySQL 
-* Industry standard for database 
-* Used in L.A.M.P software bundle
-UI: Bootstrap 
-* Supports popular browsers like chrome, internet Explorer 
-* Built in scaling
-* Minium html needed 
-* Contains HTML, CSS< and JavaScript based templates
-MVC Framework: Mini Framework 
-* Industry standard
+**A** - Apache Web Server  
+
+**M** - MySQL Database  
+
+**P** - PHP programming/scripting language  
+
+Deployment: Amazon Cloud
+..* Great reliable service
+Dynamic Interaction: JavaScript/jQuery
+..* Interactive front end
+..* Dynamic coding scripts
+Database: MySQL
+..* Industry standard for database
+..* Used in L.A.M.P software bundle
+UI: Bootstrap
+..* Supports popular browsers like chrome, internet Explorer
+..* Built in scaling
+..* Minium html needed
+..* Contains HTML, CSS< and JavaScript based templates
+MVC Framework: Mini Framework
+..* Industry standard
 
 ## Team
 
