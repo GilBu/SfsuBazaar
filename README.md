@@ -59,14 +59,44 @@ using the site. Registered Users can be both buyers and sellers.
 - **Guest Users:** Users who do not have an account, and can only browse the
 site without being able to post items for sale or buy items.
 
-- **Administrators:** 
-Users that have special privileges, and have the ability to
+- **Administrators:** Users that have special privileges, and have the ability to
 remove posts from the site, remove items, issue warnings and bans from the site,
 and generally enforce the Code of Conduct for the site. Administrators also are
 responsible for helping users when needed.
 
-- **Items/
-Services:** Any object which is for sale, or for purchase on the site.
+- **Items/Services:** Any object which is for sale, or for purchase on the site.
+
+## Functional specs
+
+| Priority | Specification
+| :------: | :------------
+| 1        | Registered Users shall be able to integrate their schedule into the site, allowing buyers and sellers to see mutually available times without revealing what their schedules are.
+| 1        | The site shall display featured items and/or new postings.
+| 1        | The site shall allow the user to filter their search based on a list of qualities of the items.
+| 1        | Users shall be able to register and create an account.
+| 1        | The site shall allow sellers to sell items by either auctioning them, selling them at a
+fixed price, or offering to trade for another item.
+| 1        | Items shall be required to have a minimum level of detail when being posted, such as a
+description, pictures, and a rating of quality.
+| 1        | Sellers shall be able to offer tutoring services in exchange for a fixed hourly rate.
+| 1        | Guest Users shall be able to browse the site, being able to search for items and view
+them, but not be able to post items or respond to sellers.
+| 2        | The user shall be able to generate a list of needed textbooks based on their classes.
+| 2        | The site shall display the rating of a seller, based on the votes of Registered Users that
+have bought items in the past from them.
+| 2        | The site shall display a history of past sales for sellers, indicating to buyers how
+reputable the seller is.
+| 2        | The site shall provide a minimum detailed profile of Registered Users, such as their first
+name, a picture of the user, their major, and their year.
+| 2        | The site shall give sellers the ability to set up a storefront on their profile, allowing them
+to sell more items in a dedicated area belonging to them.
+| 3        | The site shall allow Registered Users to subscribe to other Users, and be alerted when
+Users make new posts.
+| 3        | Users shall be able to compose a list of wanted items, and can be notified when anyone
+posts that item up for sale.
+| 3        | The site shall make recommendations to Registered Users on what to buy based on
+previous purchases and viewed items.and create an account.
+| 3        | Users shall be able to put items into a shopping list to purchase later.
 
 ## Team
 
