@@ -7,7 +7,8 @@
 class Product extends Controller
 {   
     
-    public function index() {
+    public function index() 
+    {
         
     }
 }

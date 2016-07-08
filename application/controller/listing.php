@@ -2,11 +2,11 @@
 
 class Listing extends Controller
 {
-    public function index($products = '')
+    public function index($results = '')
     {
-       
-        if ($products == '') {
-            $products = $this->model->getAllProducts();
+        if ($results == '') 
+        {
+            $results = $this->products->getAllProducts();
         }
         
         require APP . 'view/_templates/header.php';
@@ -15,13 +15,17 @@ class Listing extends Controller
     }
     
     public function search() {
-        if (isset($_POST['search'])) {
+        $searchTerm = '';
+        
+        if (isset($_POST['search'])) 
+        {
             //$searchTerm = $_POST["search-term"];
             $searchTerm = filter_input(INPUT_POST, 'search-term');
         }
         
-        $products = $this->model->getProductsByName($searchTerm);
+        //$products = $this->model->getProductsByName($searchTerm);
+        $results = $this->products->getProductsByName($searchTerm);
         
-        $this->index($products);
+        $this->index($results);
     }
 }

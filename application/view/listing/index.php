@@ -15,23 +15,23 @@
             <td>description</td>
         </tr>
 
-                
         <?php
-            if (!empty($products)) {
-                foreach ($products as $product) {
+            if (!empty($results)) 
+            {
+                foreach ($results as $result) 
+                {
                     echo '<tr>';
-                    echo "<td>$product->name</td>";
-                    echo "<td>$product->price</td>";
-                    echo "<td>$product->seller_id</td>";
-                    echo "<td>$product->picture</td>";
-                    echo "<td>$product->video</td>";
-                    echo "<td>$product->description</td>";
+                    echo "<td>$result->name</td>";
+                    echo "<td>$result->price</td>";
+                    echo "<td>$result->seller_id</td>";
+                    echo "<td>$result->picture</td>";
+                    echo "<td>$result->video</td>";
+                    echo "<td>$result->description</td>";
                 }
             } else {
                 echo '<p>No product matches the search.</p>';
             }
         ?>
-               
         
     </table>
     

@@ -11,6 +11,8 @@ class Controller
      * @var null Model
      */
     public $model = null;
+    
+    public $products = null;
 
     /**
      * Whenever controller is created, open a database connection too and load "the model".
@@ -18,7 +20,8 @@ class Controller
     function __construct()
     {
         $this->openDatabaseConnection();
-        $this->loadModel();
+        //$this->loadModel();
+        $this->loadAllModel();
     }
 
     /**
@@ -43,10 +46,26 @@ class Controller
      * @return object model
      */
 
-    public function loadModel()
-    {
+//    public function loadModel()
+//    {
+//        require APP . 'model/model.php';
+//        // create new "model" (and pass the database connection)
+//        $this->model = new Model($this->db);
+//    }
+    
+    /**
+     * Load all the models
+     */
+    public function loadAllModel() {
         require APP . 'model/model.php';
-        // create new "model" (and pass the database connection)
-        $this->model = new Model($this->db);
+        $this->loadProductsModel();
+    }
+    
+    /**
+     * Loads the Products model
+     */
+    public function loadProductsModel() {
+        require APP . 'model/products.php';
+        $this->products = new Products($this->db);
     }
 }
