@@ -22,4 +22,12 @@
     <!-- navigation -->
     <div class="navigation">
         <a href="<?php echo URL; ?>">home</a>
+        
+        <div></br></div>
+        
+        <form action="<?php echo URL; ?>listing/search" method="POST">
+            <label>Search</label>
+            <input type="text" name="search-term" value="" required />
+            <input type="submit" name="search" value="Search" />
+        </form>
     </div>
