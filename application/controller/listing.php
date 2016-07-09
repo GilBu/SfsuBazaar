@@ -22,7 +22,7 @@ class Listing extends Controller
         {
             $searchedKeyword = filter_input(INPUT_POST, 'search-term');
         }
-        $results = $this->products->getProductsByKeywords($searchedKeyword);
+        $results = $this->products->getByKeywords($searchedKeyword);
 
         $this->index($results);
     }
