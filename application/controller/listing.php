@@ -13,12 +13,6 @@ class Listing extends Controller
         require APP . 'view/listing/index.php';
         require APP . 'view/_templates/footer.php';
     }
-    
-    public function browse() 
-    {
-        $this->index($this->products->getAll());
-    }
-
 
     public function search()
     {

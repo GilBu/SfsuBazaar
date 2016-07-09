@@ -6,7 +6,6 @@
 
 class Product extends Controller
 {   
-    
     public function index() 
     {
         
@@ -37,15 +36,10 @@ class Product extends Controller
             {
                 $product['hourly'] = "0";
             }
-                 
-//            foreach ($product as $key => $value)
-//            {
-//                $product[$key] = filter_input(INPUT_POST, $value);
-//            }
-            
+
             $this->products->add($product);
         }
         
-       // header('location: ' . URL . 'listing/index');
+        header('location: ' . URL . 'listing/index');
     }
 }
