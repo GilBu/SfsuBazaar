@@ -23,9 +23,9 @@
     <div class="navigation">
         <a href="<?php echo URL; ?>">home</a>
         
-        <a href="<?php echo URL; ?>/listing/index">browse</a>
+        <a href="<?php echo URL; ?>listing/index">browse</a>
         
-        <a href="<?php echo URL; ?>/product/newProduct">add a product</a>
+        <a href="<?php echo URL; ?>product/newProduct">add a product</a>
         
         <div></br></div>
         
