@@ -10,7 +10,7 @@ class Controller
     /**
      * @var null Model
      */
-    public $model = null;
+    //public $model = null;
     
     public $products = null;
 
