@@ -16,16 +16,14 @@ class Listing extends Controller
 
     public function search()
     {
-        $searchTerm = '';
-        
-        if (isset($_POST['search'])) 
+        $searchedKeyword = '';
+
+        if(isset($_POST['search']))
         {
-            //$searchTerm = $_POST["search-term"];
-            $searchTerm = filter_input(INPUT_POST, 'search-term');
-            
-            $results = $this->products->getByName($searchTerm);
+            $searchedKeyword = filter_input(INPUT_POST, 'search-term');
         }
-        
+        $results = $this->products->getProductsByKeywords($searchedKeyword);
+
         $this->index($results);
     }
 }
