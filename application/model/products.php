@@ -38,6 +38,19 @@ class Products extends Model
         return $query->fetchAll();
     }
     
+    /**        
+     * Get all products from database similiar to keywords searched
+     *
+     */
+    public function getByKeywords($keyword)
+    {
+        $sql = "SELECT * FROM products WHERE name LIKE '%$keyword%'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
     /**
      * Add a product to the db
      * @param Associative array $product
