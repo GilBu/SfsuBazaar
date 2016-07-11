@@ -106,6 +106,7 @@ responsible for helping users when needed.
 
 ## Unique functions:
 
+| Priority | Specification |
 | :------: | :------------ |
 | 1        | The site shall allow sellers to sell items by selling them at a fixed price.|
 | 3        | The site shall allow sellers to auctioning items.|
