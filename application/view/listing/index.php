@@ -24,9 +24,14 @@
                     echo "<td>$result->name</td>";
                     echo "<td>$result->price</td>";
                     echo "<td>$result->seller_id</td>";
-                    echo '<td><img src="'. $result->picture 
-                            . '" alt="No picture avaliable." '
-                            . 'style="width:100px;height:100px;"></td>';        
+                    if (empty($result->picture))
+                    {
+                        echo '<td>No picture avaliable.</td>';
+                    } else {
+                        echo '<td><img src="'. $result->picture 
+                            . '" alt="Image could not load." '
+                            . 'style="width:100px;height:100px;"></td>';
+                    }             
                     echo "<td>$result->video</td>";
                     echo "<td>$result->description</td>";
                 }
