@@ -53,23 +53,27 @@ class Products extends Model
 
     /**
      * Add a product to the db
-     * @param Associative array $product
+     * @param Associative Array $product with all data about the product
      */
     public function add($product) 
     {
         $sql = "INSERT INTO products " .
-               "(name, price, seller_id, picture, video, description, hourly)" .
+               "(name, price, seller_id, picture, video, description)" .
                "VALUES ".
-               "(:name, :price, :seller_id, :picture, :video, :description, :hourly)";
+               "(:name, :price, :seller_id, :picture, :video, :description)";
                
         $query = $this->db->prepare($sql);
         $param = $this->arrayToPDOParam($product);
         
-        echo Helper::debugPDO($sql, $param);
-        
         $query->execute($param);
     }
     
+    /**
+     * Change a Associative Array to the PDO param format
+     * i.e. change array['key']['value'] to array[':key']['value']
+     * @param Associative Array $array
+     * @return Associative Array in PDO param format
+     */
     public function arrayToPDOParam($array)
     {
         $PDOParam = array();
