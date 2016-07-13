@@ -1,7 +1,7 @@
 <div class="container">
     <div class="box">
         <h3>Add a product</h3>
-        <form action="<?php echo URL; ?>product/add" method="POST">
+        <form enctype="multipart/form-data" action="<?php echo URL; ?>product/save" method="POST">
             <label>name</label>
             <input type="text" name="name" value="" required />
             <br>
@@ -12,7 +12,7 @@
             <input type="text" name="seller_id" value="" required />
             <br>
             <label>picture</label>
-            <input type="text" name="picture" value=""/>
+            <input type="file" name="picture"/>
             <br>
             <label>video</label>
             <input type="text" name="video" value=""/>
@@ -20,12 +20,8 @@
             <label>description</label>
             <input type="text" name="description" value=""/>
             <br>
-            <label>hourly</label>
-            <input type="text" name="hourly" value=""/>
-            <br>
-            <input type="submit" name="addProduct" value="Submit" />
+            <input type="submit" name="addProduct" value="Add" />
         </form>
     </div>
     
 </div>
-
