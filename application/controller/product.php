@@ -73,17 +73,16 @@ class Product extends Controller
      */
     private function processUploadedImage($name)
     {   
-        $usablePath = "";
-        $destinationPath = ROOT . '/public/img/';
+        $imagePath = "";
+        $imageDir = '../public/img/';
         $tmpPath = $_FILES["$name"]['tmp_name'];
         
         if (is_uploaded_file($tmpPath))
         { 
-            $destinationPath .= $_FILES["$name"]['name'];
-            move_uploaded_file($tmpPath, $destinationPath);
-            $usablePath = ".." . strstr($destinationPath, "/public");
+            $imagePath = $imageDir . $_FILES["$name"]['name'];
+            move_uploaded_file($tmpPath, $imagePath);
         }
         
-        return $usablePath;
+        return $imagePath;
     }
 }
