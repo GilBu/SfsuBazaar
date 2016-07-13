@@ -24,7 +24,9 @@
                     echo "<td>$result->name</td>";
                     echo "<td>$result->price</td>";
                     echo "<td>$result->seller_id</td>";
-                    echo "<td>$result->picture</td>";
+                    echo '<td><img src="'. $result->picture 
+                            . '" alt="No picture avaliable." '
+                            . 'style="width:100px;height:100px;"></td>';        
                     echo "<td>$result->video</td>";
                     echo "<td>$result->description</td>";
                 }
