@@ -55,7 +55,7 @@
                         <a href="<?php echo URL; ?>listing/index">Browse</a>
                     </li>
                     <li>
-                        <a href="<?php echo URL; ?>product/newProduct">add a product</a>
+                        <a href="<?php echo URL; ?>product/add">add a product</a>
                     </li>
                 </ul>
             </div>
