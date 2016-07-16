@@ -8,7 +8,7 @@
  * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
  *
  */
-class Error extends Controller
+class ErrorController extends Controller
 {
     /**
      * PAGE: index

@@ -4,7 +4,7 @@
  * Class Product
  */
 
-class Product extends Controller
+class ProductController extends Controller
 {   
     /**
      * PAGE: index

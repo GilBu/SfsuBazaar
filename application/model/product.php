@@ -1,7 +1,95 @@
 <?php
 
-class Products extends Model
-{
+class Product
+{   
+    private $id;
+    private $name;
+    private $sellerID;
+    private $isService;
+    private $price;
+    private $imagePath;
+    private $videoUrl;
+    private $quanlity;
+    private $quantity;
+    private $description;
+    private $tags;
+    private $meetupId;
+    
+    private $createAt;
+    private $updatedAt;
+    
+    private static $tableName = 'products';
+
+    public function __construct()
+    {
+        
+    }
+    
+    public function create()
+    {
+        
+    }
+    
+    public function get()
+    {
+        
+    }
+    
+    public function update()
+    {
+        
+    }
+    
+    public function delete()
+    {
+        
+    }
+    
+    public static function all()
+    {   
+        return Database::getInstance()->getAll(self::$tableName);
+    }
+    
+    public static function withKeywordInName($keyword)
+    {
+        return Database::getInstance()->getByKeywordInName(self::$tableName, $keyword);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Gets all existing products from the database
      * @return Array Contain all the exiting products in db
