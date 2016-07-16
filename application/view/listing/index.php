@@ -32,8 +32,8 @@
                             . '" alt="Image could not load." '
                             . 'style="width:100px;height:100px;"></td>';
                     }             
-                    echo "<td>$$product->video</td>";
-                    echo "<td>$$product->description</td>";
+                    echo "<td>$product->video</td>";
+                    echo "<td>$product->description</td>";
                 }
             } else {
                 echo '<p>No product matches the search.</p>';
