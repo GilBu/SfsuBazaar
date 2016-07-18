@@ -23,8 +23,8 @@ class Application
         // check for controller: no controller given ? then load start-page
         if (!$this->url_controller) {
 
-            require APP . 'controller/home.php';
-            $page = new Home();
+            require APP . 'controller/homeController.php';
+            $page = new HomeController();
             $page->index();
 
         } elseif (file_exists(APP . 'controller/' . $this->url_controller . '.php')) {
@@ -77,6 +77,9 @@ class Application
             // @see http://davidwalsh.name/php-shorthand-if-else-ternary-operators
             $this->url_controller = isset($url[0]) ? $url[0] : null;
             $this->url_action = isset($url[1]) ? $url[1] : null;
+            
+            // adding 'Controller' to the url
+            $this->url_controller .= 'Controller';
 
             // Remove controller and action from the split URL
             unset($url[0], $url[1]);

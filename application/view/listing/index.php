@@ -16,24 +16,24 @@
         </tr>
 
         <?php
-            if (!empty($results)) 
+            if (!empty($products)) 
             {
-                foreach ($results as $result) 
+                foreach ($products as $product) 
                 {
                     echo '<tr>';
-                    echo "<td>$result->name</td>";
-                    echo "<td>$result->price</td>";
-                    echo "<td>$result->seller_id</td>";
-                    if (empty($result->picture))
+                    echo "<td>$product->name</td>";
+                    echo "<td>$product->price</td>";
+                    echo "<td>$product->seller_id</td>";
+                    if (empty($product->picture))
                     {
                         echo '<td>No picture avaliable.</td>';
                     } else {
-                        echo '<td><img src="'. $result->picture 
+                        echo '<td><img src="'. $product->picture 
                             . '" alt="Image could not load." '
                             . 'style="width:100px;height:100px;"></td>';
                     }             
-                    echo "<td>$result->video</td>";
-                    echo "<td>$result->description</td>";
+                    echo "<td>$product->video</td>";
+                    echo "<td>$product->description</td>";
                 }
             } else {
                 echo '<p>No product matches the search.</p>';
