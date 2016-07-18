@@ -18,7 +18,7 @@ class Product
     private $createAt;
     private $updatedAt;
     
-    private static $tableName = 'product';
+    private static $tableName = 'Product';
 
     public function __construct()
     {
