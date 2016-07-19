@@ -74,7 +74,62 @@ class Database
 
         return $query->fetchAll();
     }
-    
+
+    public function addUser($firstName, $lastName, $password, $email, $imagePath)
+    {
+	$sql =  "INSERT INTO user " .
+		"(firstName, lastName, password, email, imagePath)" .
+		"VALUES " .
+		"(:firstName, :lastName, :password, :email, :imagePath)";
+	$query = $this->db->prepare($sql);
+	$param = array(	':firstName' 	=> $firstName,
+			':lastName' 	=> $lastName,
+			':password'	=> $password,
+			':email' 	=> $email,
+			':imagePath'	=> $imagePath	);
+
+	$query->execute($param);
+    }
+
+    public function getUserByID($userID)
+    {
+	$sql =  "SELECT " .
+		"userID" .
+		"FROM users WHERE " .
+		"userID = :userID LIMIT 1";
+	$query = $this->db->prepare($sql);
+	$params = array(':userID'	=> $userID);
+
+	$query->execute($params);
+    }
+
+    public function updateSong(	$firstName, $lastName, $password,
+				$email, $imagePath, $userID	)
+    {
+	$sql = 	"UPDATE song SET " .
+		"firstName = :firstName, lastName = :lastName," .
+		"password = :password, email = :email," .
+		"imagePath = :imagePath" .
+		"WHERE userID = :userID";
+	$query = $this->db->prepare($sql);
+	$params = array(	':firstName'	=> $firstName,
+				':lastName'	=> $lastName,
+				':password'	=> $password,
+				':email'	=> $email,
+				':imagePath'	=> $imagePath,
+				':userID'	=> $userID	);
+
+	$query->execute($params);
+    }
+
+    public function deleteUser (userID)
+    {
+	$sql =  "DELETE FROM users WHERE userID = :userID";
+	$query = $this->db->prepare($sql);
+	$params = array(':userID' => $userID);
+
+	$query->execute($params);
+    }
     /**
      * Get the product with the giving id
      * @param int $id
