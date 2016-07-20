@@ -8,7 +8,7 @@
     <table>
         <tr>
             <td>name</td>
-            <td>seller_id</td>
+            <td>sellerID</td>
             <td>price</td>
             <td>quantity</td>
             <td>quality</td>
@@ -24,8 +24,8 @@
                 foreach ($products as $product) 
                 {
                     echo '<tr>';
-                    echo '<td><a href="'. URL . "product/index/$product->id" . '">' . $product->name . '</a></td>';
-                    echo "<td>$product->seller_id</td>";
+                    echo '<td><a href="'. URL . "product/index/$product->productID" . '">' . $product->name . '</a></td>';
+                    echo "<td>$product->sellerID</td>";
                     echo "<td>$product->price</td>";
                     echo "<td>$product->quantity</td>";
                     echo "<td>$product->quality</td>";

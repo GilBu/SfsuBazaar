@@ -144,11 +144,11 @@ class Database
      * Get the product with the giving id
      * @param int $id
      */
-    public function getProductByID($id)
+    public function getProductByID($productID)
     {
-        $sql = "SELECT * FROM product WHERE id = :id LIMIT 1";
+        $sql = "SELECT * FROM product WHERE productID = :productID LIMIT 1";
         $query = $this->db->prepare($sql);
-        $param = array(':id' => $id); 
+        $param = array(':productID' => $productID); 
         $query->execute($param);
         
         return $query->fetch();
@@ -158,11 +158,11 @@ class Database
      * Delete the product with the giving id
      * @param int $id
      */
-    public function deleteProductByID($id)
+    public function deleteProductByID($productID)
     {
-        $sql = "DELETE FROM product WHERE id = :id";
+        $sql = "DELETE FROM product WHERE productID = :productID";
         $query = $this->db->prepare($sql);
-        $param = array(':id' => $id); 
+        $param = array(':productID' => $productID); 
         $query->execute($param);
     }
 
@@ -174,15 +174,15 @@ class Database
     public function addProduct($product) 
     {
         $sql = "INSERT INTO product " .
-               "(name, seller_id, price, quantity, quality, imagePath, "
-                . "videoUrl, description, tags, is_service)" .
+               "(name, sellerID, price, quantity, quality, imagePath, "
+                . "videoUrl, description, tags, isService)" .
                "VALUES ".
-               "(:name, :seller_id, :price, :quantity, :quality, :imagePath, "
-                . ":videoUrl, :description, :tags, :is_service)";
+               "(:name, :sellerID, :price, :quantity, :quality, :imagePath, "
+                . ":videoUrl, :description, :tags, :isService)";
                
         $query = $this->db->prepare($sql);
         $param = array( ':name' => $product->name, 
-                        ':seller_id' => $product->sellerID,
+                        ':sellerID' => $product->sellerID,
                         ':price' => $product->price, 
                         ':quantity' => $product->quantity, 
                         ':quality' => $product->quality, 
@@ -190,7 +190,7 @@ class Database
                         ':videoUrl' => $product->videoUrl,
                         ':description' => $product->description, 
                         ':tags' => $product->tags, 
-                        ':is_service' => $product->isService);
+                        ':isService' => $product->isService);
         
         $query->execute($param);
     }

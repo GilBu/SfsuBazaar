@@ -3,7 +3,7 @@
 class Product
 {   
     // properties that the DB will take care of
-    private $id = null;
+    private $productID = null;
     private $createAt = null;
     private $updatedAt = null;
     
@@ -81,9 +81,9 @@ class Product
         Database::getInstance()->addProduct($this);
     }
     
-    public static function get($id)
+    public static function get($productID)
     {
-        return Database::getInstance()->getProductByID($id);
+        return Database::getInstance()->getProductByID($productID);
     }
     
     public function update()
@@ -91,9 +91,9 @@ class Product
         
     }
     
-    public static function delete($id)
+    public static function delete($productID)
     {
-        Database::getInstance()->deleteProductByID($id);
+        Database::getInstance()->deleteProductByID($productID);
     }
     
     public static function all()
