@@ -2,32 +2,82 @@
 
 class Product
 {   
-    private $id;
-    private $name;
-    private $sellerID;
-    private $isService;
-    private $price;
-    private $imagePath;
-    private $videoUrl;
-    private $quanlity;
-    private $quantity;
-    private $description;
-    private $tags;
-    private $meetupId;
+    // properties that the DB will take care of
+    //private $id = null;
+    //private $createAt;
+    //private $updatedAt;
     
-    private $createAt;
-    private $updatedAt;
+    //required properties
+    private $name = null;
+    private $sellerID = null;
+    private $price = null;
+    private $quantity = null;
     
-    private static $tableName = 'products';
-
-    public function __construct()
+    // optional properties 
+    private $quanlity = null;
+    private $imagePath = null;
+    private $videoUrl = null;
+    private $description = null;
+    private $tags = null;  
+    private $isService = null;
+    
+    // update this property when the product is brought
+    private $meetID = null;
+    
+    /**
+     * Constructor with required properties and optional properties
+     * Note: put optional properties behind required properties to avoid 
+     * unexpected behavior 
+     */ 
+    public function __construct($name, $sellerID, $price, $quantity,
+            $quality = '', $imagePath = '', $videUrl = '', $description ='',
+            $tags = '', $isService = 0)
     {
-        
+        $this->name = $name;
+        $this->sellerID = $sellerID;
+        $this->price = $price;
+        $this->quantity = $quantity;
+        $this->quality = $quality;
+        $this->imagePath = $imagePath;
+        $this->videoUrl = $videUrl;
+        $this->description = $description;
+        $this->tags = $tags;
+        $this->isService = $isService;
     }
     
+    /**
+     * Magical getter to get the specified property
+     * @param $property
+     * @return $property 
+     */
+    public function __get($property) {
+        if (property_exists($this, $property)) {
+          return $this->$property;
+        }
+    }
+    
+    /**
+     * Magical setter to set the specified property
+     * @param $property
+     * @param $value
+     * @return Product
+     */
+    public function __set($property, $value) {
+      if (property_exists($this, $property)) {
+        $this->$property = $value;
+      }
+
+      return $this;
+    }
+    
+    
+    
+    /**
+     * 
+     */
     public function create()
     {
-        
+        Database::getInstance()->addProduct($this);
     }
     
     public function get()
@@ -47,12 +97,12 @@ class Product
     
     public static function all()
     {   
-        return Database::getInstance()->getAll(self::$tableName);
+        return Database::getInstance()->getAllProducts();
     }
     
     public static function withKeywordInName($keyword)
     {
-        return Database::getInstance()->getByKeywordInName(self::$tableName, $keyword);
+        return Database::getInstance()->getProductsByName($keyword);
     }
 
 

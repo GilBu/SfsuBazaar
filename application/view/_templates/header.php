@@ -54,12 +54,9 @@
                     <li>
                         <a href="<?php echo URL; ?>listing/index">Browse</a>
                     </li>
-                    
-                    <!-- adding is broken right now, don't link it to there
                     <li>
-                        <a href="<?php echo URL; ?>product/add">add a product</a>
+                        <a href="<?php echo URL; ?>product/newProduct">add a product</a>
                     </li>
-                    -->
                 </ul>
             </div>
         </nav>

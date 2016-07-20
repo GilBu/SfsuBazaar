@@ -8,11 +8,14 @@
     <table>
         <tr>
             <td>name</td>
-            <td>price</td>
             <td>seller_id</td>
-            <td>picture</td>
-            <td>video</td>
+            <td>price</td>
+            <td>quantity</td>
+            <td>quality</td>
+            <td>image</td>
+            <td>video Url</td>
             <td>description</td>
+            <td>tags</td> 
         </tr>
 
         <?php
@@ -22,18 +25,21 @@
                 {
                     echo '<tr>';
                     echo "<td>$product->name</td>";
-                    echo "<td>$product->price</td>";
                     echo "<td>$product->seller_id</td>";
-                    if (empty($product->picture))
+                    echo "<td>$product->price</td>";
+                    echo "<td>$product->quantity</td>";
+                    echo "<td>$product->quality</td>";
+                    if (empty($product->imagePath))
                     {
                         echo '<td>No picture avaliable.</td>';
                     } else {
-                        echo '<td><img src="'. $product->picture 
+                        echo '<td><img src="'. $product->imagePath 
                             . '" alt="Image could not load." '
                             . 'style="width:100px;height:100px;"></td>';
                     }             
-                    echo "<td>$product->video</td>";
+                    echo "<td>$product->videoUrl</td>";
                     echo "<td>$product->description</td>";
+                    echo "<td>$product->tags</td>";
                 }
             } else {
                 echo '<p>No product matches the search.</p>';

@@ -3,6 +3,7 @@
 /**
  * Singleton class Database
  */
+
 class Database 
 {   
     private $db = null;
@@ -10,7 +11,7 @@ class Database
 
     private function __construct() 
     {
-        $this->openDatabaseConnection();
+        $this->db = $this->openDatabaseConnection();
     }
         
     private function __clone() {}
@@ -45,17 +46,16 @@ class Database
 
         // generate a database connection, using the PDO connector
         // @see http://net.tutsplus.com/tutorials/php/why-you-should-be-using-phps-pdo-for-database-access/
-        $this->db = new PDO(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET, DB_USER, DB_PASS, $options);        
+        return new PDO(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET, DB_USER, DB_PASS, $options);        
     }
     
     /**
-     * Gets all data of a table from the database
-     * @param string $table Name of the table
-     * @return Object Array
+     * Gets all data of the product table from the database
+     * @return Array of product objects
      */
-    public function getAll($table)
+    public function getAllProducts()
     {
-        $sql = "SELECT * FROM $table";
+        $sql = "SELECT * FROM product";
         $query = $this->db->prepare($sql);
         $query->execute();
         
@@ -63,17 +63,56 @@ class Database
     }
     
     /**        
-     * Get all data from database similiar to keyword searched in name
+     * Get all products from the database with a similiar keyword in name
      *
      */
-    public function getByKeywordInName($table, $keyword)
+    public function getProductsByName($keyword)
     {
-        $sql = "SELECT * FROM $table WHERE name LIKE '%$keyword%'";
+        $sql = "SELECT * FROM product WHERE name LIKE '%$keyword%'";
         $query = $this->db->prepare($sql);
         $query->execute();
 
         return $query->fetchAll();
     }
+    
+    /**
+     * Add a product to the db
+     * @param Product with all data about the product
+     */
+    public function addProduct($product) 
+    {
+        $sql = "INSERT INTO product " .
+               "(name, seller_id, price, quantity, quality, imagePath, "
+                . "videoUrl, description, tags, is_service)" .
+               "VALUES ".
+               "(:name, :seller_id, :price, :quantity, :quality, :imagePath, "
+                . ":videoUrl, :description, :tags, :is_service)";
+               
+        $query = $this->db->prepare($sql);
+        $param = array( ':name' => $product->name, 
+                        ':seller_id' => $product->sellerID,
+                        ':price' => $product->price, 
+                        ':quantity' => $product->quantity, 
+                        ':quality' => $product->quality, 
+                        ':imagePath' => $product->imagePath,
+                        ':videoUrl' => $product->videoUrl,
+                        ':description' => $product->description, 
+                        ':tags' => $product->tags, 
+                        ':is_service' => $product->isService);
+        
+        $query->execute($param);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     /**
      * Get the product with the giving id
@@ -96,25 +135,6 @@ class Database
 //        $query->execute();
 //        
 //        return $query->fetchAll();
-//    }
-    
-
-
-    /**
-     * Add a product to the db
-     * @param Associative Array $product with all data about the product
-     */
-//    public function add($product) 
-//    {
-//        $sql = "INSERT INTO products " .
-//               "(name, price, seller_id, picture, video, description)" .
-//               "VALUES ".
-//               "(:name, :price, :seller_id, :picture, :video, :description)";
-//               
-//        $query = $this->db->prepare($sql);
-//        $param = $this->arrayToPDOParam($product);
-//        
-//        $query->execute($param);
 //    }
     
     /**
