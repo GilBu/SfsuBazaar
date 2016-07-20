@@ -3,9 +3,9 @@
 class Product
 {   
     // properties that the DB will take care of
-    //private $id = null;
-    //private $createAt;
-    //private $updatedAt;
+    private $id = null;
+    private $createAt = null;
+    private $updatedAt = null;
     
     //required properties
     private $name = null;
@@ -45,6 +45,7 @@ class Product
         $this->isService = $isService;
     }
     
+    
     /**
      * Magical getter to get the specified property
      * @param $property
@@ -80,9 +81,9 @@ class Product
         Database::getInstance()->addProduct($this);
     }
     
-    public function get()
+    public static function get($id)
     {
-        
+        return Database::getInstance()->getProductByID($id);
     }
     
     public function update()
@@ -90,9 +91,9 @@ class Product
         
     }
     
-    public function delete()
+    public static function delete($id)
     {
-        
+        Database::getInstance()->deleteProductByID($id);
     }
     
     public static function all()

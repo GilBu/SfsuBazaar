@@ -141,6 +141,33 @@ class Database
     }
     
     /**
+     * Get the product with the giving id
+     * @param int $id
+     */
+    public function getProductByID($id)
+    {
+        $sql = "SELECT * FROM product WHERE id = :id LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $param = array(':id' => $id); 
+        $query->execute($param);
+        
+        return $query->fetch();
+    }
+    
+     /**
+     * Delete the product with the giving id
+     * @param int $id
+     */
+    public function deleteProductByID($id)
+    {
+        $sql = "DELETE FROM product WHERE id = :id";
+        $query = $this->db->prepare($sql);
+        $param = array(':id' => $id); 
+        $query->execute($param);
+    }
+
+    
+    /**
      * Add a product to the db
      * @param Product with all data about the product
      */
@@ -179,14 +206,6 @@ class Database
     
     
     
-    /**
-     * Get the product with the giving id
-     * @param int $id
-     */
-//    public function getById($id)
-//    {
-//        
-//    }
 
     /**
      * Get all products from db with the giving name

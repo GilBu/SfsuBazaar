@@ -10,14 +10,18 @@ class ProductController extends Controller
      * PAGE: index
      * Renders the product's index page
      */
-    public function index() 
-    {
+    public function index($productID) 
+    {   
+        $product = Product::get($productID);
         
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/product/index.php';
+        require APP . 'view/_templates/footer.php';
     }
     
     /**
-     * PAGE: add
-     * Renders the product's add page
+     * PAGE: newProduct
+     * Renders the newProduct page
      */
     public function newProduct()
     {   
@@ -46,10 +50,24 @@ class ProductController extends Controller
         header('location: ' . URL . 'listing/index');
     }
     
+    
+    /**
+     * ACTION: delete
+     * Delete the product infomation from the database
+     */
+    public function delete($productID)
+    {
+        Product::delete($productID);
+        
+        // redirect to listing/index page
+        header('location: ' . URL . 'listing/index');
+    }
+
+
     /**
      * ACTION HELPER: getData
-     * Get all the product's data
-     * @return Associative Array with all data about the product
+     * Get all the product's data and make a product
+     * @return Product
      */
     private function getNewProduct()
     {   

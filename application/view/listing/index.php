@@ -24,7 +24,7 @@
                 foreach ($products as $product) 
                 {
                     echo '<tr>';
-                    echo "<td>$product->name</td>";
+                    echo '<td><a href="'. URL . "product/index/$product->id" . '">' . $product->name . '</a></td>';
                     echo "<td>$product->seller_id</td>";
                     echo "<td>$product->price</td>";
                     echo "<td>$product->quantity</td>";
