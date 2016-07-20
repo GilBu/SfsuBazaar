@@ -47,9 +47,74 @@ class Database
         // generate a database connection, using the PDO connector
         // @see http://net.tutsplus.com/tutorials/php/why-you-should-be-using-phps-pdo-for-database-access/
         return new PDO(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET, DB_USER, DB_PASS, $options);        
+    } 
+    
+    
+    /************************ User queries ************************************/
+    
+    public function addUser($firstName, $lastName, $password, $email, $imagePath)
+    {
+	$sql =  "INSERT INTO user " .
+		"(firstName, lastName, password, email, imagePath)" .
+		"VALUES " .
+		"(:firstName, :lastName, :password, :email, :imagePath)";
+	$query = $this->db->prepare($sql);
+	$param = array(	':firstName' 	=> $firstName,
+			':lastName' 	=> $lastName,
+			':password'	=> $password,
+			':email' 	=> $email,
+			':imagePath'	=> $imagePath	);
+
+	$query->execute($param);
+    }
+
+    public function getUserByID($userID)
+    {
+	$sql =  "SELECT " .
+		"userID" .
+		"FROM users WHERE " .
+		"userID = :userID LIMIT 1";
+	$query = $this->db->prepare($sql);
+	$params = array(':userID'	=> $userID);
+
+	$query->execute($params);
+    }
+
+    public function updateUser(	$firstName, $lastName, $password,
+				$email, $imagePath, $userID	)
+    {
+	$sql = 	"UPDATE song SET " .
+		"firstName = :firstName, lastName = :lastName," .
+		"password = :password, email = :email," .
+		"imagePath = :imagePath" .
+		"WHERE userID = :userID";
+	$query = $this->db->prepare($sql);
+	$params = array(	':firstName'	=> $firstName,
+				':lastName'	=> $lastName,
+				':password'	=> $password,
+				':email'	=> $email,
+				':imagePath'	=> $imagePath,
+				':userID'	=> $userID	);
+
+	$query->execute($params);
+    }
+
+    public function deleteUser($userID)
+    {
+	$sql =  "DELETE FROM users WHERE userID = :userID";
+	$query = $this->db->prepare($sql);
+	$params = array(':userID' => $userID);
+
+	$query->execute($params);
     }
     
-    /**
+    
+    
+    
+    
+    /************************ Product queries *********************************/
+    
+     /**
      * Gets all data of the product table from the database
      * @return Array of product objects
      */

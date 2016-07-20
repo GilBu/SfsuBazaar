@@ -14,7 +14,7 @@ class Product
     private $quantity = null;
     
     // optional properties 
-    private $quanlity = null;
+    private $quality = null;
     private $imagePath = null;
     private $videoUrl = null;
     private $description = null;
