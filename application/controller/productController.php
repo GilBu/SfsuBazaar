@@ -80,7 +80,13 @@ class ProductController extends Controller
         $videUrl = filter_input(INPUT_POST, 'videoUrl');
         $description = filter_input(INPUT_POST, 'description');
         $tags = filter_input(INPUT_POST, 'tags');
+        
+
         $isService = filter_input(INPUT_POST, 'isService');
+        if (empty($isService))
+        {
+            $isService = 0;
+        }
         
         return new Product( $name, $sellerID, $price, $quantity, 
                             $quality, $imagePath, $videUrl, 
