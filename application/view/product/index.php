@@ -8,9 +8,14 @@
         echo "<h4>price: $product->price</h4>";
         echo "<h4>quantity: $product->quantity</h4>";
         echo "<h4>quality: $product->quality</h4>";
-        echo '<img src="../'. $product->imagePath 
+        if (empty($product->imagePath))
+        {
+            echo '<h4>No picture avaliable.</h4>';
+        } else {
+            echo '<img src="../'. $product->imagePath 
                             . '" alt="Image could not load." '
                             . 'style="width:300px;height:300px;">';
+        }
         echo "<h4>video Url: $product->videoUrl</h4>";
         echo "<h4>description: $product->description</h4>";
         echo "<h4>tags: $product->tags</h4>";
