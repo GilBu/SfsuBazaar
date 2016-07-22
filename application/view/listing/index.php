@@ -1,52 +1,307 @@
-<div class="container">
-    <h2>This is the index of listing</h2>
-    
-    <!--
-    <p>showing products <?php //echo $products ?></p>
-    -->
-    
-    <table>
-        <tr>
-            <td>name</td>
-            <td>sellerID</td>
-            <td>price</td>
-            <td>quantity</td>
-            <td>quality</td>
-            <td>image</td>
-            <td>video Url</td>
-            <td>description</td>
-            <td>tags</td> 
-        </tr>
+	<style>
+		.glyphicon { margin-right:5px; }
+		.thumbnail
+		{
+			margin-bottom: 20px;
+			padding: 0px;
+			-webkit-border-radius: 0px;
+			-moz-border-radius: 0px;
+			border-radius: 0px;
+		}
 
-        <?php
-            if (!empty($products)) 
-            {
-                foreach ($products as $product) 
-                {
-                    echo '<tr>';
-                    echo '<td><a href="'. URL . "product/index/$product->productID" . '">' . $product->name . '</a></td>';
-                    echo "<td>$product->sellerID</td>";
-                    echo "<td>$product->price</td>";
-                    echo "<td>$product->quantity</td>";
-                    echo "<td>$product->quality</td>";
-                    if (empty($product->imagePath))
-                    {
-                        echo '<td>No picture avaliable.</td>';
-                    } else {
-                        echo '<td><img src="'. $product->imagePath 
-                            . '" alt="Image could not load." '
-                            . 'style="width:100px;height:100px;"></td>';
-                    }             
-                    echo "<td>$product->videoUrl</td>";
-                    echo "<td>$product->description</td>";
-                    echo "<td>$product->tags</td>";
-                }
-            } else {
-                echo '<p>No product matches the search.</p>';
-            }
-        ?>
-        
-    </table>
-    
-</div>
+		.product.list-group-product
+		{
+			float: none;
+			width: 100%;
+			background-color: #fff;
+			margin-bottom: 10px;
+		}
+		.product.list-group-product:nth-of-type(odd):hover,.product.list-group-product:hover
+		{
+			background: #BA55D3;
+		}
 
+		.product.list-group-product .list-group-image
+		{
+			margin-right: 10px;
+		}
+		.product.list-group-product .thumbnail
+		{
+			margin-bottom: 0px;
+		}
+		.product.list-group-product .caption
+		{
+			padding: 9px 9px 0px 9px;
+		}
+		.product.list-group-product:nth-of-type(odd)
+		{
+			background: #eeeeee;
+		}
+
+		.product.list-group-product:before, .product.list-group-product:after
+		{
+			display: table;
+			content: " ";
+		}
+
+		.product.list-group-product img
+		{
+			float: left;
+		}
+		.product.list-group-product:after
+		{
+			clear: both;
+		}
+		.list-group-product-text
+		{
+			margin: 0 0 11px;
+		}
+
+	</style>
+
+	<script>
+		$(document).ready(function() {
+			$('#list').click(function(event){event.preventDefault();$('#products .product').addClass('list-group-product');});
+			$('#grid').click(function(event){event.preventDefault();$('#products .product').removeClass('list-group-product');$('#products .product').addClass('grid-group-product');});
+		});
+	</script>
+    
+    <body>
+       <div class="container-fluid">
+          <div class="row">
+             <div class="col-md-2">
+                <div class="sidebar-nav-fixed affix">
+                   <div class="well">
+                      <ul class="nav">
+                         <li class="nav-header">Filter By Departments:</li>
+                         <li class="active"><a href="#">Link</a>
+                         </li>
+                         <li><a href="#">Link</a>
+                         </li>
+                         <li><a href="#">Link</a>
+                         </li>
+                         <li><a href="#">Link</a>
+                         </li>
+                         <li class="nav-header">Filter By Avg. Seller Rating</li>
+                         <li><a href="#">Link</a>
+                         </li>
+                         <li><a href="#">Link</a>
+                         </li>
+                         <li><a href="#">Link</a>
+                         </li>
+                         <li><a href="#">Link</a>
+                         </li>
+                         <li><a href="#">Link</a>
+                         </li>
+                         <li><a href="#">Link</a>
+                         </li>
+                         <li class="nav-header">Filter By # of Reviews:</li>
+                         <li><a href="#">Link</a>
+                         </li>
+                         <li><a href="#">Link</a>
+                         </li>
+                         <li><a href="#">Link</a>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <div class="col-md-10">
+            <div class="container-fluid">
+               <div class="well">
+                  <font size="5">Search Results</font>
+                  <div class="btn-group" style="float: right;">
+                     <a href="#" id="list" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                        List
+                    </a> 
+                    <a href="#" id="grid" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-th"></span>
+                        Grid
+                    </a>
+                </div>				
+            </div>
+
+            <p><big><strong class="text-danger">#</strong> results found</big></p>
+
+            <div class="container-fluid">
+              <div id="products" class="row list-group">
+                 <div id="products" class="row list-group">
+                    <div class="product  col-xs-4 col-lg-4">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                            <div class="caption">
+                                <h4 class="group inner list-group-product-heading">
+                                    <b>Product title</b>
+                                </h4>
+                                <p class="group inner list-group-product-text">
+                                    $$$$$$$$$$
+                                    <br> 
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <br>
+                                    <sup>(# of Reviews)</sup>                       
+                                </p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Add to cart</a>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Buy Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="product  col-xs-4 col-lg-4">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                            <div class="caption">
+                                <h4 class="group inner list-group-product-heading">
+                                    <b>Product title</b>
+                                </h4>
+                                <p class="group inner list-group-product-text">
+                                    $$$$$$$$$$
+                                    <br> 
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <br>
+                                    <sup>(# of Reviews)</sup>                       
+                                </p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Add to cart</a>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Buy Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product  col-xs-4 col-lg-4">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                            <div class="caption">
+                                <h4 class="group inner list-group-product-heading">
+                                    <b>Product title</b>
+                                </h4>
+                                <p class="group inner list-group-product-text">
+                                    $$$$$$$$$$
+                                    <br> 
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <br>
+                                    <sup>(# of Reviews)</sup>                       
+                                </p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Add to cart</a>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Buy Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product  col-xs-4 col-lg-4">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                            <div class="caption">
+                                <h4 class="group inner list-group-product-heading">
+                                    <b>Product title</b>
+                                </h4>
+                                <p class="group inner list-group-product-text">
+                                    $$$$$$$$$$
+                                    <br> 
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <br>
+                                    <sup>(# of Reviews)</sup>                       
+                                </p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Add to cart</a>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Buy Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product  col-xs-4 col-lg-4">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                            <div class="caption">
+                                <h4 class="group inner list-group-product-heading">
+                                    <b>Product title</b>
+                                </h4>
+                                <p class="group inner list-group-product-text">
+                                    $$$$$$$$$$
+                                    <br> 
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <br>
+                                    <sup>(# of Reviews)</sup>                       
+                                </p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Add to cart</a>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Buy Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product  col-xs-4 col-lg-4">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                            <div class="caption">
+                                <h4 class="group inner list-group-product-heading">
+                                    <b>Product title</b>
+                                </h4>
+                                <p class="group inner list-group-product-text">
+                                    $$$$$$$$$$
+                                    <br> 
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <br>
+                                    <sup>(# of Reviews)</sup>                       
+                                </p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Add to cart</a>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="#">Buy Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
