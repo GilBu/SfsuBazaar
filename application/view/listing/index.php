@@ -127,6 +127,42 @@
             <div class="container-fluid">
               <div id="products" class="row list-group">
                  <div id="products" class="row list-group">
+                     
+                    <?php foreach ($products as  $product) { ?>
+                        <div class="product  col-xs-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img class="group list-group-image" src="<?php echo $product->imagePath ?>" alt="Cannot load image." />
+                                <div class="caption">
+                                    <h4 class="group inner list-group-product-heading">
+                                        <b><?php echo $product->name ?></b>
+                                    </h4>
+                                    <p class="group inner list-group-product-text">
+                                        $ <?php echo $product->price ?>
+                                        <br> 
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <br>
+                                        <sup>(# of Reviews)</sup>                       
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-6">
+                                            <a class="btn btn-success" href="#">Add to cart</a>
+                                        </div>
+                                        <div class="col-xs-12 col-md-6">
+                                            <a class="btn btn-success" href="#">Buy Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    
+                    
+                    
+                    <!--
                     <div class="product  col-xs-4 col-lg-4">
                         <div class="thumbnail">
                             <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
@@ -303,5 +339,8 @@
                             </div>
                         </div>
                     </div>
+                    -->
+                    
+                    
                 </div>
             </div>
