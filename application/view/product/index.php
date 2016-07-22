@@ -120,31 +120,31 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active">
                     <a href="#description"
-                       aria-controls="description"
-                       role="tab"
-                       data-toggle="tab"
-                       >Description</a>
+                    aria-controls="description"
+                    role="tab"
+                    data-toggle="tab"
+                    >Description</a>
                 </li>
                 <li role="presentation">
                     <a href="#features"
-                       aria-controls="features"
-                       role="tab"
-                       data-toggle="tab"
-                       >Features</a>
+                    aria-controls="features"
+                    role="tab"
+                    data-toggle="tab"
+                    >Features</a>
                 </li>
                 <li role="presentation">
                     <a href="#notes"
-                       aria-controls="notes"
-                       role="tab"
-                       data-toggle="tab"
-                       >Notes</a>
+                    aria-controls="notes"
+                    role="tab"
+                    data-toggle="tab"
+                    >Notes</a>
                 </li>
                 <li role="presentation">
                     <a href="#reviews"
-                       aria-controls="reviews"
-                       role="tab"
-                       data-toggle="tab"
-                       >Reviews</a>
+                    aria-controls="reviews"
+                    role="tab"
+                    data-toggle="tab"
+                    >Reviews</a>
                 </li>
             </ul>
 
@@ -174,6 +174,132 @@
                         Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah 
                     </p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Similar Products -->
+    <div class="container-fluid">  
+        <div class="row-fluid">
+            <br><br>
+            <h4>Similar Products:</h4> 
+
+            <!-- Product -->
+            <div class="col-sm-5 col-md-2 ">
+
+                <!-- Product Link -->
+                <a href="#"> 
+                    <!-- Product Img -->
+                    <img src="http://placehold.it/200x200/000/fff" alt="img1" style="width:100px;height:100px">
+
+                    <!-- Product Info-->
+                    <p class="product-summary">
+                        Name <br>
+                        Price <br>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <br>
+                        <sup>(# of Reviews)</sup> 
+                    </p>  
+
+                    <!-- Buttons -->
+                    <input type="submit" class="btn btn-info" value="Add To Cart">  
+                    <input type="submit" class="btn btn-info" value="Buy It Now">   
+                </a>
+            </div> <!-- end of product -->
+
+            <div class="col-sm-5 col-md-2">
+                <a href="#g" >
+                    <img src="http://placehold.it/200x200/000/fff" alt="img3" style="width:100px;height:100px">
+                    <p class="product-summary">
+                        Name <br>
+                        Price <br>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <br>
+                        <sup>(# of Reviews)</sup> 
+                    </p>  
+                    <input type="submit" class="btn btn-info" value="Add To Cart">    
+                    <input type="submit" class="btn btn-info" value="Buy It Now"> 
+                </a>
+            </div>
+            <div class="col-sm-5 col-md-2">
+                <a href="#" >   
+                    <img src="http://placehold.it/200x200/000/fff" alt="img4" style="width:100px;height:100px">
+                    <p class="product-summary">
+                        Name <br>
+                        Price <br>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <br>
+                        <sup>(# of Reviews)</sup> 
+                    </p>  
+                    <input type="submit" class="btn btn-info" value="Add To Cart">   
+                    <input type="submit" class="btn btn-info" value="Buy It Now">  
+                </a>
+            </div>
+            <div class="col-sm-5 col-md-2">
+                <a href="#"> 
+                    <img src="http://placehold.it/200x200/000/fff" alt="img1" style="width:100px;height:100px">
+                    <p class="product-summary">
+                        Name <br>
+                        Price <br>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <br>
+                        <sup>(# of Reviews)</sup> 
+                    </p>  
+                    <input type="submit" class="btn btn-info" value="Add To Cart"> 
+                    <input type="submit" class="btn btn-info" value="Buy It Now">     
+                </a>
+            </div>
+            <div class="col-sm-5 col-md-2">
+                <a href="#">
+                    <img src="http://placehold.it/200x200/000/fff" alt="img3" style="width:100px;height:100px">
+                    <p class="product-summary">
+                        Name <br>
+                        Price <br>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <br>
+                        <sup>(# of Reviews)</sup> 
+                    </p>  
+                    <input type="submit" class="btn btn-info" value="Add To Cart">  
+                    <input type="submit" class="btn btn-info" value="Buy It Now">  
+                </a>
+            </div>
+            <div class="col-sm-5 col-md-2">
+                <a href="#">     
+                    <img src="http://placehold.it/200x200/000/fff" alt="img4" style="width:100px;height:100px">
+                    <p class="product-summary">
+                        Name <br>
+                        Price <br>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <br>
+                        <sup>(# of Reviews)</sup> 
+                    </p> 
+                    <input type="submit" class="btn btn-info" value="Add To Cart"> 
+                    <input type="submit" class="btn btn-info" value="Buy It Now"> 
+                </a>
             </div>
         </div>
     </div>
