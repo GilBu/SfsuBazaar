@@ -161,23 +161,38 @@
 		</ul>
 	</div> <!-- end navbar -->
 
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row-fluid">
 			<div class="well">
 				<!-- page title -->
 				<font size="5">Search Results</font>
+				<div class="form-group">
+					<div class="col-md-7"></div>
+					<label class="col-md-1 control-label" for="selectbasic">Sort By: </label>
 
-				<!-- grid/listing view of products -->
-				<div class="btn-group" style="float: right;">
-					<a href="#" id="list" class="btn btn-default btn-sm">
-						<span class="glyphicon glyphicon-th-list"></span>
-						List
-					</a> 
-					<a href="#" id="grid" class="btn btn-default btn-sm">
-						<span class="glyphicon glyphicon-th"></span>
-						Grid
-					</a>
-				</div>	
+					<!-- Sort By dropdown menu -->
+					<div class="col-md-2">
+						<select id="sortBy" name="sortBy" class="form-control">
+							<option value="1">Revelance</option>
+							<option value="2">Price: Low To High</option>
+							<option value="3">Price: High To Low</option>
+							<option value="4">Avg. Seller Reivews</option>
+							<option value="5">Avg. Seller Ratings</option>
+						</select>
+					</div>
+					
+					<!-- grid/listing view of products -->
+					<div class="btn-group col-md-2" style="float: right;">
+						<a href="#" id="list" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-th-list"></span>
+							List
+						</a> 
+						<a href="#" id="grid" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-th"></span>
+							Grid
+						</a>
+					</div>	
+				</div>
 			</div>
 
 			<!-- # of results found -->
@@ -227,12 +242,12 @@
 									</div>
 								</div>
 							</div> <!-- end of product -->
-						<?php } ?> <!-- end php -->
+							<?php } ?> <!-- end php -->
 
+						</div>
 					</div>
-				</div>
-			</div> <!-- end container -->
-		</div> <!-- end row -->
-	</div> <!-- end container -->
+				</div> <!-- end container -->
+			</div> <!-- end row -->
+		</div> <!-- end container -->
 
 
