@@ -1,8 +1,10 @@
 <style>
+    /*    
     .container img{
         width: 250px;
         height: 250px;
     }
+    */
     .navbar-fixed-left {
         width: 190px;
         position: fixed;
@@ -101,157 +103,158 @@
     });
 </script>
 
-<body>
-    <!-- Fixed Left Navbar -->
-    <div class="navbar navbar-default navbar-fixed-left">
-        <ul class="nav navbar-nav">
-            <br>
-            <!-- Filter By Departments -->
-            <li class="nav-header">Filter By Departments:</li>
-            <li>
-                <a href="#">Link</a>
-            </li>
-            <li>
-                <a href="#">Link</a>
-            </li>
-            <li>
-                <a href="#">Link</a>
-            </li>
-            <li>
-                <a href="#">Link</a>
-            </li>
-            <br>
 
-            <!-- Filter By Sellers Avg. Rating -->
-            <li class="nav-header">Filter By Seller Avg. Rating:</li>
-            <div class="center">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <small>From:</small>
-                            <input type="text" name="minRating" class="form-control input-number" placeholder="Min">
+<!-- Fixed Left Navbar -->
+<div class="navbar navbar-default navbar-fixed-left">
+    <ul class="nav navbar-nav">
+        <br>
+        <!-- Filter By Departments -->
+        <li class="nav-header">Filter By Departments:</li>
+        <li>
+            <a href="#">Link</a>
+        </li>
+        <li>
+            <a href="#">Link</a>
+        </li>
+        <li>
+            <a href="#">Link</a>
+        </li>
+        <li>
+            <a href="#">Link</a>
+        </li>
+        <br>
 
-                        </div>
+        <!-- Filter By Sellers Avg. Rating -->
+        <li class="nav-header">Filter By Seller Avg. Rating:</li>
+        <div class="center">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <small>From:</small>
+                        <input type="text" name="minRating" class="form-control input-number" placeholder="Min">
+
                     </div>
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <small>To:</small>
-                            <input type="text" name="maxRating" class="form-control input-number" placeholder="Max">
-                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <small>To:</small>
+                        <input type="text" name="maxRating" class="form-control input-number" placeholder="Max">
                     </div>
                 </div>
             </div>
-            <br><br>
+        </div>
+        <br><br>
 
-            <!-- Filter By # of reviews -->
-            <li class="nav-header">Filter By # of Reviews:</li>
-            <div class="center">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <small>From:</small>
-                            <input type="text" name="minreview" class="form-control input-number" placeholder="Min">
+        <!-- Filter By # of reviews -->
+        <li class="nav-header">Filter By # of Reviews:</li>
+        <div class="center">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <small>From:</small>
+                        <input type="text" name="minreview" class="form-control input-number" placeholder="Min">
 
-                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <small>To:</small>
-                            <input type="text" name="maxReview" class="form-control input-number" placeholder="Max">
-                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <small>To:</small>
+                        <input type="text" name="maxReview" class="form-control input-number" placeholder="Max">
                     </div>
                 </div>
             </div>
-        </ul>
-    </div> <!-- end navbar -->
+        </div>
+    </ul>
+</div> <!-- end navbar -->
 
-    <div class="container">
-        <div class="row-fluid">
-            <div class="well">
-                <!-- page title -->
-                <font size="5">Search Results</font>
-                <div class="form-group">
-                    <div class="col-md-7"></div>
-                    <label class="col-md-1 control-label" for="selectbasic">Sort By: </label>
+<div class="container">
+    <div class="row-fluid">
+        <div class="well">
+            <!-- page title -->
+            <font size="5">Search Results</font>
+            <div class="form-group">
+                <div class="col-md-7"></div>
+                <label class="col-md-1 control-label" for="selectbasic">Sort By: </label>
 
-                    <!-- Sort By dropdown menu -->
-                    <div class="col-md-2">
-                        <select id="sortBy" name="sortBy" class="form-control">
-                            <option value="1">Revelance</option>
-                            <option value="2">Price: Low To High</option>
-                            <option value="3">Price: High To Low</option>
-                            <option value="4">Avg. Seller Reivews</option>
-                            <option value="5">Avg. Seller Ratings</option>
-                        </select>
-                    </div>
-
-                    <!-- grid/listing view of products -->
-                    <div class="btn-group col-md-2" style="float: right;">
-                        <a href="#" id="list" class="btn btn-default btn-sm">
-                            <span class="glyphicon glyphicon-th-list"></span>
-                            List
-                        </a> 
-                        <a href="#" id="grid" class="btn btn-default btn-sm">
-                            <span class="glyphicon glyphicon-th"></span>
-                            Grid
-                        </a>
-                    </div>	
+                <!-- Sort By dropdown menu -->
+                <div class="col-md-2">
+                    <select id="sortBy" name="sortBy" class="form-control">
+                        <option value="1">Revelance</option>
+                        <option value="2">Price: Low To High</option>
+                        <option value="3">Price: High To Low</option>
+                        <option value="4">Avg. Seller Reivews</option>
+                        <option value="5">Avg. Seller Ratings</option>
+                    </select>
                 </div>
+
+                <!-- grid/listing view of products -->
+                <div class="btn-group col-md-2" style="float: right;">
+                    <a href="#" id="list" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                        List
+                    </a> 
+                    <a href="#" id="grid" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-th"></span>
+                        Grid
+                    </a>
+                </div>	
             </div>
+        </div>
 
-            <!-- # of results found -->
-            <p><big><strong class="text-danger"><?php echo count($products); ?></strong> results found</big></p>
+        <!-- # of results found -->
+        <p><big><strong class="text-danger"><?php echo count($products); ?></strong> results found</big></p>
 
-            <!-- product Listing -->
-            <div class="container-fluid">
+        <!-- product Listing -->
+        <div class="container-fluid">
+            <div id="products" class="row list-group">
                 <div id="products" class="row list-group">
-                    <div id="products" class="row list-group">
 
-                        <!-- product here -->
-                        <?php foreach ($products as $product) { ?>
-                            <div class="product  col-xs-3 col-lg-3">
-                                <div class="thumbnail">
-                                    <a href="<?php echo URL . "product/index/$product->productID"; ?>">
-                                        <img class="group list-group-image" src="<?php echo $product->imagePath; ?>" alt="Cannot load image." />
-                                    </a>
-                                    <div class="caption">
+                    <!-- product here -->
+                    <?php foreach ($products as $product) { ?>
+                        <div class="product  col-xs-3 col-lg-3">
+                            <div class="thumbnail">
+                                <a href="<?php echo URL . "product/index/$product->productID"; ?>">
+                                    <img class="group list-group-image" src="<?php echo $product->imagePath; ?>" alt="Cannot load image." 
+                                         style="width:250px;height:250px" />
+                                </a>
+                                <div class="caption">
 
-                                        <!-- Product Title -->
-                                        <h4 class="group inner list-group-product-heading">
-                                            <b><?php echo $product->name; ?></b>
-                                        </h4>
+                                    <!-- Product Title -->
+                                    <h4 class="group inner list-group-product-heading">
+                                        <b><?php echo $product->name; ?></b>
+                                    </h4>
 
-                                        <!-- Product price, seller avg. rating, # of reviews --> 
-                                        <p class="group inner list-group-product-text">
-                                            $ <?php echo $product->price; ?>
-                                            <br> 
-                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            <br>
-                                            <sup>(# of Reviews)</sup>                       
-                                        </p>
+                                    <!-- Product price, seller avg. rating, # of reviews --> 
+                                    <p class="group inner list-group-product-text">
+                                        $ <?php echo $product->price; ?>
+                                        <br> 
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <br>
+                                        <sup>(# of Reviews)</sup>                       
+                                    </p>
 
-                                        <!-- Add To Cart/ But It Now button -->
-                                        <div class="row">
-                                            <div class="col-xs-12 col-md-6">
-                                                <a class="btn btn-success" href="#">Add to cart</a>
-                                            </div>
-                                            <div class="col-xs-12 col-md-6">
-                                                <a class="btn btn-success" href="#">Buy Now</a>
-                                            </div>
-                                        </div> <!-- end row -->
-                                    </div>
+                                    <!-- Add To Cart/ But It Now button -->
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-6">
+                                            <a class="btn btn-success" href="#">Add to cart</a>
+                                        </div>
+                                        <div class="col-xs-12 col-md-6">
+                                            <a class="btn btn-success" href="#">Buy Now</a>
+                                        </div>
+                                    </div> <!-- end row -->
                                 </div>
-                            </div> <!-- end of product -->
-                        <?php } ?> <!-- end php -->
+                            </div>
+                        </div> <!-- end of product -->
+                    <?php } ?> <!-- end php -->
 
-                    </div>
                 </div>
-            </div> <!-- end container -->
-        </div> <!-- end row -->
-    </div> <!-- end container -->
+            </div>
+        </div> <!-- end container -->
+    </div> <!-- end row -->
+</div> <!-- end container -->
 
 
