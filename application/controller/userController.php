@@ -9,6 +9,7 @@ class UserController extends Controller
     
     /**
      * PAGE: index
+     * Renders the user's index page
      */
     public function index()
     {
