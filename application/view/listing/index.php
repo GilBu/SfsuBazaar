@@ -1,4 +1,9 @@
 <style>
+
+	.container img{
+      	width: 250px;
+      	height: 250px;
+  	}
 	.navbar-fixed-left {
 		width: 190px;
 		position: fixed;
