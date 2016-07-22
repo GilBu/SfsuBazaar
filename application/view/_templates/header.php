@@ -21,6 +21,15 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-default">
+        
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right">
+                <a href="<?php echo URL; ?>">Login</a>
+                Or
+                <a href="<?php echo URL; ?>" style="padding-right:15px;">Register</a>
+            </ul>
+        </div>
+
         <div class="container-fluid">
 
             <!-- LOGO -->
@@ -30,34 +39,73 @@
             
             <!-- Search Bar -->
             <form class="navbar-form navbar-left" action="<?php echo URL; ?>listing/search" method="POST">
-                <input type="text" name="search-term" value="" required />
-                <input type="submit" name="search" value="Search" />
+                <div class="form-group" style="display:inline;">
+                    <div class="input-group" style="display:table;">
+                        
+                        <!-- Search Bar -->
+                        <input class="form-control" name="search" placeholder="Search Here" autocomplete="off" autofocus="autofocus" type="text">
+                        
+                        <!-- Search Button -->
+                        <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
+                    </div>
+                </div>
             </form>
-            
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active">
-                    <a href="<?php echo URL; ?>">Login</a>
+
+            <div class="navbar-form navbar-right">
+                <a href="<?php echo URL; ?>">Cart</a>
+            </div>           
+        </div>
+
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="dropdown">
+                    <a href="<?php echo URL; ?>" class="dropdown-toggle" data-toggle="dropdown">Departments<b class="caret"></b> </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="row" style="width: 500px;">
+                                <ul class="list-unstyled col-md-4">
+                                    <li>
+                                        <a href="<?php echo URL; ?>" style="padding-left:10px;">test1-1</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo URL; ?>" style="padding-left:10px;">test1-2</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo URL; ?>" style="padding-left:10px;">test1-3</a>
+                                    </li>
+                                </ul>
+                                <ul class="list-unstyled col-md-4">
+                                    <li>
+                                        <a href="<?php echo URL; ?>">test2-1</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo URL; ?>">test2-2</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo URL; ?>">test2-3</a>
+                                    </li>
+                                </ul>
+                                <ul class="list-unstyled col-md-4">
+                                    <li>
+                                        <a href="<?php echo URL; ?>">test3-1</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo URL; ?>">test3-2</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo URL; ?>">test3-3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
-                <li class="active">
-                    <a href="<?php echo URL; ?>">Register</a>
+                <li>
+                    <a href="<?php echo URL; ?>listing/index">Browse</a>
+                </li>
+                <li>
+                    <a href="<?php echo URL; ?>product/newProduct">Add a Product</a>
                 </li>
             </ul>
         </div>
-
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-
-                <ul class="nav navbar-nav navbar-left">
-                    <li class="active">
-                        <a href="<?php echo URL; ?>">Home</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo URL; ?>listing/index">Browse</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo URL; ?>product/newProduct">add a product</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
     </nav>
