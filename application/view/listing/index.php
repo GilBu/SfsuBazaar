@@ -23,8 +23,6 @@
 
 		.product.list-group-product .list-group-image
 		{       
-                        height: 400px;
-                        width: 250px;
 			margin-right: 10px;
 		}
 		.product.list-group-product .thumbnail
