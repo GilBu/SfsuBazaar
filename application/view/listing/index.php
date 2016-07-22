@@ -122,7 +122,7 @@
                 </div>				
             </div>
 
-            <p><big><strong class="text-danger">#</strong> results found</big></p>
+            <p><big><strong class="text-danger"><?php echo count($products); ?></strong> results found</big></p>
 
             <div class="container-fluid">
               <div id="products" class="row list-group">
@@ -131,13 +131,13 @@
                     <?php foreach ($products as  $product) { ?>
                         <div class="product  col-xs-4 col-lg-4">
                             <div class="thumbnail">
-                                <img class="group list-group-image" src="<?php echo $product->imagePath ?>" alt="Cannot load image." />
+                                <img class="group list-group-image" src="<?php echo $product->imagePath; ?>" alt="Cannot load image." />
                                 <div class="caption">
                                     <h4 class="group inner list-group-product-heading">
-                                        <b><?php echo $product->name ?></b>
+                                        <b><?php echo $product->name; ?></b>
                                     </h4>
                                     <p class="group inner list-group-product-text">
-                                        $ <?php echo $product->price ?>
+                                        $ <?php echo $product->price; ?>
                                         <br> 
                                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
