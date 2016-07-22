@@ -106,6 +106,9 @@
                 <li>
                     <a href="<?php echo URL; ?>product/newProduct">Add a Product</a>
                 </li>
+                <li>
+                    <a href="<?php echo URL; ?>user/index">user page</a>
+                </li>
             </ul>
         </div>
     </nav>
