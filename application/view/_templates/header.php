@@ -17,10 +17,16 @@
     <!-- CSS -->
     <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
 </head>
+
+<style>
+    body { 
+        padding-top: 200px; 
+    }
+</style>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
         
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right">
