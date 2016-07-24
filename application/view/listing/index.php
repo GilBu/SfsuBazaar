@@ -234,7 +234,7 @@
 					<div class="product  col-xs-3 col-lg-3">
 						<div class="thumbnail">
 							<a href="<?php echo URL . "product/index/$product->productID"; ?>">
-								<img class="group list-group-image" src="<?php echo $product->imagePath; ?>" alt="Cannot load image." />
+								<img class="group list-group-image" style="width:250px;height:250px src="<?php echo $product->imagePath; ?>" alt="Cannot load image." />
 							</a>
 							<div class="caption">
 
