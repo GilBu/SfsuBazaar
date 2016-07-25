@@ -70,7 +70,7 @@ class Database
 
     public function getUserByID($userID)
     {
-	$sql =  "SELECT * FROM users WHERE " .
+	$sql =  "SELECT * FROM user WHERE " .
 		"userID = :userID LIMIT 1";
 	$query = $this->db->prepare($sql);
 	$params = array(':userID'	=> $userID);
@@ -85,7 +85,7 @@ class Database
 	//TODO: This is a temporary model of how this could work.
 	//      Needs a permanent solution.
 
-	$sql = 	"UPDATE song SET " .
+	$sql = 	"UPDATE user SET " .
 		"firstName = :firstName, lastName = :lastName," .
 		"password = :password, email = :email," .
 		"imagePath = :imagePath" .
