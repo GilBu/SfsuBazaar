@@ -82,17 +82,18 @@
                                     </div>
 
                                     <!-- Search Bar --> 
-                                    <input class="form-control" name="search" placeholder="Search Here" autocomplete="off" autofocus="autofocus" type="text">
+                                     <input class="form-control" type="text" name="search-term" value="" required />
+                              
 
                                     <!-- Search Button -->
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
+                                        <button class="btn btn-default" type="submit" name="search" value="Search">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
                                     </span>
                                 </div>
                             </div>
-                        </form>
+                       </form>
                     </div>
                 </div>
             </div>
