@@ -193,6 +193,18 @@ class Database
         return $query->fetch();
     }
     
+    /**
+     * @return a random product object
+     */
+    public function getRandomProduct()
+    {
+        $sql = "SELECT productID FROM product ORDER BY RAND() LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch();
+    }
+    
      /**
      * Delete the product with the giving id
      * @param int $id
