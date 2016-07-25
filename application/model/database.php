@@ -103,7 +103,7 @@ class Database
 
     public function deleteUserByID($userID)
     {
-	$sql =  "DELETE FROM users WHERE userID = :userID";
+	$sql =  "DELETE FROM user WHERE userID = :userID";
 	$query = $this->db->prepare($sql);
 	$params = array(':userID' => $userID);
 
