@@ -5,6 +5,7 @@ class Controller
     
     function __construct()
     {   
+        require APP . 'model/user.php';
         require APP . 'model/product.php';
         require APP . 'model/database.php';
     }
