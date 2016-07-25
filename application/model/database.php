@@ -127,9 +127,9 @@ class Database
 		$query = $this->db->prepare($sql);
 		$param = array(	':status' 	   => $meetup->status,
 				':sellerID'	   => $meetup->sellerID,
-				':dateOfMeetup	   => $meetup->dateOfMeetup,
-				':timeOfMeetup	   => $meetup->timeOfMeetup,
-				':locationOfMeetup => $meetup->locationOfMeetup	);
+				':dateOfMeetup'	   => $meetup->dateOfMeetup,
+				':timeOfMeetup'	   => $meetup->timeOfMeetup,
+				':locationOfMeetup' => $meetup->locationOfMeetup	);
 		$query->execute($param);
 	}
 
