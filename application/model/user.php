@@ -2,16 +2,16 @@
 
 class User
 {
-	private $userID;
-	private $firstName;
-	private $lastName;
-	private $password;
-	private $email;
-	private $imagePath;
-	private $rating;
-	private $dateOfAccountCreation;
-	private $dateOfLastAccountUpdate;
-	private $isActive;
+	private $userID = null;
+	private $firstName = null;
+	private $lastName = null;
+	private $password = null;
+	private $email = null;
+	private $imagePath = null;
+	private $rating = null;
+	private $dateOfAccountCreation = null;
+	private $dateOfLastAccountUpdate = null;
+	private $isActive = null;
 
 	public function __construct(	$firstName, $lastName, $password,
 					$email,	$imagePath	)

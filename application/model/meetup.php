@@ -29,7 +29,7 @@
 		return Database::getInstance()->addMeetup($this);
 	}
 
-	public function get($meetID)
+	public static function get($meetID)
 	{
 		return Database::getInstance()->getMeetupByID($meetID);
 	}
