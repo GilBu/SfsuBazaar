@@ -234,7 +234,35 @@ class Database
         $query->execute($param);
     }
     
-    
+         /************************ Reveiw queries ************************************/
+
+    public function addReview($reviewerID, $userID, $raiting, $comment)
+    {
+        $sql =  "INSERT INTO review " .
+                "(reviewerID, userID, raiting, comment)" .
+                "VALUES " .
+                "(:reviewerID, :userID, :raiting, :comment)";
+        $query = $this->db->prepare($sql);
+        $param = array( ':reviewerID'   => $reviewerID,
+                        ':userID'       => $userID,
+                        ':raiting'      => $raiting,
+                        ':comment'      => $comment);
+
+        $query->execute($param);
+    }
+
+    public function getReviewByID($reviewID)
+    {
+        $sql =  "SELECT " .
+                "reviewID" .
+                "FROM review WHERE " .
+                "reviewID = :reviewID LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $params = array(':reviewID'     => $reviewID);
+
+        $query->execute($params);
+    }
+
     
     
     
