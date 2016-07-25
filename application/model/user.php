@@ -13,8 +13,6 @@ class User
 	private $dateOfLastAccountUpdate;
 	private $isActive;
 
-	private static $tableName = 'users';
-
 	public function __construct(	$firstName, $lastName, $password,
 					$email,	$imagePath	)
 	{
@@ -25,29 +23,23 @@ class User
 		$this->imagePath	= $imagePath;
 	}
 
-	public function create($user)
+	public function create()
 	{
-		return Database::getInstance()->
-			addUser(	$firstName, $lastName, $password,
-					$email,	$imagePath	);
+		return Database::getInstance()->addUser($this);
 	}
 
-	public function get()
+	public function get($userID)
 	{
-		return Database::getInstance()->
-			getUserByID(	$userID	);
+		return Database::getInstance()->getUserByID($userID);
 	}
 
 	public function update()
 	{
-		return Database::getInstance()->
-			updateUser(	$firstName, $lastName, $password,
-					$email, $imagePath, $userID	);
+		// TODO: Needs an actual schema for updating.
 	}
 
-	public function delete()
+	public function delete($userID)
 	{
-		return Database::getInstance()->
-			deleteUser(	$userID	);
+		return Database::getInstance()->deleteUserByID($userID);
 	}
 }
