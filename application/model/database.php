@@ -52,37 +52,39 @@ class Database
     
     /************************ User queries ************************************/
     
-    public function addUser($firstName, $lastName, $password, $email, $imagePath)
+    public function addUser($user)
     {
 	$sql =  "INSERT INTO user " .
 		"(firstName, lastName, password, email, imagePath)" .
 		"VALUES " .
 		"(:firstName, :lastName, :password, :email, :imagePath)";
 	$query = $this->db->prepare($sql);
-	$param = array(	':firstName' 	=> $firstName,
-			':lastName' 	=> $lastName,
-			':password'	=> $password,
-			':email' 	=> $email,
-			':imagePath'	=> $imagePath	);
+	$param = array(	':firstName' 	=> $user->$firstName,
+			':lastName' 	=> $user->$lastName,
+			':password'	=> $user->$password,
+			':email' 	=> $user->$email,
+			':imagePath'	=> $user->$imagePath	);
 
 	$query->execute($param);
     }
 
     public function getUserByID($userID)
     {
-	$sql =  "SELECT " .
-		"userID" .
-		"FROM users WHERE " .
+	$sql =  "SELECT * FROM users WHERE " .
 		"userID = :userID LIMIT 1";
 	$query = $this->db->prepare($sql);
 	$params = array(':userID'	=> $userID);
-
 	$query->execute($params);
+
+	return $query->fetch();
     }
 
     public function updateUser(	$firstName, $lastName, $password,
 				$email, $imagePath, $userID	)
     {
+	//TODO: This is a temporary model of how this could work.
+	//      Needs a permanent solution.
+
 	$sql = 	"UPDATE song SET " .
 		"firstName = :firstName, lastName = :lastName," .
 		"password = :password, email = :email," .
@@ -99,7 +101,7 @@ class Database
 	$query->execute($params);
     }
 
-    public function deleteUser($userID)
+    public function deleteUserByID($userID)
     {
 	$sql =  "DELETE FROM users WHERE userID = :userID";
 	$query = $this->db->prepare($sql);
@@ -107,11 +109,48 @@ class Database
 
 	$query->execute($params);
     }
-    
-    
-    
-    
-    
+
+    /************************ Meetup queries **********************************/
+    /**
+	Gets all data of the meetup table from he database
+	@return Array of meetup objects
+     */
+
+	public function addMeetup($meetup)
+	{
+		$sql =  "INSERT INTO meetup " .
+			"(status, sellerID, " .
+			"dateOfMeetup, timeOfMeetup, locationOfMeetup)" .
+			"VALUES " .
+			"(:status, :sellerID, " .
+			":dateOfMeetup, :timeOfMeetup, :locationOfMeetup)";
+		$query = $this->db->prepare($sql);
+		$param = array(	':status' 	   => $meetup->status,
+				':sellerID'	   => $meetup->sellerID,
+				':dateOfMeetup	   => $meetup->dateOfMeetup,
+				':timeOfMeetup	   => $meetup->timeOfMeetup,
+				':locationOfMeetup => $meetup->locationOfMeetup	);
+		$query->execute($param);
+	}
+
+	public function getMeetupByID($meetID)
+	{
+		$sql = "SELECT * FROM meetup WHERE meetID = :meetID LIMIT 1";
+		$query = $this->db->prepare($sql);
+		$param = array(':meetID' => $meetID);
+		$query->execute($param);
+
+		return $query->fetch();
+	}
+
+	public function deleteMeetupByID($meetID)
+	{
+		$sql = "DELETE * FROM meetup WHERE meetID = :meetID");
+		$query = $this->db->prepare($sql);
+		$param = array(':meetID' => $meetID);
+		$query->execute($param);
+	}
+
     /************************ Product queries *********************************/
     
      /**
