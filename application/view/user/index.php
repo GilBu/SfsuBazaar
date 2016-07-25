@@ -11,11 +11,13 @@
         <table style="width:50%">
             <tr>
                 <th>USERNAME:</th> 
-                <td>username</td>
+                <!-- <td>username</td> -->
+                <td><?php echo "$user->firstName $user->lastName"; ?></td>
             </tr>
             <tr>
                 <th>EMAIL:</th> 
-                <td>username@mail.sfsu.edu</td>
+                <!-- <td>username@mail.sfsu.edu</td> -->
+                <td><?php echo "$user->email"; ?></td>
             </tr>
             <tr>
                 <th>SALE RATING:</th>
