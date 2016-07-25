@@ -28,7 +28,7 @@ class User
 		return Database::getInstance()->addUser($this);
 	}
 
-	public function get($userID)
+	public static function get($userID)
 	{
 		return Database::getInstance()->getUserByID($userID);
 	}
@@ -38,7 +38,7 @@ class User
 		// TODO: Needs an actual schema for updating.
 	}
 
-	public function delete($userID)
+	public static function delete($userID)
 	{
 		return Database::getInstance()->deleteUserByID($userID);
 	}
