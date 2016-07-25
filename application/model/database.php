@@ -145,7 +145,7 @@ class Database
 
 	public function deleteMeetupByID($meetID)
 	{
-		$sql = "DELETE * FROM meetup WHERE meetID = :meetID");
+		$sql = "DELETE * FROM meetup WHERE meetID = :meetID";
 		$query = $this->db->prepare($sql);
 		$param = array(':meetID' => $meetID);
 		$query->execute($param);
