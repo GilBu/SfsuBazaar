@@ -180,6 +180,34 @@ class Database
     }
     
     /**
+     * With the given tag(department) and keyword(search term), returns a list of products with
+     * the given tag and and a name similar the keyword, and then products without the same keyword
+     * that have a name similar to the keyword.
+     * @param $tag is the department
+     * @param $keyword is the search term
+     * @return a list of products
+     */
+    public function getProductsWithTags($tag, $keyword)
+    {
+        $sql = "Select * from product p where p.tags = '%:$tag%' AND p.name like '%$keyword%'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        $result = $query->fetchAll();
+        $sql = "Select * 
+                from product p
+                where p.name like '%%' and p.productID not in (
+                	select s.productID
+                	from product s 
+                	where s.tags = '')";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        $result += $query->fetchAll();
+
+        return $result;
+    }
+    
+    /**
      * Get the product with the giving id
      * @param int $id
      */
