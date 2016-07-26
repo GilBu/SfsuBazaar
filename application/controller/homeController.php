@@ -15,7 +15,9 @@ class HomeController extends Controller
      * This method handles what happens when you move to http://yourproject/home/index (which is the default page btw)
      */
     public function index()
-    {
+    {   
+        $featuredProducts = Product::all();
+        
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/index.php';
