@@ -49,7 +49,7 @@
             <div class="row-fluid">
                 <!-- LOGO -->
                 <div class="col-md-1">
-                    <a class="navbar-brand" href="#">SFSU Bazaar</a>
+                    <a class="navbar-brand" href="<?php echo URL; ?>listing/index">SFSU Bazaar</a>
                 </div>
 
                 <div class="col-md-11">
