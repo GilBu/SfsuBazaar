@@ -101,16 +101,17 @@ class ProductController extends Controller
      */
     private function processUploadedImage($name)
     {   
+        $rootDir = "/SfsuBazaar";
         $imagePath = "";
-        $imageDir = '../public/img/';
+        $imageDir = '/public/img/';
         $tmpPath = $_FILES["$name"]['tmp_name'];
         
         if (is_uploaded_file($tmpPath))
         { 
             $imagePath = $imageDir . $_FILES["$name"]['name'];
-            move_uploaded_file($tmpPath, $imagePath);
+            move_uploaded_file($tmpPath, '../' . $imagePath);
         }
         
-        return $imagePath;
+        return $rootDir . $imagePath;
     }
 }
