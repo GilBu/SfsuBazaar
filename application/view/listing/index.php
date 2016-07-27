@@ -194,12 +194,15 @@
 
 								<!-- Product price, seller avg. rating, # of reviews --> 
 								<p class="group inner">
-									$ <?php echo $product->price; ?>
-									<br> 
-									<split><span class="glyphicon glyphicon-thumbs-up"></span> : %%</split>
-									<split><span class="glyphicon glyphicon-thumbs-down"></span>: %%</split>
+								
+									By: ????????? <br>
+			                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
+			                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
 									<br>
-									<sup>(# of Reviews)</sup>                       
+
+									<sup>(# of Reviews)</sup>  
+									<h4> $ <?php echo $product->price; ?> <h4>
+									                    
 								</p>
 
 								<!-- Add To Cart/ But It Now button -->
