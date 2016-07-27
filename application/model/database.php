@@ -189,17 +189,17 @@ class Database
      */
     public function getProductsWithTags($tag, $keyword)
     {
-        $sql = "Select * from product p where p.tags = '%:$tag%' AND p.name like '%$keyword%'";
+        $sql = "Select * from product p where p.tags like '$tag' AND p.name like '%$keyword%'";
         $query = $this->db->prepare($sql);
         $query->execute();
 
         $result = $query->fetchAll();
         $sql = "Select * 
                 from product p
-                where p.name like '%%' and p.productID not in (
+                where p.name like '%$keyword%' and p.productID not in (
                 	select s.productID
                 	from product s 
-                	where s.tags = '')";
+                	where s.tags like '$tag')";
         $query = $this->db->prepare($sql);
         $query->execute();
         $result += $query->fetchAll();
