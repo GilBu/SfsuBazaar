@@ -1,7 +1,16 @@
 <style>
 
+    .product-img{
+        width: 400px;
+        height: 400px;
+    }
+
     .add-to-cart .btn-qty {
         width: 52px;
+        height: 46px;
+    }
+
+    .add-to-cart .btn-size {
         height: 46px;
     }
 
@@ -9,17 +18,113 @@
         border-radius: 0; 
     }
 
-    .monospaced { 
-        font-family: 'Ubuntu Mono', monospaced ; 
+    .divider {
+        height: 1px;
+        width:100%;
+        display:block; /* for use on default inline elements like span */
+        margin: 9px 0;
+        overflow: hidden;
+        background-color: #e5e5e5;
     }
 </style>
+
+<!-- change quantity script -->
+<script>
+
+    $(document).ready(function () {
+        $('.btn-number').click(function (e) {
+            e.preventDefault();
+
+            var fieldName = $(this).attr('data-field');
+            var type = $(this).attr('data-type');
+            var input = $("input[name='" + fieldName + "']");
+            var currentVal = parseInt(input.val());
+            if (!isNaN(currentVal)) {
+                if (type == 'minus') {
+                    var minValue = parseInt(input.attr('min'));
+                    if (!minValue)
+                        minValue = 1;
+                    if (currentVal > minValue) {
+                        input.val(currentVal - 1).change();
+                    }
+                    if (parseInt(input.val()) == minValue) {
+                        $(this).attr('disabled', true);
+                    }
+
+                } else if (type == 'plus') {
+                    var maxValue = parseInt(input.attr('max'));
+                    if (!maxValue)
+                        maxValue = 9999999999999;
+                    if (currentVal < maxValue) {
+                        input.val(currentVal + 1).change();
+                    }
+                    if (parseInt(input.val()) == maxValue) {
+                        $(this).attr('disabled', true);
+                    }
+
+                }
+            } else {
+                input.val(0);
+            }
+        });
+
+        $('.input-number').focusin(function () {
+            $(this).data('oldValue', $(this).val());
+        });
+
+        $('.input-number').change(function () {
+
+            var minValue = parseInt($(this).attr('min'));
+            var maxValue = parseInt($(this).attr('max'));
+            if (!minValue)
+                minValue = 1;
+            if (!maxValue)
+                maxValue = 9999999999999;
+            var valueCurrent = parseInt($(this).val());
+
+            var name = $(this).attr('name');
+            if (valueCurrent >= minValue) {
+                $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the minimum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+            if (valueCurrent <= maxValue) {
+                $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the maximum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+
+
+        });
+
+        // Allows key press functions
+        $(".input-number").keydown(function (e) {
+            // Allows backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+                    // Allows Ctrl+A
+                            (e.keyCode == 65 && e.ctrlKey === true) ||
+                            // Allows home, end, left, right
+                                    (e.keyCode >= 35 && e.keyCode <= 39)) {
+                        // let it happen, don't do anything
+                        return;
+                    }
+                    // Ensure that it is a number and stop the keypress
+                    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                        e.preventDefault();
+                    }
+                });
+    });
+
+</script>
 
 <div class="container" id="product-section">
     <div class="row">
 
         <!-- product image -->
         <div class="col-md-5">
-            <img src="../../<?php echo $product->imagePath; ?>" class="image-responsive"/>
+            <img src="../../<?php echo $product->imagePath; ?>" class="image-responsive product-img"/>
         </div>
 
         <!-- product data -->
@@ -34,9 +139,9 @@
                 <!-- product seller and profile link -->
                 <div class="row">
                     <div class="col-md-12">
-                        <span>By </span>
+                        <span>By: </span>
                         <span>
-                            <a class="monospaced" href="#">USERNAME</a>
+                            <a href="<?php echo URL; ?>">USERNAME</a>
                         </span>
                     </div>
                 </div><!-- end row -->
@@ -69,11 +174,11 @@
                     </div>
                 </div><!-- end row -->
 
-                <!-- product condition -->
+                <!-- sellers schedule -->
                 <div class="row">
                     <div class="col-md-12 bottom-rule">
                         <h3 class="product-price">Schedule: </h3>
-                        <p>Day: S M T W Th F Sa</p>
+                        <p>Day: Su M T W Th F S</p>
                         <p>Time:  0:00 to 0:00</p>
                         <p>Location: </p>
                     </div>
@@ -84,27 +189,29 @@
                 <div class="row add-to-cart">
                     <!-- change quantity -->
                     <div class="col-md-4 product-qty">
-                        <span class="btn btn-default btn-lg btn-qty">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        </span>
 
-                        <input class="btn btn-default btn-lg btn-qty" value="1" />
-
-                        <span class="btn btn-default btn-lg btn-qty">
+                        <!-- minus button -->
+                        <button type="button" class="btn btn-number btn-default btn-lg btn-qty" data-type="minus" data-field="quant[2]">
                             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-                        </span>
+                        </button>
+
+                        <!-- quantity input box -->
+                        <input class="btn btn-default btn-lg btn-qty form-control input-number" type="text" name="quant[2]" value="1" min="1" max="10" />
+
+                        <!-- plus button -->
+                        <button type="button" class="btn btn-number btn-default btn-lg btn-qty" data-type="plus" data-field="quant[2]">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </button>
+
                     </div>
                     <!-- add to cart button -->
                     <div class="col-md-4">
-                        <button class="btn btn-lg btn-brand btn-full-width">
-                            Add to Cart
-                        </button>
+                        <input type="submit" class="btn btn-lg btn-brand btn-full-width btn-size" value="Add To Cart">
+
                     </div>
                     <!-- buy it now -->
                     <div class="col-md-4">
-                        <button class="btn btn-lg btn-brand btn-full-width">
-                            Buy it Now
-                        </button>
+                        <input type="submit" class="btn btn-lg btn-brand btn-full-width btn-size" value="Buy it Now">
                     </div>
                 </div><!-- end row -->
 
@@ -114,75 +221,40 @@
             </div><!-- end row -->
         </div>
     </div><!-- end container -->
-    <div class="container">
-        <div class="row">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active">
-                    <a href="#description"
-                    aria-controls="description"
-                    role="tab"
-                    data-toggle="tab"
-                    >Description</a>
-                </li>
-                <li role="presentation">
-                    <a href="#features"
-                    aria-controls="features"
-                    role="tab"
-                    data-toggle="tab"
-                    >Features</a>
-                </li>
-                <li role="presentation">
-                    <a href="#notes"
-                    aria-controls="notes"
-                    role="tab"
-                    data-toggle="tab"
-                    >Notes</a>
-                </li>
-                <li role="presentation">
-                    <a href="#reviews"
-                    aria-controls="reviews"
-                    role="tab"
-                    data-toggle="tab"
-                    >Reviews</a>
-                </li>
-            </ul>
 
+    <li class="divider"></li>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <!-- Nav tabs -->
+            <h4><u>Description:</u></h4>
+            <br>
             <!-- Tab panes -->
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="description">
-                    <p class="top-10">
-                        Description :
-                        <?php echo $product->description; ?> 
-                    </p>
-                </div>
-                <div role="tabpanel" class="tab-pane top-10" id="features">
-                    <p class="top-10">
-                        Features:
-                        Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah 
-                    </p>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="notes">
-                    <p class="top-10">
-                        Notes:
-                        Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah 
-                    </p>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="reviews">
-                    <p class="top-10">
-                        Reviews:
-                        Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah 
-                    </p>
-                </div>
+            <div role="tabpanel" class="tab-pane active" id="description">
+                <p class="top-10">
+                    <?php echo $product->description; ?> 
+                </p>
             </div>
+
+            <br>
         </div>
     </div>
+
+    <li class="divider"></li>
 
     <!-- Similar Products -->
     <div class="container-fluid">  
         <div class="row-fluid">
-            <br><br>
-            <h4>Similar Products:</h4> 
+            <br>
+
+            <h4><u>Similar Products:</u></h4> 
+
+            <!-- see more related products in listing -->
+            <div align="right">
+                <small><a href="<?php echo URL; ?>">(see more)</a></small>
+            </div>
+
+            <br>
 
             <!-- Product -->
             <div class="col-sm-5 col-md-2 ">
@@ -301,6 +373,7 @@
                     <input type="submit" class="btn btn-info" value="Buy It Now"> 
                 </a>
             </div>
-        </div>
+        </div> <!-- end of row -->
+
     </div>
 </div>
