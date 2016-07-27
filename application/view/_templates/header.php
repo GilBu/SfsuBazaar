@@ -149,7 +149,7 @@
                         <li class="dropdown">
                             <a href="<?php echo URL; ?>" class="dropdown-toggle" data-toggle="dropdown">        Departments<b class="caret"></b> 
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu scrollable-menu">
                                 <li>
                                     <div class="row" style="width: 300px;">
                                         <ul class="list-unstyled col-md-12">
