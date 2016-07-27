@@ -233,6 +233,18 @@ class Database
         return $query->fetch();
     }
     
+    /**
+     * @return a list of random products
+     */
+    public function getProductsAtRandom()
+    {
+        $sql = "SELECT prouctID FROM product ORDER BY RAND() LIMIT 10;";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch();
+    }
+    
      /**
      * Delete the product with the giving id
      * @param int $id
