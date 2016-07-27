@@ -25,9 +25,16 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+    
     .product-summary {
         font-size: 75%;
         width: 100px;	
+    }
+
+    .txt-overflow-hidden {
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
     }
 
 </style>
@@ -90,13 +97,15 @@
             <div class="col-sm-5 col-md-2 ">
                 <a href="product/index/<?php echo $featuredProducts[$i]->productID; ?>" > 
                     <img src="<?php echo $featuredProducts[$i]->imagePath; ?>" alt="Cannot load image." style="width:100px;height:100px">
-                    <p class="product-summary">
+                    <p class="product-summary inner txt-overflow-hidden">
                         <?php echo $featuredProducts[$i]->name; ?> <br>
-                        <?php echo $featuredProducts[$i]->price; ?> <br>
-                        Avg. Rating <br>
-                        # of Reviews <br>
+                        $ <?php echo $featuredProducts[$i]->price; ?> <br>
+                        <split><span class="glyphicon glyphicon-thumbs-up"></span> : %%</split>
+                        <split><span class="glyphicon glyphicon-thumbs-down"></span>: %%</split> <br>
+                        (# of Reviews) <br>
                     </p>  
                     <input type="submit" class="btn btn-info" value="Add To Cart">    
+                    <input type="submit" class="btn btn-info" value="Buy It Now">    
                 </a>
             </div>
         <?php } ?>
