@@ -100,8 +100,8 @@
                     <p class="product-summary inner txt-overflow-hidden">
                         <?php echo $featuredProducts[$i]->name; ?> <br>
                         $ <?php echo $featuredProducts[$i]->price; ?> <br>
-                        <split><span class="glyphicon glyphicon-thumbs-up"></span> : %%</split>
-                        <split><span class="glyphicon glyphicon-thumbs-down"></span>: %%</split> <br>
+                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
+                        <span class="glyphicon glyphicon-thumbs-down"> %%</span>  <br>
                         (# of Reviews) <br>
                     </p>  
                     <input type="submit" class="btn btn-info" value="Add To Cart">    
