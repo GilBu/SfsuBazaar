@@ -153,11 +153,11 @@
 				</div>
 				<div class="navbar-collapse collapse">
 					<div class="col-md-2">
-						<label for="selectbasic"><small>Sort By: </small></label>
+						<label for="selectbasic"><small>Sort By:</small></label>
 					</div>
 
 					<!-- Sort By dropdown menu -->
-					<div class="col-md-6">
+					<div class="col-md-10">
 						<select id="sortBy" name="sortBy" class="form-control">
 							<option value="1">Revelance</option>
 							<option value="2">Price: Low To High</option>
@@ -194,7 +194,7 @@
 
 								<!-- Product price, seller avg. rating, # of reviews --> 
 								<p class="group inner">
-								
+
 									By: ????????? <br>
 			                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
 			                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
