@@ -86,7 +86,7 @@
 <div class="container-fluid">  
     <div class="row-fluid">
         <h2>Featured:</h2>     
-        <?php for ($i = 4, $size = count($featuredProducts); ($i < 6 && $i < $size); $i++) { ?>
+        <?php for ($i = 4, $size = count($featuredProducts); ($i < 4 + 6 && $i < $size); $i++) { ?>
             <div class="col-sm-5 col-md-2 ">
                 <a href="product/index/<?php echo $featuredProducts[$i]->productID; ?>" > 
                     <img src="<?php echo $featuredProducts[$i]->imagePath; ?>" alt="Cannot load image." style="width:100px;height:100px">
