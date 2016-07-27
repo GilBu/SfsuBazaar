@@ -1,4 +1,6 @@
 <?php
+
+class Meetup
 {
 	// properties the database will manage
 	private $meetID = null;
