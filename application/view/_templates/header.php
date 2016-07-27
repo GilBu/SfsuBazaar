@@ -28,9 +28,9 @@
     }
 
     .scrollable-menu {
-    height: auto;
-    max-height: 500px;
-    overflow-x: hidden;
+        height: auto;
+        max-height: 500px;
+        overflow-x: hidden;
     }
 
 </style>
@@ -56,7 +56,7 @@
             <div class="row-fluid">
                 <!-- LOGO -->
                 <div class="col-md-1">
-                    <a class="navbar-brand" href="<?php echo URL; ?>listing/index">SFSU Bazaar</a>
+                    <a class="navbar-brand" href="<?php echo URL; ?>home/index">SFSU Bazaar</a>
                 </div>
 
                 <div class="col-md-11">
