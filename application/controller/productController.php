@@ -47,7 +47,7 @@ class ProductController extends Controller
         }
         
         // redirect to listing/index page
-        //header('location: ' . URL . 'listing/index');
+        header('location: ' . URL . 'listing/index');
     }
     
     
@@ -115,6 +115,6 @@ class ProductController extends Controller
             move_uploaded_file($tmpPath, $absolutePath);
         }
         
-        return strstr($absolutePath,'public');
+        return strstr($absolutePath,'public/img');
     }
 }
