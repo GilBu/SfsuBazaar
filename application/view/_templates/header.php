@@ -26,6 +26,13 @@
     .search-bar {
             padding-top: 10px; 
     }
+
+    .scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+    }
+
 </style>
     
     <script>
@@ -69,10 +76,15 @@
                                 <div class="input-group" style="display:table;">
 
                                     <div class="input-group-btn search-panel">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">All Departments <span class="caret"></span></button>
+                                        <ul class="dropdown-menu scrollable-menu" role="menu">
+
+                                    <!-- <div class="input-group-btn search-panel">
                                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                             <span id="search_concept">All</span> <span class="caret"></span>
                                         </button>
-                                        <ul class="dropdown-menu" role="menu">
+                                        <ul class="dropdown-menu" role="menu"> -->
+                                        
                                             <li class="active"><a href="#all">All Departments</a></li>
                                             <li><a href="#appliances">Appliances</a></li>
                                             <li><a href="#arts-crafts">Arts, Crafts & Sewing</a></li>
