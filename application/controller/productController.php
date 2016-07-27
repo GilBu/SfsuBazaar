@@ -47,7 +47,7 @@ class ProductController extends Controller
         }
         
         // redirect to listing/index page
-        header('location: ' . URL . 'listing/index');
+        //header('location: ' . URL . 'listing/index');
     }
     
     
@@ -97,21 +97,24 @@ class ProductController extends Controller
      * ACTION HEPLER: processUploadedImage
      * Get the uploaded image and move to the img directory
      * @param string $name name of (HTML)field
-     * @return string Path of the image
+     * @return string Path of the image upto the public directory
      */
     private function processUploadedImage($name)
     {   
-        $rootDir = "/SfsuBazaar";
-        $imagePath = "";
-        $imageDir = '/public/img/';
+        $absolutePath = "";
+        
+        // realpath will return the public directory dynamically 
+        // i.e. blablabla/SfsuBazaar/public/
+        $imageDir = realpath('') . '/img/';
+        
         $tmpPath = $_FILES["$name"]['tmp_name'];
         
         if (is_uploaded_file($tmpPath))
         { 
-            $imagePath = $imageDir . $_FILES["$name"]['name'];
-            move_uploaded_file($tmpPath, '../' . $imagePath);
+            $absolutePath = $imageDir . $_FILES["$name"]['name'];
+            move_uploaded_file($tmpPath, $absolutePath);
         }
         
-        return $rootDir . $imagePath;
+        return strstr($absolutePath,'public');
     }
 }

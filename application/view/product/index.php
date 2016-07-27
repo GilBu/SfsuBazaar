@@ -19,7 +19,7 @@
 
         <!-- product image -->
         <div class="col-md-5">
-            <img src="<?php echo $product->imagePath; ?>" class="image-responsive"/>
+            <img src="../../<?php echo $product->imagePath; ?>" class="image-responsive"/>
         </div>
 
         <!-- product data -->
