@@ -1,8 +1,4 @@
 	<style>
-		.container img{
-			width: 250px;
-			height: 250px;
-		}
 
 		.navbar-fixed-left {
 			width: 190px;
@@ -183,7 +179,7 @@
 					<li class="col-xs-3 col-lg-3">
 						<div class="thumbnail">
 							<a href="<?php echo URL . "product/index/$product->productID"; ?>">
-								<img class="group" style="width:250px height:250px" src="../<?php echo $product->imagePath; ?>" alt="Cannot load image." />
+								<img class="group" style="width:250px; height:250px;" src="../<?php echo $product->imagePath; ?>" alt="Cannot load image." />
 							</a>
 							<div class="caption">
 
