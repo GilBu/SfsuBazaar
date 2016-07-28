@@ -44,11 +44,17 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name">Quality:</label>
 				<div class="col-sm-10">        
-					<select id="quality" name="quality" class="form-control product-type">
-						<option value="0">-Select One-</option>
-						<option value="1">Great</option>
-						<option value="2">Good</option>
-						<option value="3">Bad</option>
+					<select id="quality" name="quality" class="form-control product-type" required>
+						<option value="">-Select One-</option>
+						<option value="New">New</option>
+                                                <option value="Refurbished">Refurbished</option>
+						<option value="Used - Like New">Used - Like New</option>
+						<option value="Used - Very Good">Used - Very Good</option>
+                                                <option value="Used - Good">Used - Good</option>
+                                                <option value="Used - Acceptable">Used - Acceptable</option>
+                                                <option value="Used - Poor">Used - Poor</option>
+                                                <option value="Used - Very Poor">Used - Very Poor</option>
+                                                <option value="Used - Unusable">Used - Unusable</option>
 					</select>
 				</div>
 			</div>
