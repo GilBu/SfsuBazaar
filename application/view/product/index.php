@@ -149,12 +149,9 @@
                 <!-- product/seller rating -->
                 <div class="row">
                     <div class="col-md-5">
-                        <span class="sr-only">Four out of Five Stars</span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                        Sellers Rating: 
+                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
+                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
                         <p>(# number of Reviews)</p>
                     </div>
                 </div>
@@ -268,11 +265,8 @@
                     <p class="product-summary">
                         Name <br>
                         Price <br>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
+                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
                         <br>
                         <sup>(# of Reviews)</sup> 
                     </p>  
@@ -289,11 +283,8 @@
                     <p class="product-summary">
                         Name <br>
                         Price <br>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
+                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
                         <br>
                         <sup>(# of Reviews)</sup> 
                     </p>  
@@ -307,11 +298,8 @@
                     <p class="product-summary">
                         Name <br>
                         Price <br>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
+                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
                         <br>
                         <sup>(# of Reviews)</sup> 
                     </p>  
@@ -325,11 +313,8 @@
                     <p class="product-summary">
                         Name <br>
                         Price <br>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
+                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
                         <br>
                         <sup>(# of Reviews)</sup> 
                     </p>  
@@ -343,11 +328,8 @@
                     <p class="product-summary">
                         Name <br>
                         Price <br>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
+                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
                         <br>
                         <sup>(# of Reviews)</sup> 
                     </p>  
@@ -361,11 +343,8 @@
                     <p class="product-summary">
                         Name <br>
                         Price <br>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
+                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
                         <br>
                         <sup>(# of Reviews)</sup> 
                     </p> 
