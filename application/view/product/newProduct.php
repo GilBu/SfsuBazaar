@@ -142,7 +142,7 @@
 				<label class="control-label col-sm-2" for="name">Time Available:</label>
 				<div class="col-sm-10"> 
 					<span>From: </span>       
-					<select id="quality" name="quality" class="product-type">
+					<select id="startTime" name="startTime" class="product-type">
 						<option value="0">-Select One-</option>
 						<option value="1">7:00 am</option>
 						<option value="2">8:00 am</option>
@@ -161,7 +161,7 @@
 						<option value="15">9:00 pm</option>
 					</select>   
 					<span>To: </span>     
-					<select id="quality" name="quality" class="product-type">
+					<select id="endTime" name="endTime" class="product-type">
 						<option value="0">-Select One-</option>
 						<option value="1">7:00 am</option>
 						<option value="2">8:00 am</option>
@@ -186,7 +186,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name">Choose a Location To Meet Up:</label>
 				<div class="col-sm-10">       
-					<select id="quality" name="quality" class="form-control product-type">
+					<select id="locaiton" name="location" class="form-control product-type">
 						<option value="0">-Select One-</option>
 						<option value="1">Library Entrance</option>
 						<option value="2">Bookstore Entrance</option>
@@ -202,7 +202,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name">Tags:</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="tags" value="" data-role="tagsinput" required id="tags" placeholder="Enter Tags"/>
+					<input type="text" class="form-control" name="tags" value="" data-role="tagsinput" id="tags" placeholder="Enter Tags"/>
 				</div>
 			</div>
 
