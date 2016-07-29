@@ -1,31 +1,22 @@
 <style>
 
     .product-img{
-        width: 400px;
-        height: 400px;
+        width: 600px;
+        height: 600px;
     }
-
-    .add-to-cart .btn-qty {
+    .btn-qty {
         width: 52px;
         height: 46px;
     }
 
-    .add-to-cart .btn-size {
+    .btn-size {
         height: 46px;
     }
 
-    .add-to-cart .btn { 
+    .btn { 
         border-radius: 0; 
     }
 
-    .divider {
-        height: 1px;
-        width:100%;
-        display:block; /* for use on default inline elements like span */
-        margin: 9px 0;
-        overflow: hidden;
-        background-color: #e5e5e5;
-    }
 </style>
 
 <!-- change quantity script -->
@@ -119,9 +110,10 @@
 
 </script>
 
-<div class="container" id="product-section">
+<div class="container-fluid" id="product-section">
+    <a href="#"><h3>Back To Search</h3></a>
+    <br>
     <div class="row">
-
         <!-- product image -->
         <div class="col-md-5">
             <img src="../../<?php echo $product->imagePath; ?>" class="image-responsive product-img"/>
@@ -136,25 +128,13 @@
                     <h1><?php echo $product->name; ?></h1>
                 </div>
 
-                <!-- product seller and profile link -->
+                <!-- product seller -->
                 <div class="row">
                     <div class="col-md-12">
                         <span>By: </span>
-                        <span>
-                            <a href="<?php echo URL; ?>">USERNAME</a>
-                        </span>
+                        <span>USERNAME</span>
                     </div>
                 </div><!-- end row -->
-
-                <!-- product/seller rating -->
-                <div class="row">
-                    <div class="col-md-5">
-                        Sellers Rating: 
-                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
-                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
-                        <p>(# number of Reviews)</p>
-                    </div>
-                </div>
 
                 <!-- product price -->
                 <div class="row">
@@ -170,19 +150,9 @@
                         <p><?php echo $product->quality; ?></p>
                     </div>
                 </div><!-- end row -->
-
-                <!-- sellers schedule -->
-                <div class="row">
-                    <div class="col-md-12 bottom-rule">
-                        <h3 class="product-price">Schedule: </h3>
-                        <p>Day: Su M T W Th F S</p>
-                        <p>Time:  0:00 to 0:00</p>
-                        <p>Location: </p>
-                    </div>
-                </div><!-- end row -->
                 <br>
 
-                <!-- quantity, add to cart, buy it now buttons -->
+                <!-- quantity, buy it now buttons -->
                 <div class="row add-to-cart">
                     <!-- change quantity -->
                     <div class="col-md-4 product-qty">
@@ -201,11 +171,7 @@
                         </button>
 
                     </div>
-                    <!-- add to cart button -->
-                    <div class="col-md-4">
-                        <input type="submit" class="btn btn-lg btn-brand btn-full-width btn-size" value="Add To Cart">
 
-                    </div>
                     <!-- buy it now -->
                     <div class="col-md-4">
                         <input type="submit" class="btn btn-lg btn-brand btn-full-width btn-size" value="Buy it Now">
@@ -219,11 +185,11 @@
         </div>
     </div><!-- end container -->
 
-    <li class="divider"></li>
+    <hr>
 
     <div class="container-fluid">
         <div class="row-fluid">
-            <!-- Nav tabs -->
+            
             <h4><u>Description:</u></h4>
             <br>
             <!-- Tab panes -->
@@ -237,122 +203,7 @@
         </div>
     </div>
 
-    <li class="divider"></li>
-
-    <!-- Similar Products -->
-    <div class="container-fluid">  
-        <div class="row-fluid">
-            <br>
-
-            <h4><u>Similar Products:</u></h4> 
-
-            <!-- see more related products in listing -->
-            <div align="right">
-                <small><a href="<?php echo URL; ?>">(see more)</a></small>
-            </div>
-
-            <br>
-
-            <!-- Product -->
-            <div class="col-sm-5 col-md-2 ">
-
-                <!-- Product Link -->
-                <a href="#"> 
-                    <!-- Product Img -->
-                    <img src="http://placehold.it/200x200/000/fff" alt="img1" style="width:100px;height:100px">
-
-                    <!-- Product Info-->
-                    <p class="product-summary">
-                        Name <br>
-                        Price <br>
-                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
-                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
-                        <br>
-                        <sup>(# of Reviews)</sup> 
-                    </p>  
-
-                    <!-- Buttons -->
-                    <input type="submit" class="btn btn-info" value="Add To Cart">  
-                    <input type="submit" class="btn btn-info" value="Buy It Now">   
-                </a>
-            </div> <!-- end of product -->
-
-            <div class="col-sm-5 col-md-2">
-                <a href="#g" >
-                    <img src="http://placehold.it/200x200/000/fff" alt="img3" style="width:100px;height:100px">
-                    <p class="product-summary">
-                        Name <br>
-                        Price <br>
-                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
-                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
-                        <br>
-                        <sup>(# of Reviews)</sup> 
-                    </p>  
-                    <input type="submit" class="btn btn-info" value="Add To Cart">    
-                    <input type="submit" class="btn btn-info" value="Buy It Now"> 
-                </a>
-            </div>
-            <div class="col-sm-5 col-md-2">
-                <a href="#" >   
-                    <img src="http://placehold.it/200x200/000/fff" alt="img4" style="width:100px;height:100px">
-                    <p class="product-summary">
-                        Name <br>
-                        Price <br>
-                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
-                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
-                        <br>
-                        <sup>(# of Reviews)</sup> 
-                    </p>  
-                    <input type="submit" class="btn btn-info" value="Add To Cart">   
-                    <input type="submit" class="btn btn-info" value="Buy It Now">  
-                </a>
-            </div>
-            <div class="col-sm-5 col-md-2">
-                <a href="#"> 
-                    <img src="http://placehold.it/200x200/000/fff" alt="img1" style="width:100px;height:100px">
-                    <p class="product-summary">
-                        Name <br>
-                        Price <br>
-                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
-                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
-                        <br>
-                        <sup>(# of Reviews)</sup> 
-                    </p>  
-                    <input type="submit" class="btn btn-info" value="Add To Cart"> 
-                    <input type="submit" class="btn btn-info" value="Buy It Now">     
-                </a>
-            </div>
-            <div class="col-sm-5 col-md-2">
-                <a href="#">
-                    <img src="http://placehold.it/200x200/000/fff" alt="img3" style="width:100px;height:100px">
-                    <p class="product-summary">
-                        Name <br>
-                        Price <br>
-                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
-                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
-                        <br>
-                        <sup>(# of Reviews)</sup> 
-                    </p>  
-                    <input type="submit" class="btn btn-info" value="Add To Cart">  
-                    <input type="submit" class="btn btn-info" value="Buy It Now">  
-                </a>
-            </div>
-            <div class="col-sm-5 col-md-2">
-                <a href="#">     
-                    <img src="http://placehold.it/200x200/000/fff" alt="img4" style="width:100px;height:100px">
-                    <p class="product-summary">
-                        Name <br>
-                        Price <br>
-                        <span class="glyphicon glyphicon-thumbs-up"> %%  |</span>
-                        <span class="glyphicon glyphicon-thumbs-down"> %%</span> 
-                        <br>
-                        <sup>(# of Reviews)</sup> 
-                    </p> 
-                    <input type="submit" class="btn btn-info" value="Add To Cart"> 
-                    <input type="submit" class="btn btn-info" value="Buy It Now"> 
-                </a>
-            </div>
-        </div> <!-- end of row -->
+    <hr>
 
     </div>
 </div>
