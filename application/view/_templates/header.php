@@ -21,14 +21,11 @@
 <style>
 
 	body { 
-		padding-top: 130px; 
-	}
-
-	.nav-btns {
-		padding-top: 0px;
+		padding-top: 85px; 
 	}
 
 	.search-bar {
+		padding-top: 20px; 
 		margin: auto;
 		max-width: 65%;
 	}
@@ -37,6 +34,19 @@
 		height: auto;
 		max-height: 500px;
 		overflow-x: hidden;
+		padding-left: 10px;
+	}
+
+	.top-right {
+		position: absolute;
+	    top: 0px;
+	    right: 0px;
+	}
+	.nav-btns {
+		padding-top: 20px; 
+	}
+	.nav-margin {
+		margin-bottom: 15px;
 	}
 
 </style>
@@ -62,25 +72,17 @@
 			<div class="row-fluid">
 
 				<!-- LOGO -->
-				<div class="col-sm-1">
-					<a class="navbar-brand" href="<?php echo URL; ?>">SFSU <br> Bazaar</a>
+				<div class="col-sm-1 nav-margin">
+					<a class="navbar-brand" href="<?php echo URL; ?>"><small>SFSU</small> <br> Bazaar</a>
 				</div>
 				
 
 				<div class="col-md-11">
 
-					<!-- Login/Register -->
-					<div class="row-fluid">
-						<ul class="nav navbar-nav navbar-right">
-							<a href="<?php echo URL; ?>">Login</a>
-							Or
-							<a href="<?php echo URL; ?>" style="padding-right:15px;">Register</a>
-						</ul>
-						<br>
-					</div>
+
 					
 					<!-- department, sell, search bar -->
-					<div class="row-fluid nav-btns">
+					<div class="row-fluid">
 
 						<!-- collapses row when screen width is small -->
 						<div class="container-fluid">
@@ -93,7 +95,7 @@
 
 						<!-- department, sell, search bar be callapsed here -->
 						<div class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
+							<ul class="nav navbar-nav nav-btns">
 								<li class="dropdown">
 
 									<!-- Departments dropdown button -->	
@@ -108,27 +110,19 @@
 											<div class="row" style="width: 300px;">
 												<ul class="list-unstyled col-md-12">
 													<li>
-														<a href="<?php echo URL; ?>" style="padding-left:10px;">All Departments</a>
+														<a href="<?php echo URL; ?>">All Departments</a>
 													</li>
 
 													<li>
-														<a href="<?php echo URL; ?>" style="padding-left:10px;">Appliances</a>
+														<a href="<?php echo URL; ?>">Appliances</a>
 													</li>
 
 													<li>
-														<a href="<?php echo URL; ?>" style="padding-left:10px;">Arts, Crafts & Sewing</a>
+														<a href="<?php echo URL; ?>">Automotive</a>
 													</li>
 
 													<li>
-														<a href="<?php echo URL; ?>" style="padding-left:10px;">Automotive</a>
-													</li>
-
-													<li>
-														<a href="<?php echo URL; ?>" style="padding-left:10px;">Beauty & Personal Care</a>
-													</li>
-
-													<li>
-														<a href="<?php echo URL; ?>" style="padding-left:10px;">Books</a>
+														<a href="<?php echo URL; ?>">Books</a>
 													</li>
 												</ul> <!-- end list of departments -->
 											</div>
@@ -184,6 +178,12 @@
 									</div>
 								</form>
 							</div> <!-- end of search bar -->
+							<ul class="top-right">
+								<a href="<?php echo URL; ?>">Login</a>
+								Or
+								<a href="<?php echo URL; ?>" style="padding-right:15px;">Register</a>
+							</ul>
+							<br>
 						</div> <!-- end of collapse -->
 					</div>
 				</div>
