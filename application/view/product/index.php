@@ -1,8 +1,8 @@
 <style>
 
 	.product-img{
-		width: 650px;
-		height: 650px;
+		width: 450px;
+		height: 450px;
 	}
 	.btn-qty {
 		width: 52px;
@@ -110,34 +110,36 @@
 
 </script>
 
-<div class="container-fluid" id="product-section">
+<div class="container-fluid">
 	<a href="#"><h3>Back To Search</h3></a>
 	<br>
-	<div class="row">
+	<div class="row-fluid">
 		<!-- product image -->
-		<div class="col-md-5">
+		<div class="col-lg-5">
 			<img src="../../<?php echo $product->imagePath; ?>" class="image-responsive product-img"/>
 		</div>
 
 		<!-- product data -->
-		<div class="col-md-7">
+		<div class="col-lg-7">
 			<div class="row">
 
 				<!-- product title -->
-				<div class="row">
+				<div class="row-fluid">
 					<h1><?php echo $product->name; ?></h1>
 				</div>
 
 				<!-- product seller -->
-				<div class="row">
+				<div class="row-fluid">
 					<div class="col-md-12">
 						<span>By: </span>
+
+						<!-- PLACE SELLER USERNAME HERE -->
 						<span>USERNAME</span>
 					</div>
 				</div><!-- end row -->
 
 				<!-- product price -->
-				<div class="row">
+				<div class="row-fluid">
 					<div class="col-md-12 bottom-rule">
 						<h2 class="product-price">$ <?php echo $product->price; ?></h2>
 					</div>
@@ -153,7 +155,7 @@
 				<br>
 
 				<!-- quantity, buy it now buttons -->
-				<div class="row add-to-cart">
+				<div class="row-fluid add-to-cart">
 					<!-- change quantity -->
 					<div class="col-md-4 product-qty">
 
@@ -178,9 +180,7 @@
 					</div>
 				</div><!-- end row -->
 
-				<div class="row">
-					<div class="col-md-12 bottom-rule top-10"></div>
-				</div><!-- end row -->			
+		
 			</div><!-- end row -->
 			<hr>
 			<div class="row">
