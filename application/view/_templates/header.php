@@ -166,7 +166,7 @@
 											</div>
 
 											<!-- Search Bar --> 
-											<input class="form-control" type="text" name="search-term" value="" required />
+											<input class="form-control" type="text" name="search-term" value="" />
 
 											<!-- Search Button -->
 											<span class="input-group-btn">
