@@ -6,9 +6,7 @@ class ListingController extends Controller
     {
         if ($products == '') 
         {
-            //$results = $this->products->getAll();
             $products = Product::all();
-            
         }
         
         require APP . 'view/_templates/header.php';
@@ -18,14 +16,17 @@ class ListingController extends Controller
 
     public function search()
     {
-        $keyword = '';
+        $products= '';
 
-        if(isset($_POST['search']))
+        if (isset($_POST['search']))
         {
             $keyword = filter_input(INPUT_POST, 'search-term');
         }
-        $products = Product::withKeywordInName($keyword);
-
+        
+        if ($keyword != ''){
+            $products = Product::withKeywordInName($keyword);
+        }
+         
         $this->index($products);
     }
 }
