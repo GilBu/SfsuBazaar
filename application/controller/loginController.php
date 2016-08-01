@@ -26,16 +26,15 @@ class loginController extends Controller
             $username = filter_input(INPUT_POST, 'username');
             $password = filter_input(INPUT_POST, 'password');
             $validDomain = strstr($username, "@mail.sfsu.edu");
-            $hashRealPW = Database::getInstance()->fetchUserPW($username)->password;
-            $verifyPasswordMatches = password_verify($password, $hashRealPW);
-
+            
             if($validDomain)
             {
+                $hashRealPW = Database::getInstance()->fetchUserPW($username)->password;
+                $verifyPasswordMatches = password_verify($password, $hashRealPW);                
+                
                 if($verifyPasswordMatches)
                 { 
                     header('refresh: 0; URL=' . URL . 'home/index');
-                    $message = "Succesfully logged in!";
-                    echo "<script type='text/javascript'>alert('$message');</script>";
                 }
                 else
                 {
