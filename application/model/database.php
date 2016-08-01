@@ -55,15 +55,14 @@ class Database
     public function addUser($user)
     {
 	$sql =  "INSERT INTO user " .
-		"(firstName, lastName, password, email, imagePath)" .
+		"(firstName, lastName, password, email)" .
 		"VALUES " .
-		"(:firstName, :lastName, :password, :email, :imagePath)";
+		"(:firstName, :lastName, :password, :email)";
 	$query = $this->db->prepare($sql);
-	$param = array(	':firstName' 	=> $user->$firstName,
-			':lastName' 	=> $user->$lastName,
-			':password'	=> $user->$password,
-			':email' 	=> $user->$email,
-			':imagePath'	=> $user->$imagePath	);
+	$param = array(	':firstName' 	=> $user->firstName,
+			':lastName' 	=> $user->lastName,
+			':password'	=> $user->password,
+			':email' 	=> $user->email);
 
 	$query->execute($param);
     }
@@ -110,19 +109,15 @@ class Database
 	$query->execute($params);
     }
 
-   /**
-    * ACTION: checkLoginInfo
-    * Checks if login info entered by the user exist in database
-    * @param string $username and $password, username/pw entered 
-    */
-    public function checkLoginInfo($username, $password)
+    public function fetchUserPW($username)
     {
-        $sql = "SELECT email,password FROM user WHERE email = '$username' AND password = '$password'";
+        $sql = "SELECT password FROM user WHERE email = '$username' LIMIT 1";
         $query = $this->db->prepare($sql);
         $query->execute();
 
         return $query->fetch();
     }
+
 
    /**
     * ACTION: doesEmailExist

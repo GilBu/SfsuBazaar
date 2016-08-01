@@ -14,14 +14,38 @@ class User
 	private $isActive = null;
 
 	public function __construct(	$firstName, $lastName, $password,
-					$email,	$imagePath	)
+					$email)
 	{
 		$this->firstName	= $firstName;
 		$this->lastName		= $lastName;
 		$this->password		= $password;
 		$this->email		= $email;
-		$this->imagePath	= $imagePath;
 	}
+
+	/**
+     * Magical getter to get the specified property
+     * @param $property
+     * @return $property
+     */
+    public function __get($property) {
+        if (property_exists($this, $property)) {
+          return $this->$property;
+        }
+    }
+
+    /**
+     * Magical setter to set the specified property
+     * @param $property
+     * @param $value
+     * @return Product
+     */
+    public function __set($property, $value) {
+      if (property_exists($this, $property)) {
+        $this->$property = $value;
+      }
+
+      return $this;
+    }
 
 	public function create()
 	{
@@ -51,6 +75,7 @@ class User
 	public static function userLogin($username, $password)
 	{
 		return Database::getInstance()->checkLoginInfo($username, $password);
+
 	}
 
 	/**
@@ -61,5 +86,10 @@ class User
 	public static function isEmailTaken($email)
 	{
 		return Database::getInstance()->doesEmailExist($email);
+	}
+
+	public static function hashedPW($password)
+	{
+		return $password = password_hash($password, PASSWORD_DEFAULT);
 	}
 }
