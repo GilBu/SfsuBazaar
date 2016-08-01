@@ -110,6 +110,34 @@ class Database
 	$query->execute($params);
     }
 
+   /**
+    * ACTION: checkLoginInfo
+    * Checks if login info entered by the user exist in database
+    * @param string $username and $password, username/pw entered 
+    */
+    public function checkLoginInfo($username, $password)
+    {
+        $sql = "SELECT email,password FROM user WHERE email = '$username' AND password = '$password'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch();
+    }
+
+   /**
+    * ACTION: doesEmailExist
+    * Checks if login info entered by the user exist in database
+    * @param string $email, email entered
+    */
+    public function doesEmailExist($email)
+    {
+        $sql = "SELECT email FROM user WHERE email = '$email'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch();
+    }
+
     /************************ Meetup queries **********************************/
     /**
 	Gets all data of the meetup table from he database
