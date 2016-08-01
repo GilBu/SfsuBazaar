@@ -179,9 +179,9 @@
 								</form>
 							</div> <!-- end of search bar -->
 							<ul class="top-right">
-								<a href="<?php echo URL; ?>">Login</a>
+								<a href="<?php echo URL; ?>login/index">Login</a>
 								Or
-								<a href="<?php echo URL; ?>" style="padding-right:15px;">Register</a>
+								<a href="<?php echo URL; ?>register/index" style="padding-right:15px;">Register</a>
 							</ul>
 							<br>
 						</div> <!-- end of collapse -->
