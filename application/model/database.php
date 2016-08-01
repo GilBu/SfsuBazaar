@@ -55,15 +55,14 @@ class Database
     public function addUser($user)
     {
 	$sql =  "INSERT INTO user " .
-		"(firstName, lastName, password, email, imagePath)" .
+		"(firstName, lastName, password, email)" .
 		"VALUES " .
-		"(:firstName, :lastName, :password, :email, :imagePath)";
+		"(:firstName, :lastName, :password, :email)";
 	$query = $this->db->prepare($sql);
-	$param = array(	':firstName' 	=> $user->$firstName,
-			':lastName' 	=> $user->$lastName,
-			':password'	=> $user->$password,
-			':email' 	=> $user->$email,
-			':imagePath'	=> $user->$imagePath	);
+	$param = array(	':firstName' 	=> $user->firstName,
+			':lastName' 	=> $user->lastName,
+			':password'	=> $user->password,
+			':email' 	=> $user->email);
 
 	$query->execute($param);
     }
@@ -108,6 +107,30 @@ class Database
 	$params = array(':userID' => $userID);
 
 	$query->execute($params);
+    }
+
+    public function fetchUserPW($username)
+    {
+        $sql = "SELECT password FROM user WHERE email = '$username' LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch();
+    }
+
+
+   /**
+    * ACTION: doesEmailExist
+    * Checks if login info entered by the user exist in database
+    * @param string $email, email entered
+    */
+    public function doesEmailExist($email)
+    {
+        $sql = "SELECT email FROM user WHERE email = '$email'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch();
     }
 
     /************************ Meetup queries **********************************/
