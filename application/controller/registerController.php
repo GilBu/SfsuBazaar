@@ -51,7 +51,7 @@ class RegisterController extends Controller
           			$newUser->create();
 
                 // redirects to home page after successful registration
-          			header('refresh: 0; URL=' . URL . 'home/index');
+          			header('refresh: 0; URL=' . URL . 'login/index');
                 $message = "Succesfully registered!";
                 echo "<script type='text/javascript'>alert('$message');</script>";
         		}

@@ -26,14 +26,21 @@ class loginController extends Controller
             $username = filter_input(INPUT_POST, 'username');
             $password = filter_input(INPUT_POST, 'password');
             $validDomain = strstr($username, "@mail.sfsu.edu");
-            
+
             if($validDomain)
             {
-                $hashRealPW = Database::getInstance()->fetchUserPW($username)->password;
+                $user = Database::getInstance()->getUserInfoByEmail($username);
+                $hashRealPW = $user->password;
                 $verifyPasswordMatches = password_verify($password, $hashRealPW);                
                 
                 if($verifyPasswordMatches)
                 { 
+                    //header('refresh: 0; URL=' . URL . 'home/index');
+
+                    $_SESSION['userID'] = $user->userID;
+                    $_SESSION['userEmail'] = $user->email;
+                    $_SESSION['userLoginStatus'] = 1;
+
                     header('refresh: 0; URL=' . URL . 'home/index');
                 }
                 else
@@ -56,5 +63,13 @@ class loginController extends Controller
             $message = "Please enter your username and password.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
+    }
+
+    public function userLogout()
+    {
+        $_SESSION = array();
+        session_destroy();
+
+        header('refresh: 0; URL=' . URL . 'home/index');
     }
 }

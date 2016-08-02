@@ -11,7 +11,7 @@ class ProductController extends Controller
      * Renders the product's index page
      */
     public function index($productID) 
-    {   
+    {
         $product = Product::get($productID);
         
         require APP . 'view/_templates/header.php';
