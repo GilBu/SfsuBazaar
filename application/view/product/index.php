@@ -9,19 +9,48 @@
 		height: 46px;
 	}
 
-	.btn-size {
-		height: 46px;
-	}
-
 	.btn { 
 		border-radius: 0; 
 	}
 
+
+	.buy-btn {
+		border: 1px solid #ffc826; 
+		-webkit-border-radius: 3px; 
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		font-size: 15px;
+		font-family: arial, helvetica, sans-serif; 
+		padding: 11px 11px 11px 11px; 
+		text-decoration: none; 
+		display: inline-block;
+		font-weight: bold; 
+		color: #000000;
+		background-color: #ffd65e; 
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#ffd65e), to(#febf04));
+		background-image: -webkit-linear-gradient(top, #ffd65e, #febf04);
+		background-image: -moz-linear-gradient(top, #ffd65e, #febf04);
+		background-image: -ms-linear-gradient(top, #ffd65e, #febf04);
+		background-image: -o-linear-gradient(top, #ffd65e, #febf04);
+		background-image: linear-gradient(to bottom, #ffd65e, #febf04);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffd65e, endColorstr=#febf04);
+	}
+
+	.buy-btn:hover {
+		border: 1px solid #f7b800;
+		background-color: #ffc92b; 
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#ffc92b), to(#ce9a01));
+		background-image: -webkit-linear-gradient(top, #ffc92b, #ce9a01);
+		background-image: -moz-linear-gradient(top, #ffc92b, #ce9a01);
+		background-image: -ms-linear-gradient(top, #ffc92b, #ce9a01);
+		background-image: -o-linear-gradient(top, #ffc92b, #ce9a01);
+		background-image: linear-gradient(to bottom, #ffc92b, #ce9a01);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc92b, endColorstr=#ce9a01);
+	}
+
 </style>
 
-<!-- change quantity script -->
 <script>
 
+	// change quantity
 	$(document).ready(function () {
 		$('.btn-number').click(function (e) {
 			e.preventDefault();
@@ -108,10 +137,14 @@
                 });
     });
 
+	// go back to previous page function
+	function goBack() {
+		window.history.back();
+	}
 </script>
 
 <div class="container-fluid">
-	<a href="#"><h3>Back To Search</h3></a>
+	<a href="#" onclick="goBack()"><h3>Back To Search</h3></a>
 	<br>
 	<div class="row-fluid">
 		<!-- product image -->
@@ -141,18 +174,21 @@
 				<!-- product price -->
 				<div class="row-fluid">
 					<div class="col-md-12 bottom-rule">
-						<h2 class="product-price">$ <?php echo $product->price; ?></h2>
+						<h2 class="product-price">$ <?php echo number_format($product->price, 2, '.', ''); ?></h2>
 					</div>
 				</div><!-- end row -->
 
 				<!-- product condition -->
-				<div class="row">
+				<div class="row-fluid">
 					<div class="col-md-12 bottom-rule">
-						<h3 class="product-price">Condition:</h3>
-						<p><?php echo $product->quality; ?></p>
+						<h4 class="product-price">Condition: <?php echo $product->quality; ?></h4>
+						<br><br>
 					</div>
 				</div><!-- end row -->
-				<br>
+
+				<div class="row">
+					<br>
+				</div>
 
 				<!-- quantity, buy it now buttons -->
 				<div class="row-fluid add-to-cart">
@@ -176,29 +212,23 @@
 
 					<!-- buy it now -->
 					<div class="col-md-4">
-						<input type="submit" class="btn btn-lg btn-brand btn-full-width btn-size" value="Buy it Now">
+						<a href="<?php echo URL . "product/confirmation/$product->productID"; ?>"" class="btn btn-info btn-size buy-btn ">Buy It Now</a>   
 					</div>
 				</div><!-- end row -->
 
-		
 			</div><!-- end row -->
 			<hr>
 			<div class="row">
 				<h4><u>Description:</u></h4>
 				<br>
 				<!-- Tab panes -->
-				<div role="tabpanel" class="tab-pane active" id="description">
-					<p class="top-10">
+				<div id="description">
+					<p>
 						<?php echo $product->description; ?> 
 					</p>
 				</div>
 			</div>
 		</div>
 	</div><!-- end container -->
-
-
-
 	<hr>
-
-</div>
 </div>
