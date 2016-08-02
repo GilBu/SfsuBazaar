@@ -17,7 +17,7 @@ class RegisterController extends Controller
         } 
         else
         {
-            header('location: ' . URL . 'home/index');
+            header('location: ' . URL . 'home');
         }
     }
 

@@ -46,7 +46,7 @@ class loginController extends Controller
                     $_SESSION['firstName'] = $user->firstName;
                     $_SESSION['userLoginStatus'] = 1;
 
-                    header('refresh: 0; URL=' . URL . 'home/index');
+                    header('refresh: 0; URL=' . URL . 'home');
                 }
                 else
                 {
@@ -75,6 +75,6 @@ class loginController extends Controller
         $_SESSION = array();
         session_destroy();
 
-        header('refresh: 0; URL=' . URL . 'home/index');
+        header('refresh: 0; URL=' . URL . 'home');
     }
 }
