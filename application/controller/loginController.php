@@ -25,6 +25,8 @@ class loginController extends Controller
         {
             $username = filter_input(INPUT_POST, 'username');
             $password = filter_input(INPUT_POST, 'password');
+
+            // making sure registering email domain is correct
             $validDomain = strstr($username, "@mail.sfsu.edu");
 
             if($validDomain)
@@ -35,8 +37,6 @@ class loginController extends Controller
                 
                 if($verifyPasswordMatches)
                 { 
-                    //header('refresh: 0; URL=' . URL . 'home/index');
-
                     $_SESSION['userID'] = $user->userID;
                     $_SESSION['userEmail'] = $user->email;
                     $_SESSION['userLoginStatus'] = 1;

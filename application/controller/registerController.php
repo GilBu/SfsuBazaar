@@ -21,26 +21,41 @@ class RegisterController extends Controller
 
         $isTaken = User::isEmailTaken($email);
 
-        if(!empty($isTaken))
+        // if(!empty($isTaken))
+        // {
+        //     header('refresh: 0; URL=' . URL . 'register/index');
+        //     $message = "Account with the email " . $_POST['email'] . " already exists.";
+        //     echo "<script type='text/javascript'>alert('$message');</script>";
+        // }
+        // else
+        // {
+        //     return $this->register();
+        // }
+
+        switch($isTaken)
         {
-            header('refresh: 0; URL=' . URL . 'register/index');
-            $message = "Account with the email " . $_POST['email'] . " already exists.";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        }
-        else
-        {
-            return $this->register();
-        }
+            case true:
+                $this->displayMsg('exist');
+                break;
+            default:
+                return $this->register();
+                break;
+        }     
     }
 
-    /**
+   /**
     * ACTION: register
     * Registers users and saves their information in the database
     */
     public function register()
     {
-      	if(isset($_POST['register'])  && !empty($_POST['firstName']) && !empty($_POST['lastName'])  
-                                      && !empty($_POST['email']) && !empty($_POST['password']))
+      	if(isset($_POST['register'])  && !empty($_POST['firstName']) 
+                                      && !empty($_POST['lastName'])  
+                                      && !empty($_POST['email']) 
+                                      && !empty($_POST['password'])
+                                      && !empty($_POST['confirm'])
+                                      && !empty($_POST['capcha'])
+                                      && !empty($_POST['terms']))
       	{   
             // get all data about user       
       		  $newUser = $this->getNewUser();
@@ -50,17 +65,12 @@ class RegisterController extends Controller
                 // save user info to the database
           			$newUser->create();
 
-                // redirects to home page after successful registration
-          			header('refresh: 0; URL=' . URL . 'login/index');
-                $message = "Succesfully registered!";
-                echo "<script type='text/javascript'>alert('$message');</script>";
+                $this->displayMsg('success');
         		}
       	}
         else
         {
-            header('refresh: 0; URL=' . URL . 'register/index');
-            $message = "Please do not leave any fields blank.";
-            echo "<script type='text/javascript'>alert('$message');</script>";
+            $this->displayMsg('blank');
         }
     }
 
@@ -75,38 +85,69 @@ class RegisterController extends Controller
       	$lastName = filter_input(INPUT_POST, 'lastName');
       	$email = filter_input(INPUT_POST, 'email');
       	$password = filter_input(INPUT_POST, 'password');
-        $password = password_hash($password, PASSWORD_DEFAULT);
       	$pwConfirm = filter_input(INPUT_POST, 'confirm');
       	$capcha = filter_input(INPUT_POST, 'capcha');
       	$terms = filter_input(INPUT_POST, 'terms');
+
+        // making sure registering email domain is correct
       	$validDomain = strstr($email, "@mail.sfsu.edu");
 
+        if($validDomain)
+        { 
+            if($password == $pwConfirm)
+            {
+                // hashing password before saving into database
+                $password = password_hash($password, PASSWORD_DEFAULT);
 
-        // checks if email domain is @mail.sfsu.edu 
-      	if($validDomain)
-      	{	
-        		if(!empty($capcha) && !empty($terms))
-        		{
-        			 return new User($firstName, $lastName, $password, $email);
-        		}
-        		else if($password !== $pwConfirm)
-        		{	
-          			header('refresh: 0; URL=' . URL . 'register/index');
-          			$message = "Password confirmation does not match the password you entered.";
-                echo "<script type='text/javascript'>alert('$message');</script>";
-        		}
-        		else
-        		{
-          			header('refresh: 0; URL=' . URL . 'register/index');
-                $message = "Capcha and Terms of Agreement checkbox must be checked to proceed.";
-                echo "<script type='text/javascript'>alert('$message');</script>";
-        		}
-      	}
-      	else if(!$validDomain)
-      	{
-        		header('refresh: 0; URL=' . URL . 'register/index');
-        		$message = "Invalid email domain! Re-enter email with valid email domain!";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-      	}
+                return new User($firstName, $lastName, $password, $email);
+            }
+            else 
+            {
+                $this->displayMsg('mismatch');
+            }
+        }
+        else if(!$validDomain)
+        {
+            $this->displayMsg('invalid');
+        }
+    }
+
+
+    public function displayMsg($msg)
+    {
+        switch($msg)
+        {
+          case 'exist':
+              header('refresh: 0; URL=' . URL . 'register/index');
+              $message = "Account with the email " . $_POST['email'] . " already exists.";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+              break;
+          case 'success':
+              header('refresh: 0; URL=' . URL . 'login/index');
+              $message = "Succesfully registered!";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+              break;
+          case 'blank':
+              header('refresh: 0; URL=' . URL . 'register/index');
+              $message = "Check for blank fields and check all boxes.";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+              break;
+          case 'mismatch':
+              header('refresh: 0; URL=' . URL . 'register/index');
+              $message = "Password confirmation does not match the password you entered.";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+              break;
+          case 'invalid':
+              header('refresh: 0; URL=' . URL . 'register/index');
+              $message = "Invalid email domain! Re-enter email with valid email domain!";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+              break;
+          default:
+              echo "Error";
+        }
+
+
+
+
     }
 }
