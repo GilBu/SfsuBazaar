@@ -183,6 +183,8 @@
 									if(empty($_SESSION))
 									{
 										echo '<a href="'. URL . 'login/index">Login</a>';
+										echo ' Or ';
+										echo '<a href="'. URL . 'register/index" style="padding-right:15px;">Register</a>';
 									}
 									else
 									{
