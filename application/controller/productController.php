@@ -25,6 +25,11 @@ class ProductController extends Controller
      */
     public function newProduct()
     {   
+        if (empty($_SESSION))
+        {
+            header('location:' . URL . 'login/index');
+        }
+        
         require APP . 'view/_templates/header.php';
         require APP . 'view/product/newProduct.php';
         require APP . 'view/_templates/footer.php';
