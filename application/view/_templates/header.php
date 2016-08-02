@@ -188,14 +188,11 @@
 									}
 									else
 									{
-										echo 'Hi,' . ' ' . $_SESSION['userEmail'];
+										echo 'Hi, ' . $_SESSION['firstName'];
 										echo '<br>';
 										echo '<a href="'. URL . 'login/userLogout">Logout</a>'; 
 									}
 								?>
-								<!--<a href="<?php echo URL; ?>login/index">Login</a>
-								Or
-								<a href="<?php echo URL; ?>register/index" style="padding-right:15px;">Register</a>-->
 							</ul>
 							<br>
 						</div> <!-- end of collapse -->

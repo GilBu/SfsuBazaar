@@ -8,7 +8,17 @@ class RegisterController extends Controller
      */
     public function index()
     {   
-        require APP . 'view/register/index.php';
+        if (empty($_SESSION))
+        {
+            // load views
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/register/index.php';
+            require APP . 'view/_templates/footer.php';
+        } 
+        else
+        {
+            header('location: ' . URL . 'home/index');
+        }
     }
 
     /**
@@ -112,7 +122,6 @@ class RegisterController extends Controller
         }
     }
 
-
     public function displayMsg($msg)
     {
         switch($msg)
@@ -145,9 +154,5 @@ class RegisterController extends Controller
           default:
               echo "Error";
         }
-
-
-
-
     }
 }

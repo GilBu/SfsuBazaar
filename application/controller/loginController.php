@@ -7,11 +7,16 @@ class loginController extends Controller
      * Renders the login index page
      */
     public function index()
-    {
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/login/index.php';
-        require APP . 'view/_templates/footer.php';
+    {   
+        if (empty($_SESSION))
+        {
+            // load views
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/login/index.php';
+            require APP . 'view/_templates/footer.php';
+        } else{
+            header('location: ' . URL . 'home/index');
+        }
     }
 
     /**
@@ -25,12 +30,11 @@ class loginController extends Controller
         {
             $username = filter_input(INPUT_POST, 'username');
             $password = filter_input(INPUT_POST, 'password');
-
-            // making sure registering email domain is correct
             $validDomain = strstr($username, "@mail.sfsu.edu");
-
-            if($validDomain)
-            {
+            $isTaken = User::isEmailTaken($username);
+            
+            if($validDomain && $isTaken)
+            {   
                 $user = Database::getInstance()->getUserInfoByEmail($username);
                 $hashRealPW = $user->password;
                 $verifyPasswordMatches = password_verify($password, $hashRealPW);                
@@ -39,6 +43,7 @@ class loginController extends Controller
                 { 
                     $_SESSION['userID'] = $user->userID;
                     $_SESSION['userEmail'] = $user->email;
+                    $_SESSION['firstName'] = $user->firstName;
                     $_SESSION['userLoginStatus'] = 1;
 
                     header('refresh: 0; URL=' . URL . 'home/index');
@@ -50,7 +55,7 @@ class loginController extends Controller
                     echo "<script type='text/javascript'>alert('$message');</script>";
                 }
             }
-            else if(!$validDomain)
+            else
             {
                 header('refresh: 0; URL=' . URL . 'login/index');
                 $message = "Invalid email domain! Login using valid email domain!";
