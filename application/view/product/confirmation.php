@@ -37,6 +37,15 @@
     }
 </style>
 
+<script>
+function msgSent() {
+    alert("Message has been sent to seller.");
+}
+function goBack() {
+    window.history.back();
+}
+</script>
+
 <div class="container">
     <h1>Confirm Purchase</h1>
     <table id="product" class="table table-hover table-condensed">
@@ -79,9 +88,9 @@
         <tfoot>
             <!-- Cancel/Confirm Purchase Button -->
             <tr>
-                <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Cancel</a></td>
+                <td><a href="#" class="btn btn-warning" onclick="goBack()"><i class="fa fa-angle-left"></i> Cancel</a></td>
                 <td colspan="1" class="hidden-xs"></td>
-                <td><a href="#" class="btn btn-success btn-block"> Confirm<i class="fa fa-angle-right"></i></a></td>
+                <td><a href="#" class="btn btn-success btn-block" onclick="msgSent(), goBack()"> Confirm<i class="fa fa-angle-right"></i></a></td>
             </tr>
         </tfoot>
     </table>
