@@ -21,7 +21,7 @@
 <style>
 
 	body { 
-		padding-top: 75px; 
+		padding-top: 110px; 
 	}
 
 	.search-bar {
@@ -45,6 +45,12 @@
 	.nav-btns {
 		padding-top: 20px; 
 	}
+	.logo-img {
+		float: left;
+		padding-top: 20px;
+		padding-right: 20px;
+		padding-bottom: 20px;
+	}
 
 
 
@@ -65,13 +71,15 @@
 </script>
 
 <body>
-
 	<div class="container-fluid">
 		<!-- Navbar -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
-				<div class="navbar-header">
 
+                                <!-- Title Banner and Tag Line -->
+                                <a href="<?php echo URL; ?>"><img class="logo-img" src="https://imgur.com/jQfovUw.png"></a>
+
+				<div class="navbar-header">
 					<!-- collapse toggle button -->
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="icon-bar"></span>
@@ -79,41 +87,16 @@
 						<span class="icon-bar"></span>
 					</button>
 
-					<!-- LOGO -->
-					<a class="navbar-brand" href="<?php echo URL; ?>">SFSU<br>Bazaar</a>
-
 				</div>
 
 				<!-- department, sell, search bar be callapsed here -->
 				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav nav-btns">
-						<li class="dropdown nav-item">
 
-							<!-- Departments dropdown button -->	
-							<a href="<?php echo URL; ?>" class="dropdown-toggle" data-toggle="dropdown">
-								Departments
-								<b class="caret"></b> 
-							</a>
-
-							<!-- departments list-->
-							<ul class="dropdown-menu scrollable-menu">
-								<li><a href="<?php echo URL; ?>">All Departments</a></li>
-								<li><a href="<?php echo URL; ?>">Appliances</a></li>
-								<li><a href="<?php echo URL; ?>">Automotive</a></li>
-								<li><a href="<?php echo URL; ?>">Books</a></li>
-							</ul> <!-- end list of departments -->
-
-						</li> <!-- end dropdown -->
-
-						<!-- Sell Product Button -->
-						<li><a href="<?php echo URL; ?>product/newProduct">Sell</a></li>
-
-					</ul> <!-- end of departments and sell buttons -->
-					
 					<!-- login/register links -->
 					<ul class="nav navbar-nav navbar-right">
+						<li><a href="<?php echo URL; ?>product/newProduct"><span class="glyphicon glyphicon-tag"</span>Sell</a></li>
 						<li><a href="<?php echo URL; ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-						<li><a href="<?php echo URL; ?>" style="padding-right:15px;"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+						<li><a href="<?php echo URL; ?>"><span class="glyphicon glyphicon-user"></span> Register</a></li>
 					</ul>
 
 					<!-- Search Bar -->
