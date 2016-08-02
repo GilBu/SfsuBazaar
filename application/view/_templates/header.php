@@ -179,9 +179,20 @@
 								</form>
 							</div> <!-- end of search bar -->
 							<ul class="top-right">
-								<a href="<?php echo URL; ?>login/index">Login</a>
-								Or
-								<a href="<?php echo URL; ?>register/index" style="padding-right:15px;">Register</a>
+								<?php
+									if(empty($_SESSION))
+									{
+										echo '<a href="'. URL . 'login/index">Login</a>';
+										echo ' Or ';
+										echo '<a href="'. URL . 'register/index" style="padding-right:15px;">Register</a>';
+									}
+									else
+									{
+										echo 'Hi, ' . $_SESSION['firstName'];
+										echo '<br>';
+										echo '<a href="'. URL . 'login/userLogout">Logout</a>'; 
+									}
+								?>
 							</ul>
 							<br>
 						</div> <!-- end of collapse -->

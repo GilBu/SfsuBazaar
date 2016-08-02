@@ -69,27 +69,11 @@ class User
 
 	/**
      * Passes entered login info to database
-     * @param $username, $password
-     * @return User
-     */
-	public static function userLogin($username, $password)
-	{
-		return Database::getInstance()->checkLoginInfo($username, $password);
-
-	}
-
-	/**
-     * Passes entered login info to database
      * @param $email
      * @return User
      */
 	public static function isEmailTaken($email)
 	{
 		return Database::getInstance()->doesEmailExist($email);
-	}
-
-	public static function hashedPW($password)
-	{
-		return $password = password_hash($password, PASSWORD_DEFAULT);
 	}
 }

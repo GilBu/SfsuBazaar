@@ -7,11 +7,16 @@ class loginController extends Controller
      * Renders the login index page
      */
     public function index()
-    {
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/login/index.php';
-        require APP . 'view/_templates/footer.php';
+    {   
+        if (empty($_SESSION))
+        {
+            // load views
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/login/index.php';
+            require APP . 'view/_templates/footer.php';
+        } else{
+            header('location: ' . URL . 'home/index');
+        }
     }
 
     /**
@@ -26,16 +31,22 @@ class loginController extends Controller
             $username = filter_input(INPUT_POST, 'username');
             $password = filter_input(INPUT_POST, 'password');
             $validDomain = strstr($username, "@mail.sfsu.edu");
-            $hashRealPW = Database::getInstance()->fetchUserPW($username)->password;
-            $verifyPasswordMatches = password_verify($password, $hashRealPW);
-
-            if($validDomain)
-            {
+            $isTaken = User::isEmailTaken($username);
+            
+            if($validDomain && $isTaken)
+            {   
+                $user = Database::getInstance()->getUserInfoByEmail($username);
+                $hashRealPW = $user->password;
+                $verifyPasswordMatches = password_verify($password, $hashRealPW);                
+                
                 if($verifyPasswordMatches)
                 { 
+                    $_SESSION['userID'] = $user->userID;
+                    $_SESSION['userEmail'] = $user->email;
+                    $_SESSION['firstName'] = $user->firstName;
+                    $_SESSION['userLoginStatus'] = 1;
+
                     header('refresh: 0; URL=' . URL . 'home/index');
-                    $message = "Succesfully logged in!";
-                    echo "<script type='text/javascript'>alert('$message');</script>";
                 }
                 else
                 {
@@ -44,7 +55,7 @@ class loginController extends Controller
                     echo "<script type='text/javascript'>alert('$message');</script>";
                 }
             }
-            else if(!$validDomain)
+            else
             {
                 header('refresh: 0; URL=' . URL . 'login/index');
                 $message = "Invalid email domain! Login using valid email domain!";
@@ -57,5 +68,13 @@ class loginController extends Controller
             $message = "Please enter your username and password.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
+    }
+
+    public function userLogout()
+    {
+        $_SESSION = array();
+        session_destroy();
+
+        header('refresh: 0; URL=' . URL . 'home/index');
     }
 }

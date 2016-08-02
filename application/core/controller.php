@@ -5,6 +5,8 @@ class Controller
     
     function __construct()
     {   
+        session_start();
+        
         require APP . 'model/user.php';
         require APP . 'model/product.php';
         require APP . 'model/database.php';
