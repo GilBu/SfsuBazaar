@@ -140,7 +140,7 @@
 
 							<!-- Search Bar -->
 							<div class="search-bar">
-								<form action="<?php echo URL; ?>listing/search" method="POST">
+								<form action="<?php echo URL; ?>listing/search" method="GET">
 
 									<div class="form-group" style="display:inline;">
 										<div class="input-group" style="display:table;">
