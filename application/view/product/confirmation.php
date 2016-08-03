@@ -128,7 +128,7 @@ function goBack() {
             <tr>
                 <td colspan="1" class="hidden-xs"></td>
                 <td><a href="#" class="btn btn-link" onclick="goBack()"><i class="fa fa-angle-right"></i> Cancel</a></td>
-                <td><a href="<?php echo URL; ?>home" class="btn btn-success sm-buy-btn btn-block"> Confirm<i class="fa fa-angle-right"></i></a></td>
+                <td><a href="#" class="btn btn-success sm-buy-btn btn-block" onclick="msgSent(), goBack()"> Confirm<i class="fa fa-angle-right"></i></a></td>
             </tr>
         </tfoot>
     </table>
