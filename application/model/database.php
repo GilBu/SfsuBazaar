@@ -406,6 +406,19 @@ class Database
 
         return $query->fetchAll();
     }
+    /**
+     * Get all of the department names
+     * @return an array of tags
+     */
+    public function getAllTags()
+    {
+        $sql = "SELECT tags FROM product GROUP BY tags";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
     
     /************************ Reveiw queries ************************************/
 
