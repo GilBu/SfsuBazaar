@@ -178,7 +178,6 @@ class Database
 
         return $query->fetchAll();
     }
-
     /**
      * Returns products ordered by the highest price
      * @param $keyword is the search term
@@ -186,7 +185,7 @@ class Database
      */
     public function getProductsByName_PriceHighToLow($keyword)
     {
-        $sql = "SELECT * FROM product WHERE name LIKE '%$keyword%' ORDER BY price";
+        $sql = "SELECT * FROM product WHERE name LIKE '%$keyword%' ORDER BY price DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -198,9 +197,9 @@ class Database
      * @param $keyword is the search term
      * @return array of products
      */
-    public function getProductByName_PriceLowToHigh($keyword)
+    public function getProductsByName_PriceLowToHigh($keyword)
     {
-        $sql = "SELECT * FROM product WHERE name LIKE '%$keyword%' ORDER BY price DESC";
+        $sql = "SELECT * FROM product WHERE name LIKE '%$keyword%' ORDER BY price";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -274,7 +273,7 @@ class Database
     public function getProductsWithTags_PriceLowToHigh($tag, $keyword)
     {
         $sql = "Select * from product p where p.tags like '$tag' AND p.name like '%$keyword%'
-                 order by price";
+                 order by price DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -285,7 +284,7 @@ class Database
                 	select s.productID
                 	from product s 
                 	where s.tags like '$tag')
-                order by price";
+                order by price DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
         $result += $query->fetchAll();
@@ -312,7 +311,7 @@ class Database
      */
     public function getRandomProduct()
     {
-        $sql = "SELECT productID FROM product ORDER BY RAND() LIMIT 1";
+        $sql = "SELECT * FROM product ORDER BY RAND() LIMIT 1";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -324,11 +323,11 @@ class Database
      */
     public function getProductsAtRandom()
     {
-        $sql = "SELECT prouctID FROM product ORDER BY RAND() LIMIT 10;";
+        $sql = "SELECT * FROM product ORDER BY RAND() LIMIT 10;";
         $query = $this->db->prepare($sql);
         $query->execute();
 
-        return $query->fetch();
+        return $query->fetchAll();
     }
 
     /**
@@ -376,15 +375,15 @@ class Database
      * Gets products ordered by the most recently added to the oldest.
      * @return array of products
      */
-    public function getProductByMostRecent()
+    public function getProductsByMostRecent()
     {
-        $sql = "SELECT * FROM product ORDER BY createdAt";
+        $sql = "SELECT * FROM product ORDER BY createdAt DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
 
         return $query->fetchAll();
     }
-
+    
     /************************ Reveiw queries ************************************/
 
     public function addReview($reviewerID, $userID, $raiting, $comment)
