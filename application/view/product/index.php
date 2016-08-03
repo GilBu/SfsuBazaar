@@ -134,7 +134,7 @@
 						<span>By: </span>
 
 						<!-- PLACE SELLER USERNAME HERE -->
-						<span>USERNAME</span>
+						<span><?php echo User::get($product->sellerID)->email; ?></span>
 					</div>
 				</div><!-- end row -->
 
@@ -190,6 +190,23 @@
 				<div role="tabpanel" class="tab-pane active" id="description">
 					<p class="top-10">
 						<?php echo $product->description; ?> 
+					</p>
+				</div>
+			</div>
+                        
+                        <hr>
+                        <div class="row">
+				<h4><u>Video:</u></h4>
+				<br>
+				<!-- Tab panes -->
+				<div role="tabpanel" class="tab-pane active">
+					<p class="top-10">
+                                            <?php if (!empty($product->videoUrl) && strstr($product->videoUrl, 'youtube.com')) { ?>
+                                                <iframe width="420" height="345" src="<?php echo $product->videoUrl; ?> ">    
+                                                </iframe>
+                                            <?php } else { ?>
+                                                No video available.
+                                            <?php } ?>
 					</p>
 				</div>
 			</div>
