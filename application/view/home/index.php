@@ -14,6 +14,10 @@
         text-overflow: ellipsis; 
     }
 
+    .left-padding {
+        padding-left: 50px; 
+    }
+
     .sm-buy-btn {
         border: 1px solid #ffc826; 
         -webkit-border-radius: 3px; 
@@ -48,9 +52,9 @@
         filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc92b, endColorstr=#ce9a01);
     }
 </style>
-
+<br><br>
 <!-- Featured Products -->
-<div class="container-fluid">  
+<div class="container-fluid well left-padding">  
     <div class="row-fluid">
         <h2>Featured:</h2>     
         <?php for ($i = 0, $size = count($featuredProducts); ($i < 6 && $i < $size); $i++) { ?>
@@ -71,7 +75,7 @@
 <hr>
 
 <!-- Recently Posted Products -->
-<div class="container-fluid">  
+<div class="container-fluid well left-padding">  
     <div class="row-fluid">
         <h2>Recently Posted:</h2>     
         <?php for ($i = 0, $size = count($featuredProducts); ($i < 6 && $i < $size); $i++) { ?>
