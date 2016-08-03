@@ -20,20 +20,6 @@ class ProductController extends Controller
     }
     
     /**
-     * PAGE: confirmation
-     * Renders the confirmation page
-     */
-    public function confirmation($productID)
-    {
-
-        $product = Product::get($productID);
-        
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/product/confirmation.php';
-        require APP . 'view/_templates/footer.php';
-    }
-    
-    /**
      * PAGE: newProduct
      * Renders the newProduct page
      */

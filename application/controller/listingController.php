@@ -18,9 +18,9 @@ class ListingController extends Controller
     {
         $products= '';
 
-        if (isset($_GET['search']))
+        if (isset($_POST['search']))
         {
-            $keyword = filter_input(INPUT_GET, 'search-term');
+            $keyword = filter_input(INPUT_POST, 'search-term');
         }
         
         if ($keyword != ''){
