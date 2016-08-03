@@ -176,6 +176,7 @@ class Database
 
     /************************ Product queries *********************************/
 
+
     /**
      * Gets all data of the product table from the database
      * @return Array of product objects
@@ -201,12 +202,13 @@ class Database
 
         return $query->fetchAll();
     }
+
     /**
      * Returns products ordered by the highest price
      * @param $keyword is the search term
      * @return array of products
      */
-    public function getProductsByName_PriceHighToLow($keyword)
+    public function getProductsByNamePriceHighToLow($keyword)
     {
         $sql = "SELECT * FROM product WHERE name LIKE '%$keyword%' ORDER BY price DESC";
         $query = $this->db->prepare($sql);
@@ -230,28 +232,70 @@ class Database
     }
 
     /**
-     * With the given tag(department) and keyword(search term), returns a list of products with
+     * Get all products in a category
+     * @param $tag is the category to be searched
+     * @return array of products
+     */
+    public function getProductsByTags($tag)
+    {
+        $sql = "SELECT * FROM product WHERE tags LIKE '%$tag%'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    /**
+     * Get all products in a category, arranged from highest price to lowest price
+     * @param $tag is the tag to be searched
+     * @return array of products
+     */
+    public function getProductsByTagsPriceHighToLow($tag)
+    {
+        $sql = "SELECT * FROM product WHERE tags LIKE '%$tag%' ORDER BY price DESC";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    /**
+     * Get all products in a category, arranged from lowest price to highest price
+     * @param $tag is the tag to be searched
+     * @return array of products
+     */
+    public function getProductsByTagsPriceLowToHigh($tag)
+    {
+        $sql = "SELECT * FROM product WHERE tags LIKE '%$tag%' ORDER BY price";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    /**
+     * With the given tag(category) and keyword(search term), returns a list of products with
      * the given tag and and a name similar the keyword, and then products without the same keyword
      * that have a name similar to the keyword.
-     * @param $tag is the department
+     * @param $tag is the category
      * @param $keyword is the search term
      * @return a list of products
      */
     public function getProductsWithTags($tag, $keyword)
     {
-        $sql = "Select * from product p where p.tags like '$tag' AND p.name like '%$keyword%' 
-                order by price";
+        $sql = "SELECT * FROM product p WHERE p.tags LIKE '$tag' AND p.name LIKE '%$keyword%' 
+                ORDER BY price";
         $query = $this->db->prepare($sql);
         $query->execute();
 
         $result = $query->fetchAll();
-        $sql = "Select * 
-                from product p
-                where p.name like '%$keyword%' and p.productID not in (
-                	select s.productID
-                	from product s 
-                	where s.tags like '$tag')
-                order by price";
+        $sql = "SELECT * 
+                FROM product p
+                WHERE p.name LIKE '%$keyword%' AND p.productID NOT IN (
+                	SELECT s.productID
+                	FROM product s 
+                	WHERE s.tags LIKE '$tag')
+                ORDER BY price";
         $query = $this->db->prepare($sql);
         $query->execute();
         $result += $query->fetchAll();
@@ -265,21 +309,21 @@ class Database
      * @param $keyword is the search term
      * @return array of products
      */
-    public function getProductsWithTags_PriceHighToLow($tag, $keyword)
+    public function getProductsWithTagsPriceHighToLow($tag, $keyword)
     {
-        $sql = "Select * from product p where p.tags like '$tag' AND p.name like '%$keyword%'
-                 order by price";
+        $sql = "SELECT * FROM product p WHERE p.tags LIKE '$tag' AND p.name LIKE '%$keyword%'
+                 ORDER BY price";
         $query = $this->db->prepare($sql);
         $query->execute();
 
         $result = $query->fetchAll();
-        $sql = "Select * 
-                from product p
-                where p.name like '%$keyword%' and p.productID not in (
-                	select s.productID
-                	from product s 
-                	where s.tags like '$tag')
-                order by price";
+        $sql = "SELECT * 
+                FROM product p
+                WHERE p.name LIKE '%$keyword%' AND p.productID NOT IN (
+                	SELECT s.productID
+                	FROM product s 
+                	WHERE s.tags LIKE '$tag')
+                ORDER BY price";
         $query = $this->db->prepare($sql);
         $query->execute();
         $result += $query->fetchAll();
@@ -293,21 +337,21 @@ class Database
      * @param $keyword is the search term
      * @return array of products
      */
-    public function getProductsWithTags_PriceLowToHigh($tag, $keyword)
+    public function getProductsWithTagsPriceLowToHigh($tag, $keyword)
     {
-        $sql = "Select * from product p where p.tags like '$tag' AND p.name like '%$keyword%'
-                 order by price DESC";
+        $sql = "SELECT * FROM product p WHERE p.tags LIKE '$tag' AND p.name LIKE '%$keyword%'
+                 ORDER BY price DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
 
         $result = $query->fetchAll();
-        $sql = "Select * 
-                from product p
-                where p.name like '%$keyword%' and p.productID not in (
-                	select s.productID
-                	from product s 
-                	where s.tags like '$tag')
-                order by price DESC";
+        $sql = "SELECT * 
+                FROM product p
+                WHERE p.name LIKE '%$keyword%' AND p.productID NOT IN (
+                	SELECT s.productID
+                	FROM product s 
+                	WHERE s.tags LIKE '$tag')
+                ORDER BY price DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
         $result += $query->fetchAll();
@@ -406,8 +450,9 @@ class Database
 
         return $query->fetchAll();
     }
+
     /**
-     * Get all of the department names
+     * Get all of the category names
      * @return an array of tags
      */
     public function getAllTags()
@@ -418,7 +463,6 @@ class Database
 
         return $query->fetchAll();
     }
-
     
     /************************ Reveiw queries ************************************/
 
