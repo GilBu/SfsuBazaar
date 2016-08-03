@@ -174,7 +174,7 @@
 				<!-- product price -->
 				<div class="row-fluid">
 					<div class="col-md-12 bottom-rule">
-						<h2 class="product-price">$ <?php echo number_format($product->price, 2, '.', ''); ?></h2>
+						<h2 class="product-price"> <?php echo "$" . number_format($product->price, 2, '.', ''); ?></h2>
 					</div>
 				</div><!-- end row -->
 
@@ -185,10 +185,6 @@
 						<br><br>
 					</div>
 				</div><!-- end row -->
-
-				<div class="row">
-					<br>
-				</div>
 
 				<!-- quantity, buy it now buttons -->
 				<div class="row-fluid add-to-cart">
