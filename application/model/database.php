@@ -78,6 +78,17 @@ class Database
 	return $query->fetch();
     }
 
+    public function getUserInfoByEmail($email)
+    {
+    $sql =  "SELECT * FROM user WHERE " .
+        "email = :email LIMIT 1";
+    $query = $this->db->prepare($sql);
+    $params = array(':email'   => $email);
+    $query->execute($params);
+
+    return $query->fetch();
+    }
+
     public function updateUser(	$firstName, $lastName, $password,
 				$email, $imagePath, $userID	)
     {
@@ -108,16 +119,6 @@ class Database
 
 	$query->execute($params);
     }
-
-    public function fetchUserPW($username)
-    {
-        $sql = "SELECT password FROM user WHERE email = '$username' LIMIT 1";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-
-        return $query->fetch();
-    }
-
 
    /**
     * ACTION: doesEmailExist
