@@ -222,7 +222,7 @@ class Database
      * @param $keyword is the search term
      * @return array of products
      */
-    public function getProductsByName_PriceLowToHigh($keyword)
+    public function getProductsByNamePriceLowToHigh($keyword)
     {
         $sql = "SELECT * FROM product WHERE name LIKE '%$keyword%' ORDER BY price";
         $query = $this->db->prepare($sql);
