@@ -17,14 +17,19 @@
             display: none; 
         }
         table#product tbody td { 
-            display: block; padding: .6rem; min-width:320px;
+            display: block; 
+            padding: .6rem; 
+            min-width:320px;
         }
         table#product tbody tr td:first-child { 
-            background: #333; color: #fff; 
+            background: #333; 
+            color: #fff; 
         }
         table#product tbody td:before {
-            content: attr(data-th); font-weight: bold;
-            display: inline-block; width: 8rem;
+            content: attr(data-th); 
+            font-weight: bold;
+            display: inline-block; 
+            width: 8rem;
         }
 
         table#product tfoot td{
@@ -34,6 +39,39 @@
             display:block;
         }
 
+    }
+
+
+    .sm-buy-btn {
+        border: 1px solid #ffc826; 
+        -webkit-border-radius: 3px; 
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        font-size: 15px;
+        font-family: arial, helvetica, sans-serif; 
+        padding: 5px 8px 5px 8px; 
+        text-decoration: none; 
+        display: inline-block;
+        font-weight: bold; 
+        color: #000000;
+        background-color: #ffd65e; 
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#ffd65e), to(#febf04));
+        background-image: -webkit-linear-gradient(top, #ffd65e, #febf04);
+        background-image: -moz-linear-gradient(top, #ffd65e, #febf04);
+        background-image: -ms-linear-gradient(top, #ffd65e, #febf04);
+        background-image: -o-linear-gradient(top, #ffd65e, #febf04);
+        background-image: linear-gradient(to bottom, #ffd65e, #febf04);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffd65e, endColorstr=#febf04);
+    }
+
+    .sm-buy-btn:hover {
+        border: 1px solid #f7b800;
+        background-color: #ffc92b; 
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#ffc92b), to(#ce9a01));
+        background-image: -webkit-linear-gradient(top, #ffc92b, #ce9a01);
+        background-image: -moz-linear-gradient(top, #ffc92b, #ce9a01);
+        background-image: -ms-linear-gradient(top, #ffc92b, #ce9a01);
+        background-image: -o-linear-gradient(top, #ffc92b, #ce9a01);
+        background-image: linear-gradient(to bottom, #ffc92b, #ce9a01);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc92b, endColorstr=#ce9a01);
     }
 </style>
 
@@ -51,9 +89,9 @@ function goBack() {
     <table id="product" class="table table-hover table-condensed">
         <thead>
             <tr>
-                <th style="width:40%">Product</th>
-                <th style="width:30%">Seller</th>
-                <th style="width:30%">Price</th>
+                <th style="width:60%">Product</th>
+                <th style="width:20%">Seller</th>
+                <th style="width:20%">Price</th>
             </tr>
         </thead>
 
@@ -69,17 +107,17 @@ function goBack() {
                             <img src="../../<?php echo $product->imagePath; ?>"/>
                         </div>
                         <div class="col-sm-6">
-                            <h4><?php echo $product->name; ?></h4>
+                            <h4><b><?php echo $product->name; ?></b></h4>
                         </div>
                     </div>
                     
                 </td>
 
                 <!-- Seller Username -->
-                <td data-th="Seller">????????????????</td>
+                <td data-th="Seller"><h6>????????????????</h6></td>
 
                 <!-- Product Price -->
-                <td data-th="Price"> $ <?php echo $product->price; ?></td>
+                <td data-th="Price"><h5><b><?php echo "$" . number_format($product->price, 2, '.', ''); ?></b></h5></td>
 
             </tr>
         </tbody>
@@ -88,9 +126,9 @@ function goBack() {
         <tfoot>
             <!-- Cancel/Confirm Purchase Button -->
             <tr>
-                <td><a href="#" class="btn btn-warning" onclick="goBack()"><i class="fa fa-angle-left"></i> Cancel</a></td>
                 <td colspan="1" class="hidden-xs"></td>
-                <td><a href="#" class="btn btn-success btn-block" onclick="msgSent(), goBack()"> Confirm<i class="fa fa-angle-right"></i></a></td>
+                <td><a href="#" class="btn btn-link" onclick="goBack()"><i class="fa fa-angle-right"></i> Cancel</a></td>
+                <td><a href="#" class="btn btn-success sm-buy-btn btn-block" onclick="msgSent(), goBack()"> Confirm<i class="fa fa-angle-right"></i></a></td>
             </tr>
         </tfoot>
     </table>
