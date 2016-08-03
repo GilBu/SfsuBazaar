@@ -77,8 +77,7 @@ class ProductController extends Controller
     private function getNewProduct()
     {   
         $name = filter_input(INPUT_POST, 'name');
-        //$sellerID = filter_input(INPUT_POST, 'sellerID');
-        $sellerID = $_SESSION['userID'];
+        $sellerID = filter_input(INPUT_POST, 'sellerID');
         $price = filter_input(INPUT_POST, 'price');
         $quantity = filter_input(INPUT_POST, 'quantity');
         $quality = filter_input(INPUT_POST, 'quality');
@@ -87,11 +86,7 @@ class ProductController extends Controller
         $description = filter_input(INPUT_POST, 'description');
         $tags = filter_input(INPUT_POST, 'tags');
         
-        if (!empty($videUrl))
-        {
-            $videUrl = str_replace('watch?v=', 'embed/', $videUrl);
-        }
-        
+
         $isService = filter_input(INPUT_POST, 'isService');
         if (empty($isService))
         {
