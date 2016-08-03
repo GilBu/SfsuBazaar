@@ -106,6 +106,16 @@ class Product
         return Database::getInstance()->getProductsByName($keyword);
     }
 
+    public static function getFeaturedProducts()
+    {
+        return Database::getInstance()->getProductsAtRandom();
+    }
+
+    public static function getResentProducts()
+    {
+        return Database::getInstance()->getProductsByMostRecent();
+    }
+
 
 
 
