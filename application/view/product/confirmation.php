@@ -60,7 +60,8 @@
         background-image: -moz-linear-gradient(top, #ffd65e, #febf04);
         background-image: -ms-linear-gradient(top, #ffd65e, #febf04);
         background-image: -o-linear-gradient(top, #ffd65e, #febf04);
-        background-image: linear-gradient(to bottom, #ffd65e, #febf04);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffd65e, endColorstr=#febf04);
+        background-image: linear-gradient(to bottom, #ffd65e, #febf04);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffd65e, endColorstr=#febf04);
     }
 
     .sm-buy-btn:hover {
@@ -71,14 +72,17 @@
         background-image: -moz-linear-gradient(top, #ffc92b, #ce9a01);
         background-image: -ms-linear-gradient(top, #ffc92b, #ce9a01);
         background-image: -o-linear-gradient(top, #ffc92b, #ce9a01);
-        background-image: linear-gradient(to bottom, #ffc92b, #ce9a01);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc92b, endColorstr=#ce9a01);
+        background-image: linear-gradient(to bottom, #ffc92b, #ce9a01);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc92b, endColorstr=#ce9a01);
     }
 </style>
 
 <script>
+
 function msgSent() {
     alert("Message has been sent to seller.");
 }
+
 function goBack() {
     window.history.back();
 }
