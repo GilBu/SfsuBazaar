@@ -413,47 +413,5 @@ class Database
         $query->execute($params);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-    /**
-     * Get all products from db with the giving name
-     * @param string $name
-     * @return Array Contain products with the same name in db
-     */
-//    public function getByName($name)
-//    {
-//        $sql = "SELECT * FROM products WHERE name = '$name'";
-//        $query = $this->db->prepare($sql);
-//        $query->execute();
-//
-//        return $query->fetchAll();
-//    }
-
-    /**
-     * Change a Associative Array to the PDO param format
-     * i.e. change array['key']['value'] to array[':key']['value']
-     * @param Associative Array $array
-     * @return Associative Array in PDO param format
-     */
-//    public function arrayToPDOParam($array)
-//    {
-//        $PDOParam = array();
-//
-//        foreach ($array as $key => $value)
-//        {
-//            $PDOParam[":$key"] = $value;
-//        }
-//
-//        return $PDOParam;
-//    }
 }
 
