@@ -17,12 +17,14 @@
 			</div>
 
 			<!-- Sellers ID -->
-			<div class="form-group">
+                        <!--			
+                        <div class="form-group">
 				<label class="control-label col-sm-2" for="name">Seller_ID:</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" name="sellerID" value="" required id="sellerID" placeholder="Enter Seller ID"/>
 				</div>
 			</div>
+                        -->
 
 			<!-- Price -->
 			<div class="form-group">
@@ -93,8 +95,9 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name">Video URL:</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="videoUrl" value="" id="videoUrl" placeholder="Enter URL"/>
-				</div>
+                                    <input type="text" class="form-control" name="videoUrl" value="" id="videoUrl" placeholder="Enter URL"/>
+                                    <p>*** Only YouTube links are supported.</p>              
+				</div>               
 			</div>
 
 			<!-- Description -->
