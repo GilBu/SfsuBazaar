@@ -21,13 +21,13 @@
     <style>
 
         body { 
-            padding-top: 110px; 
+            padding-top: 85px; 
         }
 
         .search-bar {
             padding-top: 20px; 
             margin: auto;
-            max-width: 50%;
+            max-width: 65%;
         }
 
         .scrollable-menu {
@@ -45,12 +45,10 @@
         .nav-btns {
             padding-top: 20px; 
         }
-        .logo-img {
-            float: left;
-            padding-top: 20px;
-            padding-right: 20px;
-            padding-bottom: 20px;
+        .nav-margin {
+            margin-bottom: 15px;
         }
+
     </style>
 
     <!-- search dropdown feature -->
@@ -67,79 +65,128 @@
     </script>
 
     <body>
+
         <div class="container-fluid">
             <!-- Navbar -->
             <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="container-fluid">
+                <div class="row-fluid">
 
-                    <!-- Title Banner and Tag Line -->
-                    <a href="<?php echo URL; ?>"><img class="logo-img" src="https://imgur.com/jQfovUw.png"></a>
-
-                    <div class="navbar-header">
-                        <!-- collapse toggle button -->
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
+                    <!-- LOGO -->
+                    <div class="col-sm-1 nav-margin">
+                        <a class="navbar-brand" href="<?php echo URL; ?>"><small>SFSU</small> <br> Bazaar</a>
                     </div>
 
-                    <!-- department, sell, search bar be callapsed here -->
-                    <div class="navbar-collapse collapse">
 
-                        <!-- login/register links -->
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="<?php echo URL; ?>product/newProduct"><span class="glyphicon glyphicon-tag"</span>Sell</a></li>
-                            <?php if (empty($_SESSION)) { ?>
-                                <li><a href="<?php echo URL; ?>login/index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                                <li><a href="<?php echo URL; ?>register/index"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                            <?php } else { ?>
-                                <li><a href="<?php echo URL; ?>login/userLogout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                            <?php } ?>
-                        </ul>
+                    <div class="col-md-11">
 
-                        <!-- Search Bar -->
-                        <div class="search-bar nav-item">
-                            <form action="<?php echo URL; ?>listing/search" method="POST">
 
-                                <div class="form-group" style="display:inline;">
-                                    <div class="input-group" style="display:table;">
 
-                                        <!-- search departments -->
-                                        <div class="input-group-btn search-panel">
+                        <!-- department, sell, search bar -->
+                        <div class="row-fluid">
 
-                                            <!-- departments dropdown button-->
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                                <span id="search_concept">All </span>
-                                                <span class="caret"></span>
-                                            </button>
+                            <!-- collapses row when screen width is small -->
+                            <div class="container-fluid">
+                                <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </a>
+                            </div>
 
-                                            <!-- departments list -->
-                                            <ul class="dropdown-menu scrollable-menu" role="menu">
-                                                <li class="active"><a href="#all">All </a></li>
-                                                <li><a href="#appliances">Appliances</a></li>
-                                                <li><a href="#arts-crafts">Arts, Crafts & Sewing</a></li>
-                                                <li><a href="#automotive">Automotive</a></li>
-                                                <li><a href="#beauty">Beauty & Personal Care</a></li>
-                                                <li><a href="#stripbooks">Books</a></li>
-                                            </ul>
+                            <!-- department, sell, search bar be callapsed here -->
+                            <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav nav-btns">
+                                    <li class="dropdown">
+
+                                        <!-- Departments dropdown button -->	
+                                        <a href="<?php echo URL; ?>" class="dropdown-toggle" data-toggle="dropdown">
+                                            Departments
+                                            <b class="caret"></b> 
+                                        </a>
+
+                                        <!-- departments list-->
+                                        <ul class="dropdown-menu scrollable-menu">
+                                            <li>
+                                                <div class="row" style="width: 300px;">
+                                                    <ul class="list-unstyled col-md-12">
+                                                        <li>
+                                                            <a href="<?php echo URL; ?>">All Departments</a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="<?php echo URL; ?>">Appliances</a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="<?php echo URL; ?>">Automotive</a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="<?php echo URL; ?>">Books</a>
+                                                        </li>
+                                                    </ul> <!-- end list of departments -->
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li> <!-- end dropdown -->
+
+                                    <!-- Sell Product Button -->
+                                    <li>
+                                        <a href="<?php echo URL; ?>product/newProduct">Sell</a>
+                                    </li>
+
+                                </ul> <!-- end of departments and sell buttons -->
+
+
+                                <!-- Search Bar -->
+                                <div class="search-bar">
+                                    <form action="<?php echo URL; ?>listing/search" method="GET">
+
+                                        <div class="form-group" style="display:inline;">
+                                            <div class="input-group" style="display:table;">
+
+                                                <!-- search departments -->
+                                                <div class="input-group-btn search-panel">
+
+                                                    <!-- departments dropdown button-->
+                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                        <span id="search_concept">All </span>
+                                                        <span class="caret"></span>
+                                                    </button>
+
+                                                    <!-- departments list -->
+                                                    <ul class="dropdown-menu scrollable-menu" role="menu">
+                                                        <li class="active"><a href="#all">All </a></li>
+                                                        <li><a href="#appliances">Appliances</a></li>
+                                                        <li><a href="#arts-crafts">Arts, Crafts & Sewing</a></li>
+                                                        <li><a href="#automotive">Automotive</a></li>
+                                                        <li><a href="#beauty">Beauty & Personal Care</a></li>
+                                                        <li><a href="#stripbooks">Books</a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <!-- Search Bar --> 
+                                                <input class="form-control" type="text" name="search-term" value="" />
+
+                                                <!-- Search Button -->
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="submit" name="search" value="Search">
+                                                        <span class="glyphicon glyphicon-search"></span>
+                                                    </button>
+                                                </span>
+                                            </div>
                                         </div>
-
-                                        <!-- Search Bar --> 
-                                        <input class="form-control" type="text" name="search-term" value="" />
-
-                                        <!-- Search Button -->
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="submit" name="search" value="Search">
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </form>
-                        </div> <!-- end of search bar -->
-                    </div> <!-- end of collapse  -->
+                                    </form>
+                                </div> <!-- end of search bar -->
+                                <ul class="top-right">
+                                    <a href="<?php echo URL; ?>login/index">Login</a>
+                                    Or
+                                    <a href="<?php echo URL; ?>register/index" style="padding-right:15px;">Register</a>
+                                </ul>
+                                <br>
+                            </div> <!-- end of collapse -->
+                        </div>
+                    </div>
                 </div>
             </nav> <!-- end of nav -->
         </div>
