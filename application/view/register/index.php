@@ -17,12 +17,15 @@
     <!-- CSS -->
     <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
 
-    	<style>
+    <style>
+
 		.centered {
 			width:300px;
 			margin: 0 auto;
 		}
+		
 	</style>
+
 </head>
 
 <body>
