@@ -41,6 +41,11 @@
 
     }
 
+    .xs-img {
+        width: 200px; 
+        height: 200px;
+    }
+
 
     .sm-buy-btn {
         border: 1px solid #ffc826; 
@@ -93,7 +98,8 @@
     <table id="product" class="table table-hover table-condensed">
         <thead>
             <tr>
-                <th style="width:60%">Product</th>
+                <th style="width:30%">Product</th>
+                <th style="width:30%">Name</th>
                 <th style="width:20%">Seller</th>
                 <th style="width:20%">Price</th>
             </tr>
@@ -102,26 +108,28 @@
         <!-- Place Products Here -->
         <tbody>
             <tr>
-                <!-- Product -->
+                <!-- Product img -->
                 <td data-th="Product">
-
-                    <!-- Product img and title -->
-                    <div class="row">
-                        <div class="col-sm-4 hidden-xs">
-                            <img src="../../<?php echo $product->imagePath; ?>"/>
-                        </div>
-                        <div class="col-sm-6">
-                            <h4><b><?php echo $product->name; ?></b></h4>
-                        </div>
-                    </div>
-
+                    <img class="xs-img" src="../../<?php echo $product->imagePath; ?>"/>
                 </td>
-
+                <!-- product name -->
+                <td data-th="Name"><h4><b><?php echo $product->name; ?></b></h4></td>
                 <!-- Seller Username -->
                 <td data-th="Seller"><h6>????????????????</h6></td>
 
                 <!-- Product Price -->
-                <td data-th="Price"><h5><b><?php echo "$" . number_format($product->price, 2, '.', ''); ?></b></h5></td>
+                <td data-th="Price"><h5><b>
+                    <?php if ($product->isService == 0) { 
+                        echo "$" . number_format($product->price, 2, '.', ''); 
+                    }
+
+                    else {
+                        echo "$" . number_format($product->price, 2, '.', '') . " /hr"; 
+                    }
+                    ?>
+                        
+                    </b></h5>
+                </td>
 
             </tr>
         </tbody>
@@ -130,7 +138,7 @@
         <tfoot>
             <!-- Cancel/Confirm Purchase Button -->
             <tr>
-                <td colspan="1" class="hidden-xs"></td>
+                <td colspan="2" class="hidden-xs"></td>
                 <td><a href="#" class="btn btn-link" onclick="goBack()"><i class="fa fa-angle-right"></i> Cancel</a></td>
                 <td><a href="<?php echo URL; ?>home" class="btn btn-success sm-buy-btn btn-block" onclick="msgSent()"> Confirm<i class="fa fa-angle-right"></i></a></td>
             </tr>
