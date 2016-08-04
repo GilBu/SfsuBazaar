@@ -72,9 +72,7 @@
                 <div class="row-fluid">
                     <div class="col-md-12">
                         <span>By: </span>
-
-                        <!-- PLACE SELLER USERNAME HERE -->
-                        <span>USERNAME</span>
+                        <span><?php echo User::get($product->sellerID)->email; ?></span>
                     </div>
                 </div><!-- end row -->
 
@@ -137,7 +135,7 @@
                     <!-- buy it now buttons -->
                     <div class="col-md-5 add-to-cart">
                         <!-- buy it now -->
-                        <a href="<?php echo URL . "product/confirmation/$product->productID"; ?>"" class="btn btn-info btn-size buy-btn ">Buy It Now</a>   
+                        <a href="<?php echo URL . "product/confirmation/$product->productID"; ?>" class="btn btn-info btn-size buy-btn ">Buy It Now</a>   
                     </div><!-- end row -->
                 </div>
 

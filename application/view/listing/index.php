@@ -89,7 +89,7 @@
         <div class="row-fluid">
             <!-- product here -->
             <?php foreach ($products as $product) { ?>
-                <div class="col-xs-3 col-lg-3 ">
+                <div class="col-sm-5 col-md-3">
                     <div class="thumbnail">
 
                         <!-- Product Img -->
@@ -108,7 +108,7 @@
 
                                 <!-- Seller and Product Price--> 
                                 <div class="col-md-7">
-                                    By: ????????? 
+                                    By: <?php echo User::get($product->sellerID)->email; ?>
 
                                     <h4><b>    
                                         <?php if ($product->isService == 0) { 
