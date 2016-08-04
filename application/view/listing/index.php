@@ -94,7 +94,7 @@
 
                         <!-- Product Img -->
                         <a href="<?php echo URL . "product/index/$product->productID"; ?>">
-                            <img src="../<?php echo $product->imagePath; ?>" alt="Cannot load image." style="width:250px; height:250px;" />
+                            <img src="../<?php echo $product->imagePath; ?>"  alt="Image Not Provided" style="width:250px; height:250px;" />
                         </a>
 
                         <!-- Product Detail -->

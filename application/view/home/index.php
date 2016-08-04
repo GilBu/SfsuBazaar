@@ -60,7 +60,7 @@
         <?php for ($i = 0, $size = count($featuredProducts); ($i < 6 && $i < $size); $i++) { ?>
             <div class="col-sm-5 col-md-2 bottom-padding">
                 <a href="product/index/<?php echo $featuredProducts[$i]->productID; ?>" > 
-                    <img src="<?php echo $featuredProducts[$i]->imagePath; ?>" alt="Cannot load image." style="width:100px;height:100px">
+                    <img src="<?php echo $featuredProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
                     <p class="txt-overflow-hidden">
                         <?php echo $featuredProducts[$i]->name; ?> <br>
                         <?php echo "$" . number_format($featuredProducts[$i]->price, 2, '.', ''); ?> <br>
@@ -81,7 +81,7 @@
         <?php for ($i = 0, $size = count($resentProducts); ($i < 6 && $i < $size); $i++) { ?>
             <div class="col-sm-5 col-md-2 bottom-padding">
                 <a href="product/index/<?php echo $resentProducts[$i]->productID; ?>" > 
-                    <img src="<?php echo $resentProducts[$i]->imagePath; ?>" alt="Cannot load image." style="width:100px;height:100px">
+                    <img src="<?php echo $resentProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
                     <p class="txt-overflow-hidden">
                         <?php echo $resentProducts[$i]->name; ?> <br>
                         <?php echo "$" . number_format($resentProducts[$i]->price, 2, '.', ''); ?> <br>
