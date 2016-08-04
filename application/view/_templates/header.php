@@ -102,14 +102,14 @@
 							$categorys=Array("All","Books","Office Supplies","Electronics","Services","Miscellaneous");
 							foreach($categorys as $category)
 							{
-								echo '<option value="'.$category.'"'.($_POST['category']==$category?' selected="selected"':'').'>'.$category.'</option>';
+								echo '<option value="'.$category.'"'.($_GET['category']==$category?' selected="selected"':'').'>'.$category.'</option>';
 							}
 						?>
 						</select>
 
 					</div>
 					<!-- Search Bar --> 
-					<input class="form-control" type="text" name="search-term" value="<?php if(isset($_POST['search-term'])){ echo $_POST['search-term']; }?>"/>
+					<input class="form-control" type="text" name="search-term" value="<?php if(isset($_GET['search-term'])){ echo $_GET['search-term']; }?>"/>
 
                                         <!-- Search Button -->
                                         <span class="input-group-btn">
