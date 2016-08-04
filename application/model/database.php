@@ -50,129 +50,6 @@ class Database
     }
 
 
-    /************************ User queries ************************************/
-
-    public function addUser($user)
-    {
-	$sql =  "INSERT INTO user " .
-		"(firstName, lastName, password, email)" .
-		"VALUES " .
-		"(:firstName, :lastName, :password, :email)";
-	$query = $this->db->prepare($sql);
-	$param = array(	':firstName' 	=> $user->firstName,
-			':lastName' 	=> $user->lastName,
-			':password'	=> $user->password,
-			':email' 	=> $user->email);
-
-	$query->execute($param);
-    }
-
-    public function getUserByID($userID)
-    {
-        $sql =  "SELECT * FROM user WHERE " .
-            "userID = :userID LIMIT 1";
-        $query = $this->db->prepare($sql);
-        $params = array(':userID'	=> $userID);
-        $query->execute($params);
-
-        return $query->fetch();
-    }
-
-    public function updateUser(	$firstName, $lastName, $password,
-                                   $email, $imagePath, $userID	)
-    {
-        //TODO: This is a temporary model of how this could work.
-        //      Needs a permanent solution.
-
-        $sql = 	"UPDATE user SET " .
-            "firstName = :firstName, lastName = :lastName," .
-            "password = :password, email = :email," .
-            "imagePath = :imagePath" .
-            "WHERE userID = :userID";
-        $query = $this->db->prepare($sql);
-        $params = array(	':firstName'	=> $firstName,
-            ':lastName'	=> $lastName,
-            ':password'	=> $password,
-            ':email'	=> $email,
-            ':imagePath'	=> $imagePath,
-            ':userID'	=> $userID	);
-
-        $query->execute($params);
-    }
-
-    public function deleteUserByID($userID)
-    {
-        $sql =  "DELETE FROM user WHERE userID = :userID";
-        $query = $this->db->prepare($sql);
-        $params = array(':userID' => $userID);
-
-        $query->execute($params);
-    }
-
-    public function fetchUserPW($username)
-    {
-        $sql = "SELECT password FROM user WHERE email = '$username' LIMIT 1";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-
-        return $query->fetch();
-    }
-
-
-   /**
-    * ACTION: doesEmailExist
-    * Checks if login info entered by the user exist in database
-    * @param string $email, email entered
-    */
-    public function doesEmailExist($email)
-    {
-        $sql = "SELECT email FROM user WHERE email = '$email'";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-
-        return $query->fetch();
-    }
-
-    /************************ Meetup queries **********************************/
-    /**
-    Gets all data of the meetup table from he database
-    @return Array of meetup objects
-     */
-
-    public function addMeetup($meetup)
-    {
-        $sql =  "INSERT INTO meetup " .
-            "(status, sellerID, " .
-            "dateOfMeetup, timeOfMeetup, locationOfMeetup)" .
-            "VALUES " .
-            "(:status, :sellerID, " .
-            ":dateOfMeetup, :timeOfMeetup, :locationOfMeetup)";
-        $query = $this->db->prepare($sql);
-        $param = array(	':status' 	   => $meetup->status,
-            ':sellerID'	   => $meetup->sellerID,
-            ':dateOfMeetup'	   => $meetup->dateOfMeetup,
-            ':timeOfMeetup'	   => $meetup->timeOfMeetup,
-            ':locationOfMeetup' => $meetup->locationOfMeetup	);
-        $query->execute($param);
-    }
-
-    public function getMeetupByID($meetID)
-    {
-        $sql = "SELECT * FROM meetup WHERE meetID = :meetID LIMIT 1";
-        $query = $this->db->prepare($sql);
-        $param = array(':meetID' => $meetID);
-        $query->execute($param);
-
-        return $query->fetch();
-    }
-
-    public function deleteMeetupByID($meetID)
-    {
-        $sql = "DELETE * FROM meetup WHERE meetID = :meetID";
-        $query = $this->db->prepare($sql);
-        $param = array(':meetID' => $meetID);
-        $query->execute($param);
-    }
 
     /************************ Product queries *********************************/
 
@@ -457,7 +334,15 @@ class Database
      */
     public function getAllTags()
     {
-        $sql = "SELECT tags FROM product GROUP BY tags";
+        $sql = "SELECT DISTINCT p1.tags
+		FROM product p1 
+		JOIN(
+			SELECT p2.tags
+			FROM product p2 
+		    GROUP BY p2.tags
+		) AS x
+		ON p1.tags = x.tags
+		ORDER BY (p1.tags LIKE 'Other')";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -491,6 +376,130 @@ class Database
         $params = array(':reviewID'     => $reviewID);
 
         $query->execute($params);
+    }
+
+    /************************ User queries ************************************/
+
+    public function addUser($user)
+    {
+	$sql =  "INSERT INTO user " .
+		"(firstName, lastName, password, email)" .
+		"VALUES " .
+		"(:firstName, :lastName, :password, :email)";
+	$query = $this->db->prepare($sql);
+	$param = array(	':firstName' 	=> $user->firstName,
+			':lastName' 	=> $user->lastName,
+			':password'	=> $user->password,
+			':email' 	=> $user->email);
+
+	$query->execute($param);
+    }
+
+    public function getUserByID($userID)
+    {
+        $sql =  "SELECT * FROM user WHERE " .
+            "userID = :userID LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $params = array(':userID'	=> $userID);
+        $query->execute($params);
+
+        return $query->fetch();
+    }
+
+    public function updateUser(	$firstName, $lastName, $password,
+                                   $email, $imagePath, $userID	)
+    {
+        //TODO: This is a temporary model of how this could work.
+        //      Needs a permanent solution.
+
+        $sql = 	"UPDATE user SET " .
+            "firstName = :firstName, lastName = :lastName," .
+            "password = :password, email = :email," .
+            "imagePath = :imagePath" .
+            "WHERE userID = :userID";
+        $query = $this->db->prepare($sql);
+        $params = array(	':firstName'	=> $firstName,
+            ':lastName'	=> $lastName,
+            ':password'	=> $password,
+            ':email'	=> $email,
+            ':imagePath'	=> $imagePath,
+            ':userID'	=> $userID	);
+
+        $query->execute($params);
+    }
+
+    public function deleteUserByID($userID)
+    {
+        $sql =  "DELETE FROM user WHERE userID = :userID";
+        $query = $this->db->prepare($sql);
+        $params = array(':userID' => $userID);
+
+        $query->execute($params);
+    }
+
+    public function fetchUserPW($username)
+    {
+        $sql = "SELECT password FROM user WHERE email = '$username' LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch();
+    }
+
+
+   /**
+    * ACTION: doesEmailExist
+    * Checks if login info entered by the user exist in database
+    * @param string $email, email entered
+    */
+    public function doesEmailExist($email)
+    {
+        $sql = "SELECT email FROM user WHERE email = '$email'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch();
+    }
+
+    /************************ Meetup queries **********************************/
+    /**
+    Gets all data of the meetup table from he database
+    @return Array of meetup objects
+     */
+
+    public function addMeetup($meetup)
+    {
+        $sql =  "INSERT INTO meetup " .
+            "(status, sellerID, " .
+            "dateOfMeetup, timeOfMeetup, locationOfMeetup)" .
+            "VALUES " .
+            "(:status, :sellerID, " .
+            ":dateOfMeetup, :timeOfMeetup, :locationOfMeetup)";
+        $query = $this->db->prepare($sql);
+        $param = array(	':status' 	   => $meetup->status,
+            ':sellerID'	   => $meetup->sellerID,
+            ':dateOfMeetup'	   => $meetup->dateOfMeetup,
+            ':timeOfMeetup'	   => $meetup->timeOfMeetup,
+            ':locationOfMeetup' => $meetup->locationOfMeetup	);
+        $query->execute($param);
+    }
+
+    public function getMeetupByID($meetID)
+    {
+        $sql = "SELECT * FROM meetup WHERE meetID = :meetID LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $param = array(':meetID' => $meetID);
+        $query->execute($param);
+
+        return $query->fetch();
+    }
+
+    public function deleteMeetupByID($meetID)
+    {
+        $sql = "DELETE * FROM meetup WHERE meetID = :meetID";
+        $query = $this->db->prepare($sql);
+        $param = array(':meetID' => $meetID);
+        $query->execute($param);
     }
 
 }
