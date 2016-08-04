@@ -19,6 +19,11 @@ class loginController extends Controller
         }
     }
 
+    public function loginAlertMsgs($msg)
+    {
+        require APP . 'view/login/loginAlertMsgs.php';
+    }
+
     /**
     * ACTION: login
     * Logs user onto website by checking entered information to the database
@@ -26,16 +31,16 @@ class loginController extends Controller
     public function login()
     {
         // check if the form is set and not empty
-        if(isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password']))
+        if(isset($_POST['login']))
         {
-            $username = filter_input(INPUT_POST, 'username');
+            $email = filter_input(INPUT_POST, 'email');
             $password = filter_input(INPUT_POST, 'password');
-            $validDomain = strstr($username, "@mail.sfsu.edu");
-            $isTaken = User::isEmailTaken($username);
+            $validDomain = strstr($email, "@mail.sfsu.edu");
+            $isTaken = User::isEmailTaken($email);
             
             if($validDomain && $isTaken)
             {   
-                $user = Database::getInstance()->getUserInfoByEmail($username);
+                $user = User::getUserInfoByEmail($email);
                 $hashRealPW = $user->password;
                 $verifyPasswordMatches = password_verify($password, $hashRealPW);                
                 
@@ -44,29 +49,18 @@ class loginController extends Controller
                     $_SESSION['userID'] = $user->userID;
                     $_SESSION['userEmail'] = $user->email;
                     $_SESSION['firstName'] = $user->firstName;
-                    $_SESSION['userLoginStatus'] = 1;
 
                     header('refresh: 0; URL=' . URL . 'home');
                 }
                 else
                 {
-                    header('refresh: 0; URL=' . URL . 'login/index');
-                    $message = "Invalid username or password! Please try again.";
-                    echo "<script type='text/javascript'>alert('$message');</script>";
+                    $this->loginAlertMsgs('invalidInfo');
                 }
             }
             else
             {
-                header('refresh: 0; URL=' . URL . 'login/index');
-                $message = "Invalid email domain! Login using valid email domain!";
-                echo "<script type='text/javascript'>alert('$message');</script>";
+                $this->loginAlertMsgs('invalidDomain');
             }
-        }
-        else
-        {
-            header('refresh: 0; URL=' . URL . 'login/index');
-            $message = "Please enter your username and password.";
-            echo "<script type='text/javascript'>alert('$message');</script>";
         }
     }
 

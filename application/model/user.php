@@ -76,4 +76,9 @@ class User
 	{
 		return Database::getInstance()->doesEmailExist($email);
 	}
+
+	public static function getUserInfoByEmail($email)
+	{
+		return Database::getInstance()->getUserInfoByEmail($email);
+	}
 }
