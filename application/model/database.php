@@ -116,11 +116,8 @@ class Database
     public function getProductsByCategory($cat)
     {
         $sql = "SELECT *
-                FROM product p  
-                  WHERE p.categoryID = (
-	              SELECT c.categoryID 
-                  FROM category c
-                  WHERE c.name = '$cat')";
+                FROM product  
+                WHERE category LIKE '$cat'";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -136,10 +133,7 @@ class Database
     {
         $sql = "SELECT *
                 FROM product p  
-                  WHERE p.categoryID = (
-	              SELECT c.categoryID 
-                  FROM category c
-                  WHERE c.name = '$cat')
+                WHERE category LIKE '$cat'
                 ORDER BY price DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -155,11 +149,8 @@ class Database
     public function getProductsByCategoryPriceLowToHigh($cat)
     {
         $sql = "SELECT *
-                FROM product p  
-                  WHERE p.categoryID = (
-	              SELECT c.categoryID 
-                  FROM category c
-                  WHERE c.name = '$cat')
+                FROM product   
+                WHERE category LIKE '$cat'
                 ORDER BY price";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -177,11 +168,8 @@ class Database
     public function getProductsWithCategory($cat, $keyword)
     {
         $sql = "SELECT * 
-                FROM product p  
-                WHERE p.name LIKE '%$keyword%' AND p.categoryID = (
-	              SELECT c.categoryID
-                  FROM category c
-                  WHERE c.name LIKE '$cat')";
+                FROM product 
+                WHERE name LIKE '%$keyword%' AND category LIKE '$cat'";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -213,10 +201,7 @@ class Database
     {
         $sql = "SELECT * 
                 FROM product p  
-                WHERE p.name LIKE '%$keyword%' AND p.categoryID = (
-	              SELECT c.categoryID
-                  FROM category c
-                  WHERE c.name LIKE '$cat')
+                WHERE p.name LIKE '%$keyword%' AND p.category LIKE '$cat'
                 ORDER BY price DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -248,10 +233,7 @@ class Database
     {
         $sql = "SELECT * 
                 FROM product p  
-                WHERE p.name LIKE '%$keyword%' AND p.categoryID = (
-	              SELECT c.categoryID
-                  FROM category c
-                  WHERE c.name LIKE '$cat')
+                WHERE p.name LIKE '%$keyword%' AND p.category LIKE '$cat'
                 ORDER BY price";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -332,10 +314,10 @@ class Database
     {
         $sql = "INSERT INTO product " .
             "(name, sellerID, price, quantity, quality, imagePath, "
-            . "videoUrl, description, tags, categoryID, isService)" .
+            . "videoUrl, description, tags, category, isService)" .
             "VALUES ".
             "(:name, :sellerID, :price, :quantity, :quality, :imagePath, "
-            . ":videoUrl, :description, :tags, categoryID, :isService)";
+            . ":videoUrl, :description, :tags, category, :isService)";
 
         $query = $this->db->prepare($sql);
         $param = array( ':name' => $product->name,
@@ -347,7 +329,7 @@ class Database
             ':videoUrl' => $product->videoUrl,
             ':description' => $product->description,
             ':tags' => $product->tags,
-            ':categoryID' => $product->categoryID,
+            ':category' => $product->category,
             ':isService' => $product->isService);
 
         $query->execute($param);
@@ -366,38 +348,10 @@ class Database
         return $query->fetchAll();
     }
 
-    /**
-     * Get all of the category names
-     * @return an array of tags
-     */
-    /**public function getAllTags()
-    {
-        $sql = "SELECT tags FROM product GROUP BY tags";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-
-        return $query->fetchAll();
-    }*/
-
     /************************ Category queries ************************************/
 
     /**
-     * Get the category given the category id
-     * @param $id is the id number
-     * @return the category
-     */
-    public function getCategoryByID($id)
-    {
-        $sql = "SELECT * FROM category WHERE categoryID = $id";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-
-        return $query->fetch();
-
-    }i
-
-    /**
-     * Get the the category given the category name
+     * Get the name of the category given the category id
      * @param $name is the name of the category
      * @return the category
      */
@@ -422,6 +376,7 @@ class Database
 
         return $query->fetchAll();
     }
+
 
     /************************ Reveiw queries ************************************/
 
