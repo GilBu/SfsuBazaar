@@ -147,12 +147,12 @@
 </script>
 
 <div class="container-fluid">
-    <a href="#" onclick="goBack()"><h3>Back To Search</h3></a>
+    <a href="#" onclick="goBack()"><h3>Go Back</h3></a>
     <br>
     <div class="row-fluid">
         <!-- product image -->
         <div class="col-lg-5">
-            <img src="../../<?php echo $product->imagePath; ?>" class="image-responsive product-img"/>
+            <img src="../../<?php echo $product->imagePath; ?>" class="image-responsive product-img" alt="Image Not Provided"/>
         </div>
 
         <!-- product data -->

@@ -43,7 +43,6 @@
 	<hr>
 
 	<div class="row-fluid">
-
 		<!-- is this a product or service -->
 		<h4>Step 1: Product or Service</h4>
 		<hr>
@@ -65,7 +64,7 @@
 
 				<h4>Step 2: Product Detail</h4>
 				<hr>
-				<!-- Name -->
+				<!-- Name *-->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Name:</label>
 					<div class="col-sm-10">
@@ -73,7 +72,7 @@
 					</div>
 				</div>
 
-				<!-- Price -->
+				<!-- Price *-->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Price:</label>
 					<div class="col-sm-10">
@@ -81,7 +80,7 @@
 					</div>
 				</div>
 
-				<!-- Quantity -->
+				<!-- Quantity *-->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Quantity:</label>
 					<div class="col-sm-10">
@@ -89,7 +88,7 @@
 					</div>
 				</div>
 
-				<!-- Quality Dropdown -->
+				<!-- Quality Dropdown *-->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Quality:</label>
 					<div class="col-sm-10">        
@@ -108,7 +107,7 @@
 					</div>
 				</div>
 
-				<!-- Department Dropdown -->
+				<!-- Department Dropdown *-->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Category:</label>
 					<div class="col-sm-10">        
@@ -122,17 +121,17 @@
 					</div>
 				</div>
 
-				<!-- Image -->
+				<!-- Image *-->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Image:</label>
 					<div class="col-sm-10">
-						<input type="file" class="form-control" name="image" value="" id="image"/>
+						<input type="file" class="form-control" name="image" value="" id="image" required/>
 					</div>
 				</div>
 
 				<!-- Video URL -->
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="name">Video URL:</label>
+					<label class="control-label col-sm-2" for="name">Video URL: <br> (optional) </label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="videoUrl" value="" id="videoUrl" placeholder="Enter URL"/>
 						<p>*** Only YouTube links are supported.</p>              
@@ -143,7 +142,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Description:</label>
 					<div class="col-sm-10">
-						<textarea type="text" class="form-control" name="description" value="" id="description" rows="5"></textarea> 
+						<textarea type="text" class="form-control" name="description" value="" id="description" rows="5" required=""></textarea> 
 					</div>
 				</div>
 
@@ -163,7 +162,7 @@
 
 				<h4>Step 2: Service Detail</h4>
 				<hr>
-				<!-- Name -->
+				<!-- Name *-->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Name:</label>
 					<div class="col-sm-10">
@@ -171,9 +170,9 @@
 					</div>
 				</div>
 
-				<!-- Price -->
+				<!-- Price *-->
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="name">Price Per Hour:</label>
+					<label class="control-label col-sm-2" for="name">Price Per Hour: </label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="price" value="" required id="price" placeholder="Enter Product Price"/>
 					</div>
@@ -181,7 +180,7 @@
 
 				<!-- Image -->
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="name">Image: (Optional)</label>
+					<label class="control-label col-sm-2" for="name">Image: <br> (Optional)</label>
 					<div class="col-sm-10">
 						<input type="file" class="form-control" name="image" value="" id="image"/>
 					</div>
@@ -189,7 +188,7 @@
 
 				<!-- Video URL -->
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="name">Video URL: (Optional)</label>
+					<label class="control-label col-sm-2" for="name">Video URL: <br> (Optional)</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="videoUrl" value="" id="videoUrl" placeholder="Enter URL"/>
 						<p>*** Only YouTube links are supported.</p>              
@@ -200,7 +199,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Description:</label>
 					<div class="col-sm-10">
-						<textarea type="text" class="form-control" name="description" value="" id="description" rows="5"></textarea> 
+						<textarea type="text" class="form-control" name="description" value="" id="description" rows="5" required=""></textarea> 
 					</div>
 				</div>
 

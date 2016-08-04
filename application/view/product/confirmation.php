@@ -108,7 +108,7 @@
                     <!-- Product img and title -->
                     <div class="row">
                         <div class="col-sm-4 hidden-xs">
-                            <img src="../../<?php echo $product->imagePath; ?>"/>
+                            <img src="../../<?php echo $product->imagePath; ?>" alt="Image Not Provided"/>
                         </div>
                         <div class="col-sm-6">
                             <h4><b><?php echo $product->name; ?></b></h4>
