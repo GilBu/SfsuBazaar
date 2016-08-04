@@ -82,17 +82,6 @@
     }
 </style>
 
-<script>
-
-    function msgSent() {
-        alert("Message has been sent to seller.");
-    }
-
-    function goBack() {
-        window.history.back();
-    }
-</script>
-
 <div class="container">
     <h1>Confirm Purchase</h1>
     <table id="product" class="table table-hover table-condensed">
