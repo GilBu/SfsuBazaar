@@ -109,7 +109,18 @@
                                 <!-- Seller and Product Price--> 
                                 <div class="col-md-7">
                                     By: ????????? 
-                                    <h4><b><?php echo "$" . number_format($product->price, 2, '.', ''); ?></b></h4>
+
+                                    <h4><b>    
+                                        <?php if ($product->isService == 0) { 
+                                            echo "$" . number_format($product->price, 2, '.', ''); 
+                                        }
+
+                                        else {
+                                            echo "$" . number_format($product->price, 2, '.', '') . " /hr"; 
+                                        }
+                                        ?>
+                                            
+                                    </b></h4>
                                 </div>
 
                                 <!-- Buy It Now button -->

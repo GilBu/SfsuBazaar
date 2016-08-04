@@ -177,7 +177,16 @@
                 <!-- product price -->
                 <div class="row-fluid">
                     <div class="col-md-12 bottom-rule">
-                        <h2 class="product-price"> <?php echo "$" . number_format($product->price, 2, '.', ''); ?></h2>
+                        <h2 class="product-price">  
+                            <?php if ($product->isService == 0) { 
+                                echo "$" . number_format($product->price, 2, '.', ''); 
+                            }
+
+                            else {
+                                echo "$" . number_format($product->price, 2, '.', '') . " /hr"; 
+                            }
+                            ?>               
+                        </h2>
                     </div>
                 </div><!-- end row -->
 
