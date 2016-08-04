@@ -176,9 +176,20 @@
 
                 <!-- product price -->
                 <div class="row-fluid">
-                    <div class="col-md-12 bottom-rule">
-                        <h2 class="product-price"> <?php echo "$" . number_format($product->price, 2, '.', ''); ?></h2>
+                    <div class="col-md-7 bottom-rule">
+                        <h2 class="product-price">  
+                            <?php if ($product->isService == 0) { 
+                                echo "$" . number_format($product->price, 2, '.', ''); 
+                            }
+
+                            else {
+                                echo "$" . number_format($product->price, 2, '.', '') . " /hr"; 
+                            }
+                            ?>               
+                        </h2>
                     </div>
+
+                <?php if ($product->isService == 0) : ?>
                 </div><!-- end row -->
 
                 <!-- product condition -->
@@ -188,9 +199,11 @@
                         <br><br>
                     </div>
                 </div><!-- end row -->
-
+                
                 <!-- quantity, buy it now buttons -->
                 <div class="row-fluid add-to-cart">
+
+
                     <!-- change quantity -->
                     <div class="col-md-4 product-qty">
 
@@ -200,7 +213,7 @@
                         </button>
 
                         <!-- quantity input box -->
-                        <input class="btn btn-default btn-lg btn-qty form-control input-number" type="text" name="quant[2]" value="1" min="1" max="10" />
+                        <input class="btn btn-default btn-lg btn-qty form-control input-number" type="text" name="quant[2]" value="1" min="1" max="<?php echo $product->quantity; ?>" />
 
                         <!-- plus button -->
                         <button type="button" class="btn btn-number btn-default btn-lg btn-qty" data-type="plus" data-field="quant[2]">
@@ -214,6 +227,18 @@
                         <a href="<?php echo URL . "product/confirmation/$product->productID"; ?>"" class="btn btn-info btn-size buy-btn ">Buy It Now</a>   
                     </div>
                 </div><!-- end row -->
+
+
+                <?php else : ?>
+                    <!-- buy it now buttons -->
+                    <div class="col-md-5 add-to-cart">
+                        <!-- buy it now -->
+                        <a href="<?php echo URL . "product/confirmation/$product->productID"; ?>"" class="btn btn-info btn-size buy-btn ">Buy It Now</a>   
+                    </div><!-- end row -->
+                </div>
+
+                <?php endif; ?> <!-- end if statement -->
+
 
             </div><!-- end row -->
             <hr>

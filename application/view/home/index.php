@@ -63,7 +63,16 @@
                     <img src="<?php echo $featuredProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
                     <p class="txt-overflow-hidden">
                         <?php echo $featuredProducts[$i]->name; ?> <br>
-                        <?php echo "$" . number_format($featuredProducts[$i]->price, 2, '.', ''); ?> <br>
+    
+                        <?php if ($featuredProducts[$i]->isService == 0) { 
+                            echo "$" . number_format($featuredProducts[$i]->price, 2, '.', ''); 
+                        }
+
+                        else {
+                            echo "$" . number_format($featuredProducts[$i]->price, 2, '.', '') . " /hr"; 
+                        }
+                        ?> <br>
+
                     </p>    
                     <a href="product/confirmation/<?php echo $featuredProducts[$i]->productID; ?>" class="btn btn-info sm-buy-btn">Buy It Now</a>  
                 </a>
@@ -84,7 +93,16 @@
                     <img src="<?php echo $resentProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
                     <p class="txt-overflow-hidden">
                         <?php echo $resentProducts[$i]->name; ?> <br>
-                        <?php echo "$" . number_format($resentProducts[$i]->price, 2, '.', ''); ?> <br>
+                            
+                        <?php if ($resentProducts[$i]->isService == 0) { 
+                            echo "$" . number_format($resentProducts[$i]->price, 2, '.', ''); 
+                        }
+
+                        else {
+                            echo "$" . number_format($resentProducts[$i]->price, 2, '.', '') . " /hr"; 
+                        }
+                        ?> <br>
+                        
                     </p>    
                     <a href="product/confirmation/<?php echo $resentProducts[$i]->productID; ?>" class="btn btn-info sm-buy-btn">Buy It Now</a>  
                 </a>
