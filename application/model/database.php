@@ -175,19 +175,6 @@ class Database
 
         return $query->fetchAll();
 
-        /**
-        $sql = "SELECT * 
-                FROM product p
-                WHERE p.name LIKE '%$keyword%' AND p.productID NOT IN (
-                	SELECT s.productID
-                	FROM product s 
-                	WHERE s.tags LIKE '$tag')
-                ORDER BY price";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-        $result += $query->fetchAll();
-
-        return $result;*/
     }
 
     /**
@@ -208,18 +195,6 @@ class Database
 
         return $query->fetchAll();
 
-        /*$sql = "SELECT *
-                FROM product p
-                WHERE p.name LIKE '%$keyword%' AND p.productID NOT IN (
-                	SELECT s.productID
-                	FROM product s 
-                	WHERE s.tags LIKE '$tag')
-                ORDER BY price";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-        $result += $query->fetchAll();
-
-        return $result;*/
     }
 
     /**
@@ -239,19 +214,6 @@ class Database
         $query->execute();
 
         return $query->fetchAll();
-
-        /**$sql = "SELECT *
-                FROM product p
-                WHERE p.name LIKE '%$keyword%' AND p.productID NOT IN (
-                	SELECT s.productID
-                	FROM product s 
-                	WHERE s.tags LIKE '$tag')
-                ORDER BY price DESC";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-        $result += $query->fetchAll();
-
-        return $result;*/
     }
 
     /**
