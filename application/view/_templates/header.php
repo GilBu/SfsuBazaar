@@ -20,12 +20,12 @@
 
     <style>
 
-        body { 
-            padding-top: 110px; 
+        body {
+            padding-top: 110px;
         }
 
         .search-bar {
-            padding-top: 20px; 
+            padding-top: 20px;
             margin: auto;
             max-width: 50%;
         }
@@ -43,7 +43,7 @@
             right: 0px;
         }
         .nav-btns {
-            padding-top: 20px; 
+            padding-top: 20px;
         }
         .logo-img {
             float: left;
@@ -53,19 +53,6 @@
         }
     </style>
 
-    <!-- search dropdown feature -->
-    <script>
-        $(document).ready(function (e) {
-            $('.search-panel .dropdown-menu').find('a').click(function (e) {
-                e.preventDefault();
-                var param = $(this).attr("href").replace("#", "");
-                var concept = $(this).text();
-                $('.search-panel span#search_concept').text(concept);
-                $('.input-group #search_param').val(param);
-            });
-        });
-    </script>
-
     <body>
         <div class="container-fluid">
             <!-- Navbar -->
@@ -73,7 +60,7 @@
                 <div class="container-fluid">
 
                     <!-- Title Banner and Tag Line -->
-                    <a href="<?php echo URL; ?>"><img class="logo-img" src="https://imgur.com/jQfovUw.png"></a>
+                    <a href="<?php echo URL; ?>"><img class="logo-img" src="<?php echo URL; ?>public/img/logo-img.png"></a>
 
                     <div class="navbar-header">
                         <!-- collapse toggle button -->
@@ -90,13 +77,13 @@
 
                         <!-- login/register links -->
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="<?php echo URL; ?>product/newProduct"><span class="glyphicon glyphicon-tag"</span>Sell</a></li>
-                            <?php if (empty($_SESSION)) { ?>
+                        	<li><a href="<?php echo URL; ?>product/newProduct"><span class="glyphicon glyphicon-tag"</span>Sell</a></li>
+                        	<?php if (empty($_SESSION)) { ?>
                                 <li><a href="<?php echo URL; ?>login/index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                                 <li><a href="<?php echo URL; ?>register/index"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                            <?php } else { ?>
+                            	<?php } else { ?>
                                 <li><a href="<?php echo URL; ?>login/userLogout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                            <?php } ?>
+                            	<?php } ?>
                         </ul>
 
                         <!-- Search Bar -->
@@ -106,28 +93,23 @@
                                 <div class="form-group" style="display:inline;">
                                     <div class="input-group" style="display:table;">
 
-                                        <!-- search departments -->
-                                        <div class="input-group-btn search-panel">
+					<!-- search departments -->
+					<div class="input-group-btn search-panel">
 
-                                            <!-- departments dropdown button-->
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                                <span id="search_concept">All </span>
-                                                <span class="caret"></span>
-                                            </button>
+						<!-- Dropdown button -->
+						<select id="category" type="button" name="category" class="btn btn-default">
+						<?php
+							$categorys=Array("All","Books","Office Supplies","Electronics","Services","Miscellaneous");
+							foreach($categorys as $category)
+							{
+								echo '<option value="'.$category.'"'.($_GET['category']==$category?' selected="selected"':'').'>'.$category.'</option>';
+							}
+						?>
+						</select>
 
-                                            <!-- departments list -->
-                                            <ul class="dropdown-menu scrollable-menu" role="menu">
-                                                <li class="active"><a href="#all">All </a></li>
-                                                <li><a href="#appliances">Appliances</a></li>
-                                                <li><a href="#arts-crafts">Arts, Crafts & Sewing</a></li>
-                                                <li><a href="#automotive">Automotive</a></li>
-                                                <li><a href="#beauty">Beauty & Personal Care</a></li>
-                                                <li><a href="#stripbooks">Books</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Search Bar --> 
-                                        <input class="form-control" type="text" name="search-term" value="" />
+					</div>
+					<!-- Search Bar --> 
+					<input class="form-control" type="text" name="search-term" value="<?php if(isset($_GET['search-term'])){ echo $_GET['search-term']; }?>"/>
 
                                         <!-- Search Button -->
                                         <span class="input-group-btn">
@@ -138,6 +120,7 @@
                                     </div>
                                 </div>
                             </form>
+			<br><center><i><small>SFSU/FAU/Fulda Software Engineering Project, Summer 2016. For Demonstration Only.</small></i></center>
                         </div> <!-- end of search bar -->
                     </div> <!-- end of collapse  -->
                 </div>
