@@ -9,51 +9,6 @@
         border-radius: 0px;
     }
 
-    .txt-overflow-hidden {
-        white-space: nowrap; 
-        overflow: hidden;
-        text-overflow: ellipsis; 
-    }
-
-    .left-padding {
-        padding-left: 10px;
-    }
-
-
-    .sm-buy-btn {
-        border: 1px solid #ffc826; 
-        -webkit-border-radius: 3px; 
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        font-size: 15px;
-        font-family: arial, helvetica, sans-serif; 
-        padding: 5px 8px 5px 8px; 
-        text-decoration: none; 
-        display: inline-block;
-        font-weight: bold; 
-        color: #000000;
-        background-color: #ffd65e; 
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#ffd65e), to(#febf04));
-        background-image: -webkit-linear-gradient(top, #ffd65e, #febf04);
-        background-image: -moz-linear-gradient(top, #ffd65e, #febf04);
-        background-image: -ms-linear-gradient(top, #ffd65e, #febf04);
-        background-image: -o-linear-gradient(top, #ffd65e, #febf04);
-        background-image: linear-gradient(to bottom, #ffd65e, #febf04);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffd65e, endColorstr=#febf04);
-    }
-
-    .sm-buy-btn:hover {
-        border: 1px solid #f7b800;
-        background-color: #ffc92b; 
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#ffc92b), to(#ce9a01));
-        background-image: -webkit-linear-gradient(top, #ffc92b, #ce9a01);
-        background-image: -moz-linear-gradient(top, #ffc92b, #ce9a01);
-        background-image: -ms-linear-gradient(top, #ffc92b, #ce9a01);
-        background-image: -o-linear-gradient(top, #ffc92b, #ce9a01);
-        background-image: linear-gradient(to bottom, #ffc92b, #ce9a01);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc92b, endColorstr=#ce9a01);
-    }
-
 </style>
 
 <div class="container-fluid">
