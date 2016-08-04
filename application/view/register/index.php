@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -29,8 +29,8 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="row">
+	<div class="container-fluid">
+		<div class="row-fluid">
 
 			<!-- Logo -->
 			<div class="panel-heading">
@@ -50,7 +50,7 @@
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-								<input type="text" class="form-control" name="firstName" id="firstName"  placeholder="Enter your First Name"/>
+								<input type="text" required class="form-control" name="firstName" id="firstName"  placeholder="Enter your First Name"/>
 							</div>
 						</div>
 					</div>
@@ -61,7 +61,7 @@
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-								<input type="text" class="form-control" name="lastName" id="lastName"  placeholder="Enter your Last Name"/>
+								<input type="text" required class="form-control" name="lastName" id="lastName"  placeholder="Enter your Last Name"/>
 							</div>
 						</div>
 					</div>
@@ -72,7 +72,7 @@
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-								<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your SFSU Email"/>
+								<input type="text" required class="form-control" name="email" id="email"  placeholder="Enter your SFSU Email"/>
 							</div>
 						</div>
 					</div>
@@ -83,7 +83,7 @@
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-								<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+								<input type="password" required class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
 							</div>
 						</div>
 					</div>
@@ -94,17 +94,17 @@
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-								<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+								<input type="password" required class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
 							</div>
 						</div>
 					</div>
 					<br>
 
 					<!-- CAPCHA checkbox -->
-					<label><input type="checkbox" name="capcha"> I am not a ROBOT.</label>
+					<label><input type="checkbox" required name="capcha"> I am not a ROBOT.</label>
 
 					<!-- Terms and Conditions checkbox -->
-					<label><input type="checkbox" name="terms"> I agree with the <a data-toggle="modal" data-target="#myModal">Terms and Conditions</a>.</label>
+					<label><input type="checkbox" required name="terms"> I agree with the <a data-toggle="modal" data-target="#myModal">Terms and Conditions</a>.</label>
 					<br><br>
 
 					<!-- Register Button -->
