@@ -110,12 +110,17 @@ class Database
 
     /**
      * Get all products in a category
-     * @param $tag is the category to be searched
+     * @param $cat is the name of the category to be searched
      * @return array of products
      */
-    public function getProductsByTags($tag)
+    public function getProductsByCategory($cat)
     {
-        $sql = "SELECT * FROM product WHERE tags LIKE '%$tag%'";
+        $sql = "SELECT *
+                FROM product p  
+                  WHERE p.categoryID = (
+	              SELECT c.categoryID 
+                  FROM category c
+                  WHERE c.name = '$cat')";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -124,12 +129,18 @@ class Database
 
     /**
      * Get all products in a category, arranged from highest price to lowest price
-     * @param $tag is the tag to be searched
+     * @param $cat is the name of the category to be searched
      * @return array of products
      */
-    public function getProductsByTagsPriceHighToLow($tag)
+    public function getProductsByCategoryPriceHighToLow($cat)
     {
-        $sql = "SELECT * FROM product WHERE tags LIKE '%$tag%' ORDER BY price DESC";
+        $sql = "SELECT *
+                FROM product p  
+                  WHERE p.categoryID = (
+	              SELECT c.categoryID 
+                  FROM category c
+                  WHERE c.name = '$cat')
+                ORDER BY price DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -138,12 +149,18 @@ class Database
 
     /**
      * Get all products in a category, arranged from lowest price to highest price
-     * @param $tag is the tag to be searched
+     * @param $cat is the name of the category to be searched
      * @return array of products
      */
-    public function getProductsByTagsPriceLowToHigh($tag)
+    public function getProductsByCategoryPriceLowToHigh($cat)
     {
-        $sql = "SELECT * FROM product WHERE tags LIKE '%$tag%' ORDER BY price";
+        $sql = "SELECT *
+                FROM product p  
+                  WHERE p.categoryID = (
+	              SELECT c.categoryID 
+                  FROM category c
+                  WHERE c.name = '$cat')
+                ORDER BY price";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -151,21 +168,26 @@ class Database
     }
 
     /**
-     * With the given tag(category) and keyword(search term), returns a list of products with
-     * the given tag and and a name similar the keyword, and then products without the same keyword
-     * that have a name similar to the keyword.
-     * @param $tag is the category
+     * With the given category name and keyword(search term), returns a list of products in
+     * the given category and and a name similar the keyword
+     * @param $cat is the category name
      * @param $keyword is the search term
      * @return a list of products
      */
-    public function getProductsWithTags($tag, $keyword)
+    public function getProductsWithCategory($cat, $keyword)
     {
-        $sql = "SELECT * FROM product p WHERE p.tags LIKE '$tag' AND p.name LIKE '%$keyword%' 
-                ORDER BY price";
+        $sql = "SELECT * 
+                FROM product p  
+                WHERE p.name LIKE '%$keyword%' AND p.categoryID = (
+	              SELECT c.categoryID
+                  FROM category c
+                  WHERE c.name LIKE '$cat')";
         $query = $this->db->prepare($sql);
         $query->execute();
 
-        $result = $query->fetchAll();
+        return $query->fetchAll();
+
+        /**
         $sql = "SELECT * 
                 FROM product p
                 WHERE p.name LIKE '%$keyword%' AND p.productID NOT IN (
@@ -177,24 +199,31 @@ class Database
         $query->execute();
         $result += $query->fetchAll();
 
-        return $result;
+        return $result;*/
     }
 
     /**
-     * Gets products with tags, and orders the results by the highest price to the lowest price
-     * @param $tag is the dapartment
+     * Gets products with a keyword and the name of a category, and
+     * orders the results by the highest price to the lowest price
+     * @param $cat is the category name
      * @param $keyword is the search term
      * @return array of products
      */
-    public function getProductsWithTagsPriceHighToLow($tag, $keyword)
+    public function getProductsWithCategoryPriceHighToLow($cat, $keyword)
     {
-        $sql = "SELECT * FROM product p WHERE p.tags LIKE '$tag' AND p.name LIKE '%$keyword%'
-                 ORDER BY price";
+        $sql = "SELECT * 
+                FROM product p  
+                WHERE p.name LIKE '%$keyword%' AND p.categoryID = (
+	              SELECT c.categoryID
+                  FROM category c
+                  WHERE c.name LIKE '$cat')
+                ORDER BY price DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
 
-        $result = $query->fetchAll();
-        $sql = "SELECT * 
+        return $query->fetchAll();
+
+        /*$sql = "SELECT *
                 FROM product p
                 WHERE p.name LIKE '%$keyword%' AND p.productID NOT IN (
                 	SELECT s.productID
@@ -205,24 +234,31 @@ class Database
         $query->execute();
         $result += $query->fetchAll();
 
-        return $result;
+        return $result;*/
     }
 
     /**
-     * Gets products with tags, and orders the results by the lowest price to the highest price
-     * @param $tag is the dapartment
+     * Gets products within a category that match the keyword, and orders
+     * the results by the lowest price to the highest price
+     * @param $cat is the category name
      * @param $keyword is the search term
      * @return array of products
      */
-    public function getProductsWithTagsPriceLowToHigh($tag, $keyword)
+    public function getProductsWithCategoryPriceLowToHigh($cat, $keyword)
     {
-        $sql = "SELECT * FROM product p WHERE p.tags LIKE '$tag' AND p.name LIKE '%$keyword%'
-                 ORDER BY price DESC";
+        $sql = "SELECT * 
+                FROM product p  
+                WHERE p.name LIKE '%$keyword%' AND p.categoryID = (
+	              SELECT c.categoryID
+                  FROM category c
+                  WHERE c.name LIKE '$cat')
+                ORDER BY price";
         $query = $this->db->prepare($sql);
         $query->execute();
 
-        $result = $query->fetchAll();
-        $sql = "SELECT * 
+        return $query->fetchAll();
+
+        /**$sql = "SELECT *
                 FROM product p
                 WHERE p.name LIKE '%$keyword%' AND p.productID NOT IN (
                 	SELECT s.productID
@@ -233,12 +269,13 @@ class Database
         $query->execute();
         $result += $query->fetchAll();
 
-        return $result;
+        return $result;*/
     }
 
     /**
      * Get the product with the giving id
      * @param int $id
+     * @return the product
      */
     public function getProductByID($productID)
     {
@@ -295,10 +332,10 @@ class Database
     {
         $sql = "INSERT INTO product " .
             "(name, sellerID, price, quantity, quality, imagePath, "
-            . "videoUrl, description, tags, isService)" .
+            . "videoUrl, description, tags, categoryID, isService)" .
             "VALUES ".
             "(:name, :sellerID, :price, :quantity, :quality, :imagePath, "
-            . ":videoUrl, :description, :tags, :isService)";
+            . ":videoUrl, :description, :tags, categoryID, :isService)";
 
         $query = $this->db->prepare($sql);
         $param = array( ':name' => $product->name,
@@ -310,6 +347,7 @@ class Database
             ':videoUrl' => $product->videoUrl,
             ':description' => $product->description,
             ':tags' => $product->tags,
+            ':categoryID' => $product->categoryID,
             ':isService' => $product->isService);
 
         $query->execute($param);
@@ -332,23 +370,59 @@ class Database
      * Get all of the category names
      * @return an array of tags
      */
-    public function getAllTags()
+    /**public function getAllTags()
     {
-        $sql = "SELECT DISTINCT p1.tags
-		FROM product p1 
-		JOIN(
-			SELECT p2.tags
-			FROM product p2 
-		    GROUP BY p2.tags
-		) AS x
-		ON p1.tags = x.tags
-		ORDER BY (p1.tags LIKE 'Other')";
+        $sql = "SELECT tags FROM product GROUP BY tags";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }*/
+
+    /************************ Category queries ************************************/
+
+    /**
+     * Get the category given the category id
+     * @param $id is the id number
+     * @return the category
+     */
+    public function getCategoryByID($id)
+    {
+        $sql = "SELECT * FROM category WHERE categoryID = $id";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch();
+
+    }i
+
+    /**
+     * Get the the category given the category name
+     * @param $name is the name of the category
+     * @return the category
+     */
+    public function getCategoryByName($name)
+    {
+        $sql = "SELECT * FROM category WHERE name = '$name'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch();
+
+    }
+
+    /*
+     * Get a list of all categories
+     * @return an array of categories
+     */
+    public function getAllCategories(){
+        $sql = "SELECT * FROM category";
         $query = $this->db->prepare($sql);
         $query->execute();
 
         return $query->fetchAll();
     }
-    
+
     /************************ Reveiw queries ************************************/
 
     public function addReview($reviewerID, $userID, $raiting, $comment)
