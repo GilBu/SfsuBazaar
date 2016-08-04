@@ -213,7 +213,7 @@
                         </button>
 
                         <!-- quantity input box -->
-                        <input class="btn btn-default btn-lg btn-qty form-control input-number" type="text" name="quant[2]" value="1" min="1" max="10" />
+                        <input class="btn btn-default btn-lg btn-qty form-control input-number" type="text" name="quant[2]" value="1" min="1" max="<?php echo $product->quantity; ?>" />
 
                         <!-- plus button -->
                         <button type="button" class="btn btn-number btn-default btn-lg btn-qty" data-type="plus" data-field="quant[2]">
