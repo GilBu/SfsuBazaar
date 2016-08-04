@@ -24,33 +24,6 @@
             padding-top: 110px;
         }
 
-        .search-bar {
-            padding-top: 20px;
-            margin: auto;
-            max-width: 50%;
-        }
-
-        .scrollable-menu {
-            height: auto;
-            max-height: 500px;
-            overflow-x: hidden;
-            padding-left: 10px;
-        }
-
-        .top-right {
-            position: absolute;
-            top: 0px;
-            right: 0px;
-        }
-        .nav-btns {
-            padding-top: 20px;
-        }
-        .logo-img {
-            float: left;
-            padding-top: 20px;
-            padding-right: 20px;
-            padding-bottom: 20px;
-        }
     </style>
 
     <body>
