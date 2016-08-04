@@ -94,12 +94,12 @@
                     <p class="txt-overflow-hidden">
                         <?php echo $resentProducts[$i]->name; ?> <br>
                             
-                        <?php if ($featuredProducts[$i]->isService == 0) { 
-                            echo "$" . number_format($featuredProducts[$i]->price, 2, '.', ''); 
+                        <?php if ($resentProducts[$i]->isService == 0) { 
+                            echo "$" . number_format($resentProducts[$i]->price, 2, '.', ''); 
                         }
 
                         else {
-                            echo "$" . number_format($featuredProducts[$i]->price, 2, '.', '') . " /hr"; 
+                            echo "$" . number_format($resentProducts[$i]->price, 2, '.', '') . " /hr"; 
                         }
                         ?> <br>
                         
