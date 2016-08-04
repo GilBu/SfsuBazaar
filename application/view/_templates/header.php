@@ -60,7 +60,7 @@
                 <div class="container-fluid">
 
                     <!-- Title Banner and Tag Line -->
-                    <a href="<?php echo URL; ?>"><img class="logo-img" src="https://imgur.com/jQfovUw.png"></a>
+                    <a href="<?php echo URL; ?>"><img class="logo-img" src="<?php echo URL; ?>public/img/logo-img.png"></a>
 
                     <div class="navbar-header">
                         <!-- collapse toggle button -->
