@@ -108,7 +108,7 @@
 
                                 <!-- Seller and Product Price--> 
                                 <div class="col-md-7">
-                                    By: ????????? 
+                                    By: <?php echo User::get($product->sellerID)->email; ?>
 
                                     <h4><b>    
                                         <?php if ($product->isService == 0) { 

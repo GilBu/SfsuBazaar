@@ -115,7 +115,7 @@
                 <!-- product name -->
                 <td data-th="Name"><h4><b><?php echo $product->name; ?></b></h4></td>
                 <!-- Seller Username -->
-                <td data-th="Seller"><h6>????????????????</h6></td>
+                <td data-th="Seller"><h6><?php echo User::get($product->sellerID)->email; ?></h6></td>
 
                 <!-- Product Price -->
                 <td data-th="Price"><h5><b>
@@ -140,7 +140,7 @@
             <tr>
                 <td colspan="2" class="hidden-xs"></td>
                 <td><a href="#" class="btn btn-link" onclick="goBack()"><i class="fa fa-angle-right"></i> Cancel</a></td>
-                <td><a href="<?php echo URL; ?>home" class="btn btn-success sm-buy-btn btn-block" onclick="msgSent()"> Confirm<i class="fa fa-angle-right"></i></a></td>
+                <td><a href="<?php echo URL . 'product/delete/' . $product->productID; ?>" class="btn btn-success sm-buy-btn btn-block" onclick="msgSent()"> Confirm<i class="fa fa-angle-right"></i></a></td>
             </tr>
         </tfoot>
     </table>
