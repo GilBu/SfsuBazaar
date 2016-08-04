@@ -8,8 +8,27 @@
 	}
 </style>
 
-<div class="container">
-	<div class="row">
+<script >
+	$(document).ready(function () {
+	    var intputElements = document.getElementsByTagName("INPUT");
+	    for (var i = 0; i < intputElements.length; i++) {
+	        intputElements[i].oninvalid = function (e) {
+	            e.target.setCustomValidity("");
+	            if (!e.target.validity.valid) {
+	                if (e.target.name == "email") {
+	                    e.target.setCustomValidity("The field 'Email' cannot be left blank");
+	                }
+	                else {
+	                    e.target.setCustomValidity("The field 'Password' cannot be left blank");
+	                }
+	            }
+	        };
+	    }
+	})
+</script>
+
+<div class="container-fluid">
+	<div class="row-fluid">
 
 		<!-- Logo -->
 		<div class="panel-heading">
@@ -19,17 +38,16 @@
 				<h3 class="title" align="center">Welcome Back</h3>
 			</div>
 		</div>
-
 		<div class="centered">
 			<form class="form-horizontal" method="post" action="<?php echo URL; ?>login/login" autocomplete="off">
 
 				<!-- Username input -->
 				<div>
-					<label for="username" class="cols-sm-2 control-label">Username</label>
+					<label for="email" class="cols-sm-2 control-label">SFSU Email</label>
 					<div class="cols-sm-6">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username" autocomplete="off"/>
+							<input type="text" required class="form-control" name="email" id="email"  placeholder="Enter your SFSU Email" autocomplete="off"/>
 						</div>
 					</div>
 				</div>
@@ -40,7 +58,7 @@
 					<div class="cols-sm-6">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-							<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password" autocomplete="off"/>
+							<input type="password" required class="form-control" name="password" id="password"  placeholder="Enter your Password" autocomplete="off"/>
 						</div>
 					</div>
 				</div>
