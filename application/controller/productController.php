@@ -69,8 +69,8 @@ class ProductController extends Controller
             $newProduct->create();
         }
         
-        // redirect to listing/index page
-        header('location: ' . URL . 'listing/index');
+        // redirect to homeg page
+        header('location: ' . URL . 'home');
     }
     
     
@@ -82,8 +82,8 @@ class ProductController extends Controller
     {
         Product::delete($productID);
         
-        // redirect to listing/index page
-        header('location: ' . URL . 'listing/index');
+        // redirect to home page
+        header('location: ' . URL . 'home');
     }
 
 
