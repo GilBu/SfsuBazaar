@@ -1,13 +1,40 @@
-    <!-- jQuery, loaded in the recommended protocol-less way -->
-    <!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<hr>
 
-    <!-- define the project's URL (to make AJAX calls possible, even when using this in sub-folders etc) -->
-    <script>
-        var url = "<?php echo URL; ?>";
-    </script>
+		<div class="container-fluid well">
+			<div class="row-fluid">
+				<div class="col-md-4">
+					<h5>Address:</h5>
+					<span>123 street, city, state</span> <br>
+				</div>
+				<div class="col-md-4">
+					<h5>Contacts:</h5>
+					<span>Tel: + (000) 000 000</span> <br>
+					<span>Fax: + (000) 000 000</span> <br>
+				</div>
+				<div class="col-md-4">
+					<h5>Email:</h5>
+					<span>email@email.com</span> <br>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="col-md-12">
+					<span style="float:right;">@ 2016 CSC 648. All Rights Reserved</span>
+				</div>
+			</div>
+		</div>
 
-    <!-- our JavaScript -->
-    <script src="<?php echo URL; ?>js/application.js"></script>
-</body>
+
+
+	    <!-- jQuery, loaded in the recommended protocol-less way -->
+	    <!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
+	    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+	    <!-- define the project's URL (to make AJAX calls possible, even when using this in sub-folders etc) -->
+	    <script>
+	        var url = "<?php echo URL; ?>";
+	    </script>
+
+	    <!-- our JavaScript -->
+	    <script src="<?php echo URL; ?>js/application.js"></script>
+	</body>
 </html>
