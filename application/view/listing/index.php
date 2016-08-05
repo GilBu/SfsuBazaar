@@ -11,6 +11,33 @@
 
 </style>
 
+<script>
+//    function sortByPrice(option)
+//    {   
+//        if (option !== ""){
+//            
+//            //category = $('#category').val();
+//            //keyword = $('#search-term').val();   
+//            
+//            category = "<?php// echo $_GET['category']?>";
+//            keyword =  "<?php// echo $_GET['search-term']?>";
+//            
+//            if (option === "low")
+//            {    
+//                url = "<?php// echo URL . 'listing/sortLowToHigh/' ?>";
+//                url += category + '/' + keyword;
+//                
+//                window.location.href = url;
+//                alert("category: " + category + " | keyword: " + keyword);
+//            }
+//            else
+//            {
+//                window.location.href = "<?php//echo URL . 'listing/sortHighToLow' ?>";
+//            }
+//        }
+//    }
+</script>
+
 <div class="container-fluid">
     <div class="container-fluid">
         <div class="well">
@@ -18,18 +45,21 @@
             <!-- page title -->
             <font size="5">Search Results</font>
             <div class="row" style="float: right;">
+                <!--
                 <div class="col-md-2">
                     <label for="selectbasic"><small>Sort By:</small></label>
                 </div>
-
-                <!-- Sort By dropdown menu -->
+                -->
+                <!-- Sort By dropdown menu --> 
+                <!--
                 <div class="col-md-10">
-                    <select id="sortBy" name="sortBy" class="form-control">
-                        <option value="1">---Select One---</option>
-                        <option value="2">Price: Low To High</option>
-                        <option value="3">Price: High To Low</option>
+                    <select id="sortBy" name="sortBy" class="form-control" onchange="sortByPrice(this.value)">
+                        <option value="">---Select One---</option>
+                        <option value="low">Price: Low To High</option>
+                        <option value="high">Price: High To Low</option>
                     </select>
                 </div>
+                -->
 
             </div> <!-- end row -->
         </div>

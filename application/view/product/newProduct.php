@@ -69,16 +69,21 @@
 					</div>
 				</div>
 
-				<!-- Department Dropdown *-->
+				<!-- Category Dropdown *-->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Category:</label>
 					<div class="col-sm-10">        
-						<select id="department" name="department" class="form-control product-type" required>
+						<select id="category" name="category" class="form-control product-type" required>
 							<option value="">-Select One-</option>
-							<option value="Books">Books</option>
-							<option value="Office Supplies">Office Supplies</option>
-							<option value="Electronics">Electronics</option>
-							<option value="Miscellaneous">Miscellaneous</option>
+                                                        <?php 
+                                                            foreach ($categories as $category) 
+                                                            {   
+                                                                if ($category->name != "Services")
+                                                                {    
+                                                                    echo '<option value="' . $category->name . '">' . $category->name . '</option>';
+                                                                }
+                                                            }
+                                                        ?>
 						</select>
 					</div>
 				</div>
@@ -170,6 +175,7 @@
 
 				<!-- isService is true -->
   				<input type="hidden" name="isService" value="1"/>
+                                <input type="hidden" name="category" value="Services"/>
 
 				<!-- Add Product Button -->
 				<input type="submit" class="btn pull-right" name="addProduct" value="Add This Service"/>
