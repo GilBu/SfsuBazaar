@@ -73,18 +73,20 @@
 
 						<!-- Dropdown button -->
 						<select id="category" type="button" name="category" class="btn btn-default">
-						<?php
-							$categorys=Array("All","Books","Office Supplies","Electronics","Services","Miscellaneous");
-							foreach($categorys as $category)
-							{
-								echo '<option value="'.$category.'"'.($_GET['category']==$category?' selected="selected"':'').'>'.$category.'</option>';
+						<?php   
+                                                        echo '<option value="All"' . ($_GET['category'] == 'All' ? ' selected="selected"' : '').'>All</option>';
+							
+                                                        $categories = Product::getAllCategories();
+							foreach($categories as $category)
+							{   
+								echo '<option value="' . $category->name . '"' . ($_GET['category'] == $category->name ? ' selected="selected"' : '').'>' . $category->name . '</option>';
 							}
 						?>
 						</select>
 
 					</div>
 					<!-- Search Bar --> 
-					<input class="form-control" type="text" name="search-term" value="<?php if(isset($_GET['search-term'])){ echo $_GET['search-term']; }?>"/>
+					<input id="search-term" class="form-control" type="text" name="search-term" value="<?php if(isset($_GET['search-term'])){ echo $_GET['search-term']; }?>"/>
 
                                         <!-- Search Button -->
                                         <span class="input-group-btn">

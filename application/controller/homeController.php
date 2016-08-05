@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function index()
     {   
         $featuredProducts = Product::getFeaturedProducts();
-        $resentProducts = Product::getResentProducts();
+        $recentProducts = Product::getRecentProducts();
         
         // load views
         require APP . 'view/_templates/header.php';
