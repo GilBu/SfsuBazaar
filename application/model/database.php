@@ -1,179 +1,179 @@
-	<?php
+<?php
 
-	/**
-	 * Singleton class Database
-	 */
+/**
+ * Singleton class Database
+ */
 
-	class Database
+class Database
+{
+    private $db = null;
+    private static $instance = null;
+
+    private function __construct()
+    {
+	$this->db = $this->openDatabaseConnection();
+    }
+
+    private function __clone() {}
+
+    public static function getInstance()
+    {
+	if (!isset(self::$instance))
 	{
-	    private $db = null;
-	    private static $instance = null;
-
-	    private function __construct()
+	    try
 	    {
-		$this->db = $this->openDatabaseConnection();
+		self::$instance = new Database();
 	    }
-
-	    private function __clone() {}
-
-	    public static function getInstance()
+	    catch (PDOException $e)
 	    {
-		if (!isset(self::$instance))
-		{
-		    try
-		    {
-			self::$instance = new Database();
-		    }
-		    catch (PDOException $e)
-		    {
-			exit('Database connection could not be established.');
-		    }
-		}
-
-		return self::$instance;
+		exit('Database connection could not be established.');
 	    }
+	}
 
-	    /**
-	     * Open the database connection with the credentials from application/config/config.php
-	     */
-	    private function openDatabaseConnection()
-	    {
-		// set the (optional) options of the PDO connection. in this case, we set the fetch mode to
-		// "objects", which means all results will be objects, like this: $result->user_name !
-		// For example, fetch mode FETCH_ASSOC would return results like this: $result["user_name] !
-		// @see http://www.php.net/manual/en/pdostatement.fetch.php
-		$options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
+	return self::$instance;
+    }
 
-		// generate a database connection, using the PDO connector
-		// @see http://net.tutsplus.com/tutorials/php/why-you-should-be-using-phps-pdo-for-database-access/
-		return new PDO(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET, DB_USER, DB_PASS, $options);
-	    }
+    /**
+     * Open the database connection with the credentials from application/config/config.php
+     */
+    private function openDatabaseConnection()
+    {
+	// set the (optional) options of the PDO connection. in this case, we set the fetch mode to
+	// "objects", which means all results will be objects, like this: $result->user_name !
+	// For example, fetch mode FETCH_ASSOC would return results like this: $result["user_name] !
+	// @see http://www.php.net/manual/en/pdostatement.fetch.php
+	$options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
+
+	// generate a database connection, using the PDO connector
+	// @see http://net.tutsplus.com/tutorials/php/why-you-should-be-using-phps-pdo-for-database-access/
+	return new PDO(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET, DB_USER, DB_PASS, $options);
+    }
 
 
-	    /************************ User queries ************************************/
+    /************************ User queries ************************************/
 
-	    public function addUser($user)
-	    {
-		$sql =  "INSERT INTO user " .
-			"(firstName, lastName, password, email)" .
-			"VALUES " .
-			"(:firstName, :lastName, :password, :email)";
-		$query = $this->db->prepare($sql);
-		$param = array(	':firstName' 	=> $user->firstName,
-				':lastName' 	=> $user->lastName,
-				':password'	=> $user->password,
-				':email' 	=> $user->email);
+    public function addUser($user)
+    {
+	$sql =  "INSERT INTO user " .
+		"(firstName, lastName, password, email)" .
+		"VALUES " .
+		"(:firstName, :lastName, :password, :email)";
+	$query = $this->db->prepare($sql);
+	$param = array(	':firstName' 	=> $user->firstName,
+			':lastName' 	=> $user->lastName,
+			':password'	=> $user->password,
+			':email' 	=> $user->email);
 
-		$query->execute($param);
-	    }
+	$query->execute($param);
+    }
 
-	    public function getUserByID($userID)
-	    {
-		$sql =  "SELECT * FROM user WHERE " .
-		    "userID = :userID LIMIT 1";
-		$query = $this->db->prepare($sql);
-		$params = array(':userID'	=> $userID);
-		$query->execute($params);
+    public function getUserByID($userID)
+    {
+	$sql =  "SELECT * FROM user WHERE " .
+	    "userID = :userID LIMIT 1";
+	$query = $this->db->prepare($sql);
+	$params = array(':userID'	=> $userID);
+	$query->execute($params);
 
-		return $query->fetch();
-	    }
+	return $query->fetch();
+    }
 
-	    public function getUserInfoByEmail($email)
-	    {
-	    $sql =  "SELECT * FROM user WHERE " .
-		"email = :email LIMIT 1";
-	    $query = $this->db->prepare($sql);
-	    $params = array(':email'   => $email);
-	    $query->execute($params);
+    public function getUserInfoByEmail($email)
+    {
+    $sql =  "SELECT * FROM user WHERE " .
+	"email = :email LIMIT 1";
+    $query = $this->db->prepare($sql);
+    $params = array(':email'   => $email);
+    $query->execute($params);
 
-	    return $query->fetch();
-	    }
+    return $query->fetch();
+    }
 
-	    public function updateUser(	$firstName, $lastName, $password,
-					   $email, $imagePath, $userID	)
-	    {
-		//TODO: This is a temporary model of how this could work.
-		//      Needs a permanent solution.
+    public function updateUser(	$firstName, $lastName, $password,
+				   $email, $imagePath, $userID	)
+    {
+	//TODO: This is a temporary model of how this could work.
+	//      Needs a permanent solution.
 
-		$sql = 	"UPDATE user SET " .
-		    "firstName = :firstName, lastName = :lastName," .
-		    "password = :password, email = :email," .
-		    "imagePath = :imagePath" .
-		    "WHERE userID = :userID";
-		$query = $this->db->prepare($sql);
-		$params = array(	':firstName'	=> $firstName,
-		    ':lastName'	=> $lastName,
-		    ':password'	=> $password,
-		    ':email'	=> $email,
-		    ':imagePath'	=> $imagePath,
-		    ':userID'	=> $userID	);
+	$sql = 	"UPDATE user SET " .
+	    "firstName = :firstName, lastName = :lastName," .
+	    "password = :password, email = :email," .
+	    "imagePath = :imagePath" .
+	    "WHERE userID = :userID";
+	$query = $this->db->prepare($sql);
+	$params = array(	':firstName'	=> $firstName,
+	    ':lastName'	=> $lastName,
+	    ':password'	=> $password,
+	    ':email'	=> $email,
+	    ':imagePath'	=> $imagePath,
+	    ':userID'	=> $userID	);
 
-		$query->execute($params);
-	    }
+	$query->execute($params);
+    }
 
-	    public function deleteUserByID($userID)
-	    {
-		$sql =  "DELETE FROM user WHERE userID = :userID";
-		$query = $this->db->prepare($sql);
-		$params = array(':userID' => $userID);
+    public function deleteUserByID($userID)
+    {
+	$sql =  "DELETE FROM user WHERE userID = :userID";
+	$query = $this->db->prepare($sql);
+	$params = array(':userID' => $userID);
 
-		$query->execute($params);
-	    }
+	$query->execute($params);
+    }
 
-	   /**
-	    * ACTION: doesEmailExist
-	    * Checks if login info entered by the user exist in database
-	    * @param string $email, email entered
-	    */
-	    public function doesEmailExist($email)
-	    {
-		$sql = "SELECT email FROM user WHERE email = '$email'";
-		$query = $this->db->prepare($sql);
-		$query->execute();
+   /**
+    * ACTION: doesEmailExist
+    * Checks if login info entered by the user exist in database
+    * @param string $email, email entered
+    */
+    public function doesEmailExist($email)
+    {
+	$sql = "SELECT email FROM user WHERE email = '$email'";
+	$query = $this->db->prepare($sql);
+	$query->execute();
 
-		return $query->fetch();
-	    }
+	return $query->fetch();
+    }
 
-	    /************************ Meetup queries **********************************/
-	    /**
-	    Gets all data of the meetup table from he database
-	    @return Array of meetup objects
-	     */
+    /************************ Meetup queries **********************************/
+    /**
+    Gets all data of the meetup table from he database
+    @return Array of meetup objects
+     */
 
-	    public function addMeetup($meetup)
-	    {
-		$sql =  "INSERT INTO meetup " .
-		    "(status, sellerID, " .
-		    "dateOfMeetup, timeOfMeetup, locationOfMeetup)" .
-		    "VALUES " .
-		    "(:status, :sellerID, " .
-		    ":dateOfMeetup, :timeOfMeetup, :locationOfMeetup)";
-		$query = $this->db->prepare($sql);
-		$param = array(	':status' 	   => $meetup->status,
-		    ':sellerID'	   => $meetup->sellerID,
-		    ':dateOfMeetup'	   => $meetup->dateOfMeetup,
-		    ':timeOfMeetup'	   => $meetup->timeOfMeetup,
-		    ':locationOfMeetup' => $meetup->locationOfMeetup	);
-		$query->execute($param);
-	    }
+    public function addMeetup($meetup)
+    {
+	$sql =  "INSERT INTO meetup " .
+	    "(status, sellerID, " .
+	    "dateOfMeetup, timeOfMeetup, locationOfMeetup)" .
+	    "VALUES " .
+	    "(:status, :sellerID, " .
+	    ":dateOfMeetup, :timeOfMeetup, :locationOfMeetup)";
+	$query = $this->db->prepare($sql);
+	$param = array(	':status' 	   => $meetup->status,
+	    ':sellerID'	   => $meetup->sellerID,
+	    ':dateOfMeetup'	   => $meetup->dateOfMeetup,
+	    ':timeOfMeetup'	   => $meetup->timeOfMeetup,
+	    ':locationOfMeetup' => $meetup->locationOfMeetup	);
+	$query->execute($param);
+    }
 
-	    public function getMeetupByID($meetID)
-	    {
-		$sql = "SELECT * FROM meetup WHERE meetID = :meetID LIMIT 1";
-		$query = $this->db->prepare($sql);
-		$param = array(':meetID' => $meetID);
-		$query->execute($param);
+    public function getMeetupByID($meetID)
+    {
+	$sql = "SELECT * FROM meetup WHERE meetID = :meetID LIMIT 1";
+	$query = $this->db->prepare($sql);
+	$param = array(':meetID' => $meetID);
+	$query->execute($param);
 
-		return $query->fetch();
-	    }
+	return $query->fetch();
+    }
 
-	    public function deleteMeetupByID($meetID)
-	    {
-		$sql = "DELETE * FROM meetup WHERE meetID = :meetID";
-		$query = $this->db->prepare($sql);
-		$param = array(':meetID' => $meetID);
-		$query->execute($param);
-	    }
+    public function deleteMeetupByID($meetID)
+    {
+	$sql = "DELETE * FROM meetup WHERE meetID = :meetID";
+	$query = $this->db->prepare($sql);
+	$param = array(':meetID' => $meetID);
+	$query->execute($param);
+    }
 
     /************************ Product queries *********************************/
 
@@ -436,20 +436,6 @@
 
     /************************ Category queries ************************************/
 
-    /**
-     * Get the name of the category given the category id
-     * @param $name is the name of the category
-     * @return the category
-     */
-    public function getCategoryByName($name)
-    {
-        $sql = "SELECT * FROM category WHERE name = '$name'";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-
-        return $query->fetch();
-
-    }
 
     /*
      * Get a list of all categories
@@ -493,6 +479,5 @@
         $query->execute($params);
     }
 
-    /************************ User queries ************************************/
 }
 
