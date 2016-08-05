@@ -436,20 +436,6 @@ class Database
 
     /************************ Category queries ************************************/
 
-    /**
-     * Get the name of the category given the category id
-     * @param $name is the name of the category
-     * @return the category
-     */
-    public function getCategoryByName($name)
-    {
-        $sql = "SELECT * FROM category WHERE name = '$name'";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-
-        return $query->fetch();
-
-    }
 
     /*
      * Get a list of all categories
