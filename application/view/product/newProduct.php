@@ -45,7 +45,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Price:</label>
 					<div class="col-sm-10">
-						<input type="number" step="0.01" min="0" class="form-control" name="price" value="" required id="price" placeholder="Enter Product Price"/>
+						<input type="number" step="0.01" min="1" class="form-control" name="price" value="" required id="price" placeholder="Enter Product Price"/>
 					</div>
 				</div>
 
@@ -53,7 +53,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Quantity:</label>
 					<div class="col-sm-10">
-						<input type="number" min="0" class="form-control" name="quantity" value="" required id="quantity" placeholder="Enter Product Quantity"/>
+						<input type="number" min="1" class="form-control" name="quantity" value="" required id="quantity" placeholder="Enter Product Quantity"/>
 					</div>
 				</div>
 
@@ -148,7 +148,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Price Per Hour: </label>
 					<div class="col-sm-10">
-						<input type="number" step="0.01" min="0" class="form-control" name="price" value="" required id="price" placeholder="Enter Product Price"/>
+						<input type="number" step="0.01" min="1" class="form-control" name="price" value="" required id="price" placeholder="Enter Product Price"/>
 					</div>
 				</div>
 
