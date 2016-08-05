@@ -4,16 +4,16 @@
 			<div class="row-fluid">
 				<div class="col-md-4">
 					<h5>Address:</h5>
-					<span>123 street, city, state</span> <br>
+					<span>1600 Holloway Ave <br> San Francisco, CA 94132</span> <br>
 				</div>
 				<div class="col-md-4">
 					<h5>Contacts:</h5>
-					<span>Tel: + (000) 000 000</span> <br>
-					<span>Fax: + (000) 000 000</span> <br>
+					<span>Tel: + (805) 617 2842</span> <br>
+					<span>Fax: + (805) 533 8285</span> <br>
 				</div>
 				<div class="col-md-4">
 					<h5>Email:</h5>
-					<span>email@email.com</span> <br>
+					<span>sfsubazaar@gmail.com</span> <br>
 				</div>
 			</div>
 			<div class="row-fluid">

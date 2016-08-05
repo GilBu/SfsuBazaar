@@ -23,7 +23,13 @@
     <div class="row-fluid">
         <!-- product image -->
         <div class="col-lg-5">
-            <img src="../../<?php echo $product->imagePath; ?>" class="image-responsive product-img" alt="Image Not Provided"/>
+            <?php if ($product->imagePath != null) : ?>
+                <img class="image-responsive product-img" src="../../<?php echo $product->imagePath; ?>" alt="Image Not Provided">
+
+            <?php else : ?>
+                <img class="image-responsive product-img" src="http://www.rajmaaiconvention.com/images/ProfilePic/blank-profile.png"  alt="Image Not Provided">
+
+            <?php endif; ?>
         </div>
 
         <!-- product data -->

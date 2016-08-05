@@ -79,7 +79,13 @@
 
                         <!-- Product Img -->
                         <a href="<?php echo URL . "product/index/$product->productID"; ?>">
-                            <img src="../<?php echo $product->imagePath; ?>"  alt="Image Not Provided" style="width:250px; height:250px;" />
+                            <?php if ($product->imagePath != null) : ?>
+                                <img src="../<?php echo $product->imagePath; ?>"  alt="Image Not Provided" style="width:250px;height:250px">
+
+                            <?php else : ?>
+                                <img src="http://www.rajmaaiconvention.com/images/ProfilePic/blank-profile.png"  alt="Image Not Provided" style="width:250px; height:250px">
+
+                            <?php endif; ?>
                         </a>
 
                         <!-- Product Detail -->

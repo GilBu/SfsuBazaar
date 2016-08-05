@@ -17,7 +17,14 @@
             <tr>
                 <!-- Product img -->
                 <td data-th="Product">
-                    <img class="xs-img" src="../../<?php echo $product->imagePath; ?>"/>
+                
+                    <?php if ($product->imagePath != null) : ?>
+                        <img class="xs-img" src="../../<?php echo $product->imagePath; ?>" alt="Image Not Provided">
+
+                    <?php else : ?>
+                        <img class="xs-img" src="http://www.rajmaaiconvention.com/images/ProfilePic/blank-profile.png"  alt="Image Not Provided">
+
+                    <?php endif; ?>
                 </td>
                 <!-- product name -->
                 <td data-th="Name"><h4><b><?php echo $product->name; ?></b></h4></td>
