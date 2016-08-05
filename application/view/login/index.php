@@ -50,7 +50,7 @@
 
 				<!-- Register button -->
 				<div>
-					Don't have an account? <a href="<?php echo URL; ?>register/index">Register Here</a>
+					<center>Don't have an account? <a href="<?php echo URL; ?>register/index">Register Here</a></center>
 				</div>
 			</form> <!-- end form -->
 		</div>

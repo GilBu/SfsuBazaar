@@ -187,7 +187,7 @@ $(document).ready(function () {
 				if (e.target.name == "email") {
 					e.target.setCustomValidity("The field 'Email' cannot be left blank");
 				}
-				else {
+				else if (e.target.name == "password"){
 					e.target.setCustomValidity("The field 'Password' cannot be left blank");
 				}
 			}
