@@ -48,6 +48,8 @@ class ProductController extends Controller
             header('location:' . URL . 'login/index');
         }
         
+        $categories = Product::getAllCategories();
+        
         require APP . 'view/_templates/header.php';
         require APP . 'view/product/newProduct.php';
         require APP . 'view/_templates/footer.php';
@@ -104,6 +106,7 @@ class ProductController extends Controller
         $videUrl = filter_input(INPUT_POST, 'videoUrl');
         $description = filter_input(INPUT_POST, 'description');
         $tags = filter_input(INPUT_POST, 'tags');
+        $category = filter_input(INPUT_POST, 'category');
         
         if (!empty($videUrl))
         {
@@ -118,7 +121,7 @@ class ProductController extends Controller
         
         return new Product( $name, $sellerID, $price, $quantity, 
                             $quality, $imagePath, $videUrl, 
-                            $description, $tags, $isService);
+                            $description, $tags, $category, $isService);
     }
     
     /**

@@ -18,7 +18,8 @@ class Product
     private $imagePath = null;
     private $videoUrl = null;
     private $description = null;
-    private $tags = null;  
+    private $tags = null;
+    private $category = null;
     private $isService = null;
     
     // update this property when the product is brought
@@ -31,7 +32,7 @@ class Product
      */ 
     public function __construct($name, $sellerID, $price, $quantity,
             $quality = '', $imagePath = '', $videUrl = '', $description ='',
-            $tags = '', $isService = 0)
+            $tags = '', $category = '', $isService = 0)
     {
         $this->name = $name;
         $this->sellerID = $sellerID;
@@ -42,6 +43,7 @@ class Product
         $this->videoUrl = $videUrl;
         $this->description = $description;
         $this->tags = $tags;
+        $this->category = $category;
         $this->isService = $isService;
     }
     
@@ -111,13 +113,28 @@ class Product
         return Database::getInstance()->getProductsAtRandom();
     }
 
-    public static function getResentProducts()
+    public static function getRecentProducts()
     {
         return Database::getInstance()->getProductsByMostRecent();
     }
+    
+    public static function getAllCategories()
+    {
+        return Database::getInstance()->getAllCategories();
+    }
+    
+    public static function getAllProductsByCategories($category)
+    {
+        return Database::getInstance()->getProductsByCategory($category);
+    }
+    
+    public static function getProductsByCategory($category, $keyword) 
+    {
+        return Database::getInstance()->getProductsWithCategory($category, $keyword);
+    }
+    
 
-
-
+    
 
 
 

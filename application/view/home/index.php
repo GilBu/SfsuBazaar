@@ -33,24 +33,24 @@
 <div class="container-fluid well left-padding">  
     <div class="row-fluid">
         <h2>Recently Posted:</h2>     
-        <?php for ($i = 0, $size = count($resentProducts); ($i < 6 && $i < $size); $i++) { ?>
+        <?php for ($i = 0, $size = count($recentProducts); ($i < 6 && $i < $size); $i++) { ?>
             <div class="col-sm-5 col-md-2 bottom-padding">
-                <a href="product/index/<?php echo $resentProducts[$i]->productID; ?>" > 
-                    <img src="<?php echo $resentProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
+                <a href="product/index/<?php echo $recentProducts[$i]->productID; ?>" > 
+                    <img src="<?php echo $recentProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
                     <p class="txt-overflow-hidden">
-                        <?php echo $resentProducts[$i]->name; ?> <br>
+                        <?php echo $recentProducts[$i]->name; ?> <br>
                             
-                        <?php if ($resentProducts[$i]->isService == 0) { 
-                            echo "$" . number_format($resentProducts[$i]->price, 2, '.', ''); 
+                        <?php if ($recentProducts[$i]->isService == 0) { 
+                            echo "$" . number_format($recentProducts[$i]->price, 2, '.', ''); 
                         }
 
                         else {
-                            echo "$" . number_format($resentProducts[$i]->price, 2, '.', '') . " /hr"; 
+                            echo "$" . number_format($recentProducts[$i]->price, 2, '.', '') . " /hr"; 
                         }
                         ?> <br>
                         
                     </p>    
-                    <a href="product/confirmation/<?php echo $resentProducts[$i]->productID; ?>" class="btn btn-info sm-buy-btn">Buy It Now</a>  
+                    <a href="product/confirmation/<?php echo $recentProducts[$i]->productID; ?>" class="btn btn-info sm-buy-btn">Buy It Now</a>  
                 </a>
             </div>
         <?php } ?> <!-- end of product detail-->

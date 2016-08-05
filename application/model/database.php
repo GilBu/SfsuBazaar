@@ -403,7 +403,7 @@ class Database
             . "videoUrl, description, tags, category, isService)" .
             "VALUES ".
             "(:name, :sellerID, :price, :quantity, :quality, :imagePath, "
-            . ":videoUrl, :description, :tags, category, :isService)";
+            . ":videoUrl, :description, :tags, :category, :isService)";
 
         $query = $this->db->prepare($sql);
         $param = array( ':name' => $product->name,
