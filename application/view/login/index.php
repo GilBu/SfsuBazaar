@@ -1,31 +1,9 @@
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-
 <style>
 	.centered {
 		width:250px;
 		margin: 0 auto;
 	}
 </style>
-
-<script >
-	$(document).ready(function () {
-	    var intputElements = document.getElementsByTagName("INPUT");
-	    for (var i = 0; i < intputElements.length; i++) {
-	        intputElements[i].oninvalid = function (e) {
-	            e.target.setCustomValidity("");
-	            if (!e.target.validity.valid) {
-	                if (e.target.name == "email") {
-	                    e.target.setCustomValidity("The field 'Email' cannot be left blank");
-	                }
-	                else {
-	                    e.target.setCustomValidity("The field 'Password' cannot be left blank");
-	                }
-	            }
-	        };
-	    }
-	})
-</script>
 
 <div class="container-fluid">
 	<div class="row-fluid">

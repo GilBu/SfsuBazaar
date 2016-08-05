@@ -6,7 +6,13 @@
         <?php for ($i = 0, $size = count($featuredProducts); ($i < 6 && $i < $size); $i++) { ?>
             <div class="col-sm-5 col-md-2 bottom-padding">
                 <a href="product/index/<?php echo $featuredProducts[$i]->productID; ?>" > 
-                    <img src="<?php echo $featuredProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
+                    <?php if ($featuredProducts[$i]->imagePath != null) : ?>
+                        <img src="<?php echo $featuredProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
+
+                    <?php else : ?>
+                        <img src="http://www.rajmaaiconvention.com/images/ProfilePic/blank-profile.png"  alt="Image Not Provided" style="width:100px;height:100px">
+
+                    <?php endif; ?>
                     <p class="txt-overflow-hidden">
                         <?php echo $featuredProducts[$i]->name; ?> <br>
     
@@ -36,7 +42,13 @@
         <?php for ($i = 0, $size = count($recentProducts); ($i < 6 && $i < $size); $i++) { ?>
             <div class="col-sm-5 col-md-2 bottom-padding">
                 <a href="product/index/<?php echo $recentProducts[$i]->productID; ?>" > 
-                    <img src="<?php echo $recentProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
+                        <?php if ($recentProducts[$i]->imagePath != null) : ?>
+                            <img src="<?php echo $recentProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
+
+                        <?php else : ?>
+                            <img src="http://www.rajmaaiconvention.com/images/ProfilePic/blank-profile.png"  alt="Image Not Provided" style="width:100px;height:100px">
+
+                        <?php endif; ?>
                     <p class="txt-overflow-hidden">
                         <?php echo $recentProducts[$i]->name; ?> <br>
                             

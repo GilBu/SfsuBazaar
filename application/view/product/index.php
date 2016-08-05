@@ -18,12 +18,18 @@
 </style>
 
 <div class="container-fluid">
-    <a href="#" onclick="goBack()"><h3>Go Back</h3></a>
+    <h3><a href="#" onclick="goBack()">Go Back</a></h3>
     <br>
     <div class="row-fluid">
         <!-- product image -->
         <div class="col-lg-5">
-            <img src="../../<?php echo $product->imagePath; ?>" class="image-responsive product-img" alt="Image Not Provided"/>
+            <?php if ($product->imagePath != null) : ?>
+                <img class="image-responsive product-img" src="../../<?php echo $product->imagePath; ?>" alt="Image Not Provided">
+
+            <?php else : ?>
+                <img class="image-responsive product-img" src="http://www.rajmaaiconvention.com/images/ProfilePic/blank-profile.png"  alt="Image Not Provided">
+
+            <?php endif; ?>
         </div>
 
         <!-- product data -->
@@ -66,6 +72,8 @@
                     <div class="col-md-12 bottom-rule">
                         <h4 class="product-price">Condition: <?php echo $product->quality; ?></h4>
                         <br><br>
+                        <br>
+                        <h4>Quantity: <?php echo $product->quantity; ?> Left</h4>
                     </div>
                 </div><!-- end row -->
                 
