@@ -11,11 +11,29 @@ class ProductController extends Controller
      * Renders the product's index page
      */
     public function index($productID) 
-    {   
+    {
         $product = Product::get($productID);
         
         require APP . 'view/_templates/header.php';
         require APP . 'view/product/index.php';
+        require APP . 'view/_templates/footer.php';
+    }
+    
+    /**
+     * PAGE: confirmation
+     * Renders the confirmation page
+     */
+    public function confirmation($productID)
+    { 
+        if (empty($_SESSION))
+        {
+            header('location:' . URL . 'login/index');
+        }
+        
+        $product = Product::get($productID);
+        
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/product/confirmation.php';
         require APP . 'view/_templates/footer.php';
     }
     
@@ -25,6 +43,11 @@ class ProductController extends Controller
      */
     public function newProduct()
     {   
+        if (empty($_SESSION))
+        {
+            header('location:' . URL . 'login/index');
+        }
+        
         require APP . 'view/_templates/header.php';
         require APP . 'view/product/newProduct.php';
         require APP . 'view/_templates/footer.php';
@@ -46,8 +69,8 @@ class ProductController extends Controller
             $newProduct->create();
         }
         
-        // redirect to listing/index page
-        header('location: ' . URL . 'listing/index');
+        // redirect to homeg page
+        header('location: ' . URL . 'home');
     }
     
     
@@ -59,8 +82,8 @@ class ProductController extends Controller
     {
         Product::delete($productID);
         
-        // redirect to listing/index page
-        header('location: ' . URL . 'listing/index');
+        // redirect to home page
+        header('location: ' . URL . 'home');
     }
 
 
@@ -72,7 +95,8 @@ class ProductController extends Controller
     private function getNewProduct()
     {   
         $name = filter_input(INPUT_POST, 'name');
-        $sellerID = filter_input(INPUT_POST, 'sellerID');
+        //$sellerID = filter_input(INPUT_POST, 'sellerID');
+        $sellerID = $_SESSION['userID'];
         $price = filter_input(INPUT_POST, 'price');
         $quantity = filter_input(INPUT_POST, 'quantity');
         $quality = filter_input(INPUT_POST, 'quality');
@@ -81,7 +105,11 @@ class ProductController extends Controller
         $description = filter_input(INPUT_POST, 'description');
         $tags = filter_input(INPUT_POST, 'tags');
         
-
+        if (!empty($videUrl))
+        {
+            $videUrl = str_replace('watch?v=', 'embed/', $videUrl);
+        }
+        
         $isService = filter_input(INPUT_POST, 'isService');
         if (empty($isService))
         {
