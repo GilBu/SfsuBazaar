@@ -72,6 +72,8 @@
                     <div class="col-md-12 bottom-rule">
                         <h4 class="product-price">Condition: <?php echo $product->quality; ?></h4>
                         <br><br>
+                        <br>
+                        <h4>Quantity: <?php echo $product->quantity; ?> Left</h4>
                     </div>
                 </div><!-- end row -->
                 
