@@ -14,7 +14,7 @@ class ProductController extends Controller
     {   
         if (empty($productID))
         {
-            die('<H2> Trying something fishy? </H2>');
+           header('location: ' . URL . 'error');
         }
         
         $product = Product::get($productID);
