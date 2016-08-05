@@ -18,7 +18,7 @@
 </style>
 
 <div class="container-fluid">
-    <a href="#" onclick="goBack()"><h3>Go Back</h3></a>
+    <h3><a href="#" onclick="goBack()">Go Back</a></h3>
     <br>
     <div class="row-fluid">
         <!-- product image -->

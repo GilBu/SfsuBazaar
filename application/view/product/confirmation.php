@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <a href="#" onclick="goBack()"><h3>Go Back</h3></a>
+    <h3><a href="#" onclick="goBack()">Go Back</a></h3>
     <br>
     <h1>Confirm Purchase</h1>
     <table id="product" class="table table-hover table-condensed">
@@ -17,7 +17,7 @@
             <tr>
                 <!-- Product img -->
                 <td data-th="Product">
-                
+
                     <?php if ($product->imagePath != null) : ?>
                         <img class="xs-img" src="../../<?php echo $product->imagePath; ?>" alt="Image Not Provided">
 
