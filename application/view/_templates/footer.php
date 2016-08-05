@@ -18,7 +18,7 @@
 			</div>
 			<div class="row-fluid">
 				<div class="col-md-12">
-					<span style="float:right;">@ 2016 CSC 648. All Rights Reserved</span>
+					<span style="float:right;">@ 2016 SFSU Bazaar. All Rights Reserved</span>
 				</div>
 			</div>
 		</div>
