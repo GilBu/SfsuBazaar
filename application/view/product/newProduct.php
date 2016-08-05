@@ -1,10 +1,17 @@
+<style>
+	.centered {
+		width:70%;
+		margin: 0 auto;
+	}
+</style>
+
 <div class="container-fluid">
 	<br>
 	<h2>Add a Post</h2>
 	<br>
 	<hr>
 
-	<div class="row-fluid">
+	<div class="row-fluid centered">
 		<!-- is this a product or service -->
 		<h4>Step 1: Product or Service</h4>
 		<hr>
@@ -38,7 +45,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Price:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="price" value="" required id="price" placeholder="Enter Product Price"/>
+						<input type="number" step="0.01" min="0.01" class="form-control" name="price" value="" required id="price" placeholder="Enter Product Price"/>
 					</div>
 				</div>
 
@@ -46,7 +53,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Quantity:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="quantity" value="" required id="quantity" placeholder="Enter Product Quantity"/>
+						<input type="number" min="1" class="form-control" name="quantity" value="" required id="quantity" placeholder="Enter Product Quantity"/>
 					</div>
 				</div>
 
@@ -75,15 +82,15 @@
 					<div class="col-sm-10">        
 						<select id="category" name="category" class="form-control product-type" required>
 							<option value="">-Select One-</option>
-                                                        <?php 
-                                                            foreach ($categories as $category) 
-                                                            {   
-                                                                if ($category->name != "Services")
-                                                                {    
-                                                                    echo '<option value="' . $category->name . '">' . $category->name . '</option>';
-                                                                }
-                                                            }
-                                                        ?>
+							<?php 
+							foreach ($categories as $category) 
+							{   
+								if ($category->name != "Services")
+								{    
+									echo '<option value="' . $category->name . '">' . $category->name . '</option>';
+								}
+							}
+							?>
 						</select>
 					</div>
 				</div>
@@ -117,7 +124,7 @@
 				<br>
 
 				<!-- Add Product Button -->
-				<input type="submit" class="btn pull-right" name="addProduct" value="Add This Product"/>
+				<input type="submit" class="btn btn-primary pull-right" name="addProduct" value="Add This Product"/>
 
 			</form>
 		</div>
@@ -141,7 +148,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="name">Price Per Hour: </label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="price" value="" required id="price" placeholder="Enter Product Price"/>
+						<input type="number" step="0.01" min="0.01" class="form-control" name="price" value="" required id="price" placeholder="Enter Product Price"/>
 					</div>
 				</div>
 
@@ -174,11 +181,11 @@
 				<br>
 
 				<!-- isService is true -->
-  				<input type="hidden" name="isService" value="1"/>
-                                <input type="hidden" name="category" value="Services"/>
+				<input type="hidden" name="isService" value="1"/>
+				<input type="hidden" name="category" value="Services"/>
 
 				<!-- Add Product Button -->
-				<input type="submit" class="btn pull-right" name="addProduct" value="Add This Service"/>
+				<input type="submit" class="btn btn-primary pull-right" name="addProduct" value="Add This Service"/>
 
 			</form>
 		</div>
