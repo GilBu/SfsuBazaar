@@ -20,8 +20,8 @@ class ListingController extends Controller
 
         if (isset($_GET['search']))
         {
-            $keyword = filter_input(INPUT_GET, 'search-term');
-            $category = filter_input(INPUT_GET, 'category');
+            $keyword = filter_input(INPUT_GET, 'search-term', FILTER_SANITIZE_SPECIAL_CHARS);
+            $category = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_SPECIAL_CHARS);
         }
         
         if ($category == 'All')
