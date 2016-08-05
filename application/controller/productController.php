@@ -10,8 +10,13 @@ class ProductController extends Controller
      * PAGE: index
      * Renders the product's index page
      */
-    public function index($productID) 
-    {
+    public function index($productID = '') 
+    {   
+        if (empty($productID))
+        {
+           header('location: ' . URL . 'error');
+        }
+        
         $product = Product::get($productID);
         
         require APP . 'view/_templates/header.php';
