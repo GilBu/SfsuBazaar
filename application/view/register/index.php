@@ -94,8 +94,8 @@
 
 					<!-- Return Back to Login page -->
 					<div class="login-register">
-						Already have an Account? Return to
-						<a href="<?php echo URL; ?>login/index">Login Here</a>
+						<center>Already have an Account? Return to
+						<a href="<?php echo URL; ?>login/index">Login</a></center>
 					</div>
 				</form> <!-- end form -->
 			</div>
