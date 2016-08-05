@@ -42,8 +42,6 @@
         <?php for ($i = 0, $size = count($recentProducts); ($i < 6 && $i < $size); $i++) { ?>
             <div class="col-sm-5 col-md-2 bottom-padding">
                 <a href="product/index/<?php echo $recentProducts[$i]->productID; ?>" > 
-                    <img src="<?php echo $recentProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
-                    
                         <?php if ($recentProducts[$i]->imagePath != null) : ?>
                             <img src="<?php echo $recentProducts[$i]->imagePath; ?>"  alt="Image Not Provided" style="width:100px;height:100px">
 
