@@ -113,7 +113,9 @@
 					<h4 class="modal-title">Terms and Condition</h4>
 				</div>
 				<div class="modal-body">
-					<p>BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH</p>
+					<?php
+						echo file_get_contents("../public/terms.txt");
+					?>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
