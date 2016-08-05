@@ -94,7 +94,7 @@ class RegisterController extends Controller
         // making sure registering email domain is correct
       	$validDomain = strstr($email, "@mail.sfsu.edu");
 
-        if($validDomain)
+        if($validDomain !== $email)
         {
             if($password == $pwConfirm)
             {
@@ -108,7 +108,7 @@ class RegisterController extends Controller
                 $this->registerAlertMsgs('mismatch');
             }
         }
-        else if(!$validDomain)
+        else if($validDomain == $email)
         {
             $this->registerAlertMsgs('invalid');
         }
