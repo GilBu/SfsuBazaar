@@ -176,3 +176,21 @@ $(document).ready(function ()
 		});
 
 	});
+
+// login 
+$(document).ready(function () {
+	var intputElements = document.getElementsByTagName("INPUT");
+	for (var i = 0; i < intputElements.length; i++) {
+		intputElements[i].oninvalid = function (e) {
+			e.target.setCustomValidity("");
+			if (!e.target.validity.valid) {
+				if (e.target.name == "email") {
+					e.target.setCustomValidity("The field 'Email' cannot be left blank");
+				}
+				else {
+					e.target.setCustomValidity("The field 'Password' cannot be left blank");
+				}
+			}
+		};
+	}
+})

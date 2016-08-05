@@ -1,4 +1,6 @@
 <div class="container-fluid">
+    <a href="#" onclick="goBack()"><h3>Go Back</h3></a>
+    <br>
     <h1>Confirm Purchase</h1>
     <table id="product" class="table table-hover table-condensed">
         <thead>
@@ -44,8 +46,8 @@
             <!-- Cancel/Confirm Purchase Button -->
             <tr>
                 <td colspan="2" class="hidden-xs"></td>
-                <td><a href="#" class="btn btn-link" onclick="goBack()"><i class="fa fa-angle-right"></i> Cancel</a></td>
-                <td><a href="<?php echo URL . 'product/delete/' . $product->productID; ?>" class="btn btn-success sm-buy-btn btn-block" onclick="msgSent()"> Confirm<i class="fa fa-angle-right"></i></a></td>
+                <td><a href="#" class="btn btn-link" onclick="goBack()"><i class="fa fa-angle-left"></i> Cancel</a></td>
+                <td><a href="<?php echo URL . 'product/delete/' . $product->productID; ?>" class="btn btn-success sm-buy-btn btn-block" onclick="msgSent()"> Confirm <i class="fa fa-angle-right"></i></a></td>
             </tr>
         </tfoot>
     </table>

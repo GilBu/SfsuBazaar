@@ -58,13 +58,14 @@
                             <h4 class="txt-overflow-hidden">
                                 <b><?php echo $product->name; ?></b>
                             </h4>
+                            <p class="">
+                                By: <?php echo User::get($product->sellerID)->email; ?>
+                            </p>
 
                             <div class="row-fluid">
 
                                 <!-- Seller and Product Price--> 
-                                <div class="col-md-7">
-                                    By: <?php echo User::get($product->sellerID)->email; ?>
-
+                                <div class="col-md-7">       
                                     <h4><b>    
                                         <?php if ($product->isService == 0) { 
                                             echo "$" . number_format($product->price, 2, '.', ''); 
@@ -82,6 +83,8 @@
                                 <div class="col-md-5">
                                     <br>
                                     <a href="<?php echo URL . "product/confirmation/$product->productID"; ?>" class="btn sm-buy-btn btn-info pull-right">Buy It Now</a> 
+                                    <br>
+                                    <br>
                                 </div>
                             </div> <!-- end row -->
                         </div> <!-- end container -->

@@ -1,32 +1,11 @@
-	<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>SFSU Bazaar</title>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	.centered {
+		width:300px;
+		margin: 0 auto;
+	}
 
-    <!-- JS -->
-    <!-- please note: The JavaScript files are loaded in the footer to speed up page construction -->
-    <!-- See more here: http://stackoverflow.com/q/2105327/1114320 -->
-
-    <!-- CSS -->
-    <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
-
-    <style>
-
-		.centered {
-			width:300px;
-			margin: 0 auto;
-		}
-		
-	</style>
-
-</head>
+</style>
 
 <body>
 	<div class="container-fluid">
