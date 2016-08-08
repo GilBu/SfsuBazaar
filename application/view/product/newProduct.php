@@ -47,7 +47,7 @@
 					<label class="control-label col-sm-2" for="name">Name:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="name" value="" required id="name" placeholder="Enter Product Name"/>
-						<p>***No special characters or else it wont be searchable</p>
+						<p>*** No special characters or else it wont be searchable</p>
 					</div>
 				</div>
 
@@ -151,7 +151,7 @@
 					<label class="control-label col-sm-2" for="name">Name:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="name" value="" required id="name" placeholder="Enter Service Name"/>
-						<p>***No special characters or else it wont be searchable</p>
+						<p>*** No special characters or else it wont be searchable</p>
 					</div>
 				</div>
 
