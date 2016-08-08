@@ -31,7 +31,7 @@
     <script>
         $(function() {
             $('#search-term').on('keypress', function(e) {
-                if (e.which == 95 || e.which == 36)
+                if (e.which == 95 || e.which == 37)
                     return false;
             });
         });
