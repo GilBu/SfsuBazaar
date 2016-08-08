@@ -5,6 +5,15 @@
 	}
 </style>
 
+<script>
+	$(function() {
+	    $('#name, #name').on('keypress', function(e) {
+	        if (e.which == 95 || e.which == 36)
+	            return false;
+	    });
+	});
+</script>
+
 <div class="container-fluid">
 	<br>
 	<h2>Add a Post</h2>
@@ -38,6 +47,7 @@
 					<label class="control-label col-sm-2" for="name">Name:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="name" value="" required id="name" placeholder="Enter Product Name"/>
+						<p>***No special characters or else it wont be searchable</p>
 					</div>
 				</div>
 
