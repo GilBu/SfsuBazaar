@@ -7,6 +7,15 @@
 
 </style>
 
+<script>
+	$(function() {
+	    $('#email, #password, #confirm').on('keypress', function(e) {
+	        if (e.which == 32)
+	            return false;
+	    });
+	});
+</script>
+
 <body>
 	<div class="container-fluid">
 		<div class="row-fluid">
